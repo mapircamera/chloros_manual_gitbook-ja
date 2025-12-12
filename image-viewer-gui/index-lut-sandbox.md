@@ -1,86 +1,86 @@
-# Index/LUT Sandbox
+# インデックス/LUTサンドボックス
 
-The Index/LUT Sandbox is an interactive workspace within the Chloros Image Viewer that allows you to experiment with multispectral index calculations and color visualizations in real-time. This powerful tool helps you test different indices, refine value ranges, and create publication-ready visualizations without reprocessing your entire dataset.
+インデックス/LUTサンドボックスは、Chloros Image Viewer内に設けられたインタラクティブな作業領域です。ここでは、マルチスペクトルインデックスの計算やカラー可視化をリアルタイムで試行できます。この強力なツールにより、異なるインデックスのテスト、値範囲の微調整、データセット全体の再処理なしでの出版物対応可視化の作成が可能です。
 
-## What is the Index/LUT Sandbox?
+## インデックス/LUTサンドボックスとは？
 
-### Purpose
+### 目的
 
-The Sandbox provides:
+サンドボックスは以下の機能を提供します：
 
-* **Real-time index calculation** - Apply any vegetation index instantly
-* **Interactive LUT adjustment** - Fine-tune color gradients and ranges
-* **Workflow optimization** - Determine best settings before batch processing
+* **リアルタイム指数計算** - あらゆる植生指数を即座に適用
+* **インタラクティブなLUT調整** - 色調のグラデーションと範囲を微調整
+* **ワークフロー最適化** - バッチ処理前に最適な設定を決定
 
-### Sandbox vs. Project Processing
+### サンドボックスとプロジェクト処理の比較
 
-**Index/LUT Sandbox (Interactive):**
+**インデックス/LUTサンドボックス（インタラクティブ）：**
 
-* Single image at a time
-* Instant feedback
-* Experimental and iterative
-* No permanent changes to files
-* Perfect for exploring and testing
+* 1枚の画像を個別に処理
+* 即時フィードバック
+* 実験的・反復的
+* ファイルへの永続的変更なし
+* 探索・テストに最適
 
-**Project Processing (Batch):**
+**プロジェクト処理（バッチ）：**
 
-* Entire dataset at once
-* Pre-configured settings
-* Permanent output files
-* Time-intensive
-* Best when settings are finalized
+* データセット全体を一括処理
+* 事前設定済みパラメータ
+* 永続的な出力ファイル
+* 処理に時間がかかる
+* 設定が確定した状態での最適処理
 
-{% hint style="success" %}
-**Best Workflow**: Use the Sandbox to experiment and find optimal index and LUT settings, then apply those settings during Project Processing for your entire dataset.
+{% hint style=&quot;success&quot; %}
+**最適なワークフロー**: サンドボックスで実験し最適なインデックスとLUT設定を見つけ、プロジェクト処理時にデータセット全体に適用する。
 {% endhint %}
 
 ***
 
-## Working with the Index/LUT Sandbox
+## インデックス/LUTサンドボックスの操作
 
-### Understanding Pre-Calculated Indices
+### 事前計算済みインデックスの理解
 
-In Chloros, indices can be applied during project processing. To determine which index and LUT settings you want to apply to exports it is easiest to use the image viewer sandbox.
+Chlorosでは、プロジェクト処理中にインデックスを適用できます。エクスポートに適用するインデックスとLUT設定を決定するには、画像ビューアーのサンドボックスを使用するのが最も簡単です。
 
-The sandbox allows you to:
+サンドボックスでは以下が可能です：
 
-* **Apply new index and color gradients (LUTs)** to visualize the data
-* **Adjust visualization settings** interactively
-* **View** already-calculated index images
-* **Inspect** pixel values at all zoom levels
+* **新しいインデックスとカラーグラデーション（LUT）を適用**してデータを可視化
+* **可視化設定を**対話的に調整
+* **事前に計算済みのインデックス画像を表示**
+* **すべてのズームレベルでピクセル値を検査**
 
-### Opening the Sandbox
+### サンドボックスの起動
 
-The Index/LUT Sandbox is accessed in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sidebar tab:
+インデックス/LUTサンドボックスは、**画像ビューア** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> サイドバータブからアクセスします：
 
-1. Click an image in the file browser image grid, it opens in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab
-2. Click **the Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab to open the left pop-out sidebar if it's not already open
+1. ファイルブラウザの画像グリッドで画像をクリックすると、**画像ビューア**タブが開きます <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> タブで開きます
+2. **イメージビューアー** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> タブをクリックすると、左側のポップアウトサイドバーが開きます（未開の場合）
 
-### Selecting an Image to Apply an Index/LUT to
+### インデックス/LUTを適用する画像の選択
 
-To work with an index in the Image Viewer <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sandbox:
+イメージビューアー <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> サンドボックスでインデックスを操作するには：
 
-1. **Open an image** from the main image grid by clicking on it
-2. The **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab will then open
-3. Click the **Layer dropdown** (top-right of viewer)
-4. Select the layer from the dropdown:
-   * RAW (Reflectance)
+1. メイン画像グリッドから画像をクリックして**開く**
+2. **画像ビューアー** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> タブが開きます
+3. **レイヤードロップダウン**（ビューア右上）をクリック
+4. ドロップダウンからレイヤーを選択：
+   * RAW (反射率)
 
-### Applying an Index to an Image
+### 画像へのインデックス適用
 
-Once the image is fullscreen and the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab sidebar is open:
+画像が全画面表示され、**画像ビューア** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> タブのサイドバーが開いている状態:
 
-1. Check the Index box at the top of the sidebar
-2. Choose your camera's filter from the left dropdown
-3. Choose the desired index formula from the right dropdown
-4. Drag the filter channel color circles to the locations in the index formula below
-5. Once the formula is valid the image will update and show the index values
-6. Move your mouse cursor around to see the values at the cursor's location
-7. Zoom in to see individual pixels and their associated values
+1. サイドバー上部のインデックスボックスをチェック
+2. 左ドロップダウンからカメラのフィルターを選択
+3. 右ドロップダウンから目的のインデックス計算式を選択
+4. フィルターチャンネルの色付き円を、下部のインデックス計算式内の対応位置にドラッグ
+5. 計算式が有効になると画像が更新されインデックス値が表示
+6. マウスカーソルを移動させるとカーソル位置の値を確認可能
+7. ズームインして個々のピクセルとその関連値を確認
 
-Each index has a specific value range and meaning:
+各インデックスには固有の値範囲と意味があります：
 
-#### NDVI Example
+#### NDVI 例
 
 ```
 Formula: (NIR - Red) / (NIR + Red)
@@ -96,293 +96,293 @@ Bare soil: 0.0 to 0.2
 Water: -0.1 to 0.1
 ```
 
-For complete index formula documentation, see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md).
+インデックス式の詳細なドキュメントは[マルチスペクトルインデックス式](../project-settings/multispectral-index-formulas.md)を参照してください。
 
 ***
 
-## Working with LUTs (Look-Up Tables)
+## LUT（ルックアップテーブル）の操作
 
-### What is a LUT?
+### LUTとは？
 
-A **Look-Up Table (LUT)** maps numerical index values to colors for visualization:
+**ルックアップテーブル（LUT）**は、数値インデックス値を可視化用の色にマッピングします：
 
-* **Input**: Index pixel value (e.g., NDVI 0.65)
-* **Output**: RGB color (e.g., bright green)
-* **Purpose**: Make patterns easier to see and interpret
+* **入力**: インデックスピクセル値（例: NDVI 0.65）
+* **出力**: RGB 色（例：明るい緑）
+* **目的**: パターンを視認・解釈しやすくする
 
-**Grayscale vs. Color LUT:**
+**グレースケールLUTとカラーLUTの比較:**
 
-* Grayscale: Scientific and neutral, shows raw data
-* Color LUT: Intuitive and impactful, highlights patterns and differences
+* グレースケール: 科学的かつ中立的、生データを表示
+* カラーLUT: 直感的でインパクト大、パターンや差異を強調
 
-{% hint style="success" %}
-**Visualization Power**: Applying a color LUT to a grayscale index image makes it dramatically easier to identify patterns, anomalies, and areas of interest at a glance.
+{% hint style=&quot;success&quot; %}
+**可視化の力**: グレースケールインデックス画像にカラーLUTを適用すると、パターン・異常・注目領域を一目で識別しやすくなります。
 {% endhint %}
 
-### Applying a LUT to an Index Image
+### インデックス画像へのLUT適用手順
 
-Once you have an index image showing
+インデックス画像が表示されたら
 
-1. Click the <img src="../.gitbook/assets/image.png" alt="" data-size="line"> "+Add LUT" button
-2. Select the color gradient
-3. Adjust the clipping min/max end points
-4. Adjust the Clipping Mode
-5. Check the Index box in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab sidebar to apply the LUT
+1. <img src="../.gitbook/assets/image.png" alt="" data-size="line"> 「+LUT追加」ボタンをクリック
+2. カラーグラデーションを選択
+3. クリッピングの最小/最大終端点を調整
+4. クリッピングモードを調整
+5. **画像ビューアー** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> タブのサイドバーで「インデックス」ボックスをチェックしてLUTを適用
 
-### Choosing a Color Gradient
+### カラーグラデーションの選択
 
-**Selecting a gradient:**
+**グラデーションの選択方法：**
 
-1. In the LUT panel, locate the **colored gradient bar**
-2. Hover your mouse over it to view available gradient presets
-3. Select desired gradient
-4. The image **updates immediately** with new colors when the Index box is checked
+1. LUTパネルで**カラーグラデーションバー**を探す
+2. マウスを乗せて利用可能なプリセットを表示
+3. 希望のグラデーションを選択
+4. インデックスボックスチェック時、画像が**即時更新**され新色に
 
-{% hint style="success" %}
-**Best Practice**: For vegetation indices like NDVI, the Red-Yellow-Green gradient is most intuitive because it aligns with natural color associations (green=healthy, yellow=moderate, red=stressed).
+{% hint style=&quot;success&quot; %}
+**ベストプラクティス**: NDVIのような植生指数では、Red-Yellow-Greenグラデーションが最も直感的です。自然界の色彩認識（緑＝健全、黄＝中程度、赤＝ストレス）に沿っているためです。
 {% endhint %}
 
-### Adjusting Color Classes
+### 色クラスの調整
 
-The **Classes control** determines how many discrete color steps appear in your gradient:
+**クラス制御**は、グラデーションに表示される離散的な色の段階数を決定します：
 
-**Class count options:**
+**クラス数のオプション：**
 
-* **2-5 classes**: Very broad categories, distinct zones
-* **6-10 classes**: Balanced, good for classification
-* **11-20 classes**: Smooth gradients, continuous appearance
-* **20+ classes**: Near-continuous, maximum smoothness
+* **2～5クラス**：非常に広いカテゴリー、明確なゾーン
+* **6～10クラス**：バランスが取れ、分類に適する
+* **11～20クラス**：滑らかなグラデーション、連続的な見た目
+* **20クラス以上**：ほぼ連続的、最大限の滑らかさ
 
-**How to adjust:**
+**調整方法：**
 
-1. In the LUT panel, locate the **color swatch squares below the gradient bar**
-2. Adjust the number of classes by adding with the + button
-3. Remove the number of classes by double clicking on a color swatch
-4. The gradient updates **in real-time** on the image
+1. LUTパネルで、**グラデーションバー下部のカラースウォッチ四角**を探す
+2. +ボタンでクラス数を追加して調整
+3. 色見本をダブルクリックでクラス数を削除
+4. 画像上でグラデーションが**リアルタイム**で更新
 
-**Effect on visualization:**
+**可視化への影響:**
 
-* **Fewer classes** (3-5): Creates distinct zones, simplified classification, easier to distinguish categories
-* **Medium classes** (6-10): Balanced approach, good for most applications
-* **More classes** (15-20): Smooth transitions, detailed variation, photographic appearance
+* **少ないクラス数** (3-5): 明確なゾーン形成、分類簡素化、カテゴリ識別容易
+* **中程度のクラス数** (6-10): バランスが取れたアプローチ、ほとんどの用途に適する
+* **多数のクラス** (15-20): 滑らかな遷移、詳細な変化、写真のような外観
 
-**When to use:**
+**使用タイミング:**
 
-* **Few classes (3-5)**: Presentation slides, classification maps, simple reports
-* **Medium classes (6-10)**: General analysis, balanced detail, standard reports
-* **Many classes (15-20)**: Scientific analysis, detailed inspection, publication-quality outputs
+* **少数のクラス (3-5)**: プレゼンテーションスライド、分類マップ、簡易レポート
+* **中程度のクラス (6-10)**: 総合分析、バランスの取れた詳細、標準レポート
+* **多数のクラス (15-20)**: 科学的分析、詳細な検査、出版物品質の出力
 
-### Fine-Tuning Value Ranges
+### 値範囲の微調整
 
-The **value range controls** determine which index values map to which colors in your gradient:
+**値範囲コントロール**は、グラデーション内のどのインデックス値がどの色にマッピングされるかを決定します：
 
-**Range controls in LUT panel:**
+**LUTパネル内の範囲コントロール：**
 
-* **Minimum value**: Lower bound of the color scale
-* **Maximum value**: Upper bound of the color scale
-* **Intermediate values**: Automatically distributed between min and max (based on class count)
+* **最小値**: カラースケールの下限
+* **最大値**: カラースケールの上限
+* **中間値**: 最小値と最大値の間に自動配分（クラス数に基づく）
 
-#### Adjusting Min/Max Values
+#### 最小/最大値の調整
 
-**To adjust value ranges:**
+**値範囲を調整するには:**
 
-1. In the LUT panel, locate the **Min Value** and **Max Value** input fields
-2. Click the **Min Value** field
-3. Type the desired minimum value (e.g., `0.2`)
-4. Press **Enter** or click outside the field
-5. Repeat for **Max Value** field (e.g., `0.9`)
-6. The visualization **updates immediately**
+1. LUTパネルで**最小値**と**最大値**入力フィールドを探す
+2. **最小値**フィールドをクリック
+3. 希望の最小値を入力（例: `0.2`）
+4. **Enter**キーを押すかフィールド外をクリック
+5. **最大値**フィールドで同様の操作を繰り返す（例: `0.9`）
+6. ビジュアライゼーションが**即時更新**されます
 
-{% hint style="info" %}
-**Auto-Scaling**: When you first apply a LUT, Chloros automatically sets the min/max to the actual data range in the image. You can then narrow this range to focus on specific value ranges of interest.
+{% hint style=&quot;info&quot; %}
+**自動スケーリング**: LUTを初めて適用すると、Chlorosが画像内の実際のデータ範囲に基づいて最小/最大値を自動設定します。その後、特定の関心値範囲に焦点を当てるため、この範囲を狭めることが可能です。
 {% endhint %}
 
-**Example NDVI range adjustments:**
+**範囲調整の例:**
 
-* **Full range**: `-1.0` to `1.0` (show all possible values)
-* **Vegetation-focused**: `0.2` to `0.9` (exclude bare soil and water)
-* **Healthy vegetation only**: `0.5` to `0.9` (highlight only vigorous plants)
-* **Stress detection**: `0.2` to `0.5` (emphasize problem areas)
-* **Custom range**: Adjust based on your observed pixel values
+* **全範囲**: `-1.0` ～ `1.0` (全可能な値を表示)
+* **植生に焦点を当てた範囲**: `0.2` ～ `0.9` (裸地と水域を除外)
+* **健全な植生のみ**: `0.5` から `0.9` (生育旺盛な植物のみを強調)
+* **ストレス検出**: `0.2` から `0.5` (問題領域を強調)
+* **カスタム範囲**：観測したピクセル値に基づき調整
 
-**Why adjust ranges?**
+**範囲調整の目的**
 
-* **Increase contrast** in your area of interest
-* **Exclude irrelevant values** (e.g., water bodies, bare soil)
-* **Standardize visualization** across multiple images or dates
-* **Emphasize subtle differences** within a narrow value range
+* **関心領域のコントラスト向上**
+* **無関係な値の除外**（例：水域、裸地）
+* **複数画像や日付間の可視化を標準化**
+* **狭い値範囲内の微妙な差異を強調**
 
-### Clipping Out-of-Range Values
+### 範囲外値のクリッピング
 
-When pixel values fall outside your defined min/max range, you can control how they're displayed using **clipping modes**.
+ピクセル値が定義した最小/最大範囲外の場合、**クリッピングモード**で表示方法を制御できます。
 
-#### **Available clipping mode options:**
+#### **利用可能なクリッピングモード:**
 
-#### 1. Minimum and Maximum
+#### 1. 最小値と最大値
 
-* Pixels **below minimum** → display using the **first color** in gradient (e.g., red)
-* Pixels **above maximum** → display using the **last color** in gradient (e.g., green)
-* **Use case**: Emphasize extremes, show full data range with saturated colors at limits
-* **Example**: NDVI values below 0.2 all appear red, values above 0.9 all appear green
+* **最小値未満**のピクセル → グラデーションの**最初の色**（例：赤）で表示
+* **最大値超過**のピクセル → グラデーションの**最後の色**（例：緑）で表示
+* **使用例**：極端な値を強調し、限界値で飽和した色を用いて全データ範囲を表示
+* **例**: NDVI値が0.2未満は全て赤、0.9超は全て緑で表示
 
-#### 2. Transparent Background
+#### 2. 透明背景
 
-* Pixels **outside the range** become **fully transparent**
-* Only pixels **within range** show color gradient
-* **Use case**: GIS overlay, isolating specific value ranges, highlighting only areas of interest
-* **Example**: Show only NDVI 0.4-0.7 in color, everything else transparent
+* **範囲外のピクセル**は**完全に透明化**
+* **範囲内のピクセル**のみがグラデーション表示
+* **使用例**: GISオーバーレイ、特定値範囲の分離、関心領域のみの強調
+* **例**: NDVI 0.4-0.7の範囲のみ着色表示、その他は透明
 
-{% hint style="warning" %}
-**Transparency Limitation**: Transparent pixels will appear as the background color in the viewer. When exported during processing, transparency is preserved in PNG format but not in JPG.
+{% hint style=&quot;warning&quot; %}
+**透明度の制限**: 透明ピクセルはビューア上で背景色として表示されます。処理中のエクスポート時、透明度はPNG形式では保持されますが、JPG形式では保持されません。
 {% endhint %}
 
-#### 3. Index Background
+#### 3. インデックス背景
 
-* Pixels **outside range** display in **grayscale** (showing raw index values)
-* Pixels **within range** show **color gradient**
-* **Use case**: Subtle highlighting, maintain context while emphasizing areas of interest
-* **Example**: Color-highlight stressed vegetation (NDVI 0.3-0.5) while showing healthy areas in gray
+* **範囲外**のピクセルは**グレースケール**で表示（生のインデックス値を表示）
+* **範囲内**のピクセルは**カラーグラデーション**で表示
+* **使用例**: 繊細な強調表示、文脈を維持しつつ関心領域を強調
+* **例**: ストレスを受けた植生をカラー強調（NDVI 0.3-0.5）し、健全な領域をグレーで表示
 
-#### 4. Original Background
+#### 4. オリジナル背景
 
-* Pixels **outside range** display the **original multispectral image**
-* Pixels **within range** show **color gradient**
-* **Use case**: Most intuitive - combines natural image context with analytical color overlay
-* **Example**: See the actual field/crop appearance with color-coded stress areas overlaid
+* **範囲外**のピクセルは**元のマルチスペクトル画像**を表示
+* **範囲内**のピクセルは**カラーグラデーション**を表示
+* **使用例**: 最も直感的 - 自然な画像コンテキストと分析用カラーオーバーレイを統合
+* **例**: 実際の圃場/作物の外観を確認しつつ、色分けされたストレス領域を重ねて表示
 
-### Choosing the Right Clipping Mode
+### 適切なクリッピングモードの選択
 
-| Clipping Mode              | Best For                                   | Visualization Style          |
+| クリッピングモード              | 最適な用途                                   | ビジュアライゼーションスタイル          |
 | -------------------------- | ------------------------------------------ | ---------------------------- |
-| **Minimum and Maximum**    | Full data display, scientific analysis     | All pixels colored           |
-| **Transparent Background** | GIS overlays, isolating specific ranges    | Color on range, blank beyond |
-| **Index Background**       | Subtle emphasis, maintaining data context  | Color on range, gray beyond  |
-| **Original Background**    | Reports, presentations, intuitive analysis | Color on range, photo beyond |
+| **最小値と最大値**    | 全データ表示、科学分析     | 全ピクセル着色           |
+| **透明背景** | GISオーバーレイ、特定範囲の分離    | 範囲内は着色、範囲外は空白 |
+| **インデックス背景**       | 控えめな強調、データ文脈の維持     | 範囲内はカラー、範囲外はグレー |
+| **オリジナル背景**    | レポート、プレゼンテーション、直感的分析 | 範囲内はカラー、範囲外は写真 |
 
-### Creating Custom LUT Colors
+### カスタムLUTカラーの作成
 
-For full control over your visualization, you can create **custom color gradients** by editing individual color stops.
+可視化を完全に制御するには、個々のカラーストップを編集して**カスタムカラーグラデーション**を作成できます。
 
-**To create a custom gradient:**
+**カスタムグラデーションの作成方法:**
 
-1. In the LUT panel, locate the **gradient preview bar**
-2. Look for **color swatch squares** below the gradient
-3. **Click a color stop** to select it
-4. A **color picker** opens
-5. Choose a new color using:
-   * **Color wheel**: Visual color selection
-   * **RGB/HSV sliders**: Precise color control
-   * **Hex code entry**: Exact color specification (e.g., `#FF0000` for red)
-6. Click off the color picker **to apply the new color**
-7. The gradient **updates immediately** on the image
+1. LUTパネルで**グラデーションプレビューバー**を探す
+2. グラデーション下部の**カラースウォッチ四角**を探す
+3. **カラーストップをクリック**して選択する
+4. **カラーピッカー**が開く
+5. 新しい色を選択:
+   * **カラーホイール**: 直感的な色選択
+   * **RGB/HSVスライダー**: 精密な色調整
+   * **16進コード入力**: 特定の色指定 (例: 赤色 `#FF0000`)
+6. カラーピッカー外をクリックすると**新しい色が適用されます**
+7. 画像上のグラデーションが**即時更新されます**
 
-**Adding or removing color stops:**
+**カラーストップの追加・削除:**
 
-* **Add a stop**: Click the + icon to add a new swatch at the end
-* **Remove a stop**: Double click the color square to remove the swatch
+* **ストップ追加**: +アイコンをクリックし、末尾に新しいスウォッチを追加
+* **ストップ削除**: 色の四角をダブルクリックし、スウォッチを削除
 
-**Customization strategies:**
+**カスタマイズ戦略:**
 
-* **Invert gradient**: Flip color order to reverse the meaning (e.g., green=low, red=high)
-* **Brand colors**: Match your organization's color palette for reports
-* **Colorblind-friendly**: Use orange-blue or purple-yellow combinations
-* **Print optimization**: Choose colors that work in both color and grayscale printing
-* **Multi-threshold**: Use distinct colors at specific value thresholds for classification
+* **グラデーション反転**：色の順序を反転させて意味を逆転させる（例：緑＝低、赤＝高）
+* **ブランドカラー**：レポート用に組織のカラーパレットに合わせる
+* **色覚障害対応**：オレンジ-青または紫-黄色の組み合わせを使用
+* **印刷最適化**：カラー印刷とグレースケール印刷の両方で機能する色を選択
+* **多重閾値**: 特定値の閾値ごとに異なる色で分類
 
-{% hint style="info" %}
-**Saving Custom Gradients**: Custom gradients can be saved and reused. Click the save icon in the LUT panel to preserve your custom color schemes for future use.
+{% hint style=&quot;info&quot; %}
+**カスタムグラデーションの保存**: カスタムグラデーションは保存・再利用可能。LUTパネルの保存アイコンをクリックし、カスタムカラースキームを将来使用するために保存してください。
 {% endhint %}
 
 ***
 
-## Interactive Workflow
+## インタラクティブワークフロー
 
-### Real-Time Updates
+### リアルタイム更新
 
-All LUT adjustments in the sandbox update the image **instantly and interactively**:
+サンドボックス内のすべてのLUT調整は、画像を**瞬時にインタラクティブに**更新します：
 
-* **Switch layer** → Image changes immediately
-* **Select gradient** → Colors update instantly
-* **Adjust value range** → Contrast changes in real-time
-* **Change classes** → Gradient smoothness updates immediately
-* **Modify clipping** → Background display changes instantly
-* **Edit colors** → Custom gradient applies immediately
+* **レイヤー切り替え** → 画像が即時変更
+* **グラデーション選択** → 色が即時更新
+* **値範囲調整** → コントラストがリアルタイムで変化
+* **クラス変更** → グラデーションの滑らかさが即時更新
+* **クリッピング変更** → 背景表示が即時変更
+* **色編集** → カスタムグラデーションが即時適用
 
-**No "Apply" button needed** - all changes are live and interactive!
+**「適用」ボタン不要** - すべての変更がライブかつインタラクティブに反映！
 
-{% hint style="success" %}
-**Live Feedback**: The instant visual feedback allows you to rapidly experiment with different settings until you find the optimal visualization for your analysis needs.
+{% hint style=&quot;success&quot; %}
+**ライブフィードバック**：瞬時の視覚的フィードバックにより、分析ニーズに最適な可視化を見つけるまで、様々な設定を迅速に試行できます。
 {% endhint %}
 
-### Iterative Refinement Workflow
+### 反復的改善ワークフロー
 
-**Typical LUT optimization workflow:**
+**典型的なLUT最適化ワークフロー:**
 
-1. **Select index layer** (e.g., RAW (Reflectance))
-2. **Apply index** - Choose camera filter and index formula, drag colored circles to appropriate location in the index formula
-3. **Apply LUT gradient** - Start with Red-Yellow-Green preset
-4. **Inspect pixel values** - Move cursor around, note value ranges
-5. **Adjust min/max** - Narrow to focus on vegetation (e.g., 0.2 to 0.9)
-6. **Choose clipping** - Try "Original Background" for context
-7. **Refine colors** - Customize gradient if needed for specific emphasis
-8. **Finalize settings** - Document settings and copy to Project Settings for export processing
+1. **インデックス層の選択** (例: RAW (反射率))
+2. **インデックスの適用** - カメラフィルターとインデックス式を選択し、色付き円をインデックス式内の適切な位置にドラッグ
+3. **LUT勾配を適用** - Red-Yellow-Greenプリセットから開始
+4. **ピクセル値を確認** - カーソルを移動させ、値の範囲を把握
+5. **最小/最大値を調整** - 植生に焦点を絞るため範囲を狭める（例：0.2～0.9）
+6. **クリッピング選択** - コンテキスト確認のため「オリジナル背景」を試す
+7. **色調調整** - 必要に応じて特定強調のためグラデーションをカスタマイズ
+8. **設定確定** - 設定を記録し、エクスポート処理用にプロジェクト設定へコピー
 
-### Pixel Value Inspection
+### ピクセル値確認
 
-Understanding actual pixel values is crucial for setting effective LUT ranges:
+効果的なLUT範囲設定には実際のピクセル値理解が不可欠：
 
-**How to inspect values:**
+**値の確認方法：**
 
-1. Pixel values show when the image has either the Index, or both the Index and LUT **boxes checked**.
-2. **Move your cursor** over different areas of the image
-3. **Observe pixel values** displayed in the legend as you hover
-4. Zoom in to see individual pixels highlighted with a floating value
-5. **Take notes** of value ranges for different features:
-   * **Healthy vegetation**: e.g., NDVI 0.55-0.85
-   * **Stressed vegetation**: e.g., NDVI 0.30-0.50
-   * **Bare soil**: e.g., NDVI 0.05-0.25
-   * **Water** (if present): e.g., NDVI -0.05 to 0.10
+1. 画像でインデックスボックス、またはインデックスとLUTボックスの両方が**チェックされている**場合にピクセル値が表示されます
+2. 画像の異なる領域に**カーソルを移動**
+3. ホバー中に凡例に表示される**ピクセル値を確認**
+4. ズームインして、浮動値でハイライトされた個々のピクセルを確認
+5. 異なる特徴の値範囲を**記録する**：
+   * **健全な植生**：例 NDVI 0.55-0.85
+   * **ストレスを受けた植生**：例 NDVI 0.30-0.50
+   * **裸地**：例 NDVI 0.05-0.25
+   * **水域**（存在する場合）：例 NDVI -0.05～0.10
 
-**Using pixel values to set LUT ranges:**
+**ピクセル値を用いたLUT範囲の設定：**
 
-After inspecting pixel values, adjust your LUT min/max accordingly:
+ピクセル値を調査した後、LUTの最小値/最大値を適宜調整してください：
 
-**Example scenario:**
+**例：**
 
-* **Observation**: Soil values = 0.05-0.25, Stressed = 0.25-0.50, Healthy = 0.50-0.85
-* **Goal**: Visualize only plant health (exclude soil)
-* **LUT settings**: Min = `0.25`, Max = `0.85`
-* **Clipping**: "Original Background" to see soil in natural color
-* **Result**: Color gradient only applies to vegetation, soil shows as original image
+* **観測結果**：土壌値 = 0.05-0.25、ストレス状態 = 0.25-0.50、健全状態 = 0.50-0.85
+* **目的**：植物の健康状態のみ可視化（土壌は除外）
+* **LUT設定**：最小値 = `0.25`、最大値 = `0.85`
+* **クリッピング**：「オリジナル背景」を選択し、土壌を自然な色で表示
+* **結果**: カラーグラデーションは植生のみに適用され、土壌は元の画像のまま表示
 
-{% hint style="info" %}
-**Dynamic Range**: Different crops, seasons, and growth stages will have different value ranges. Always inspect pixel values in your specific dataset before setting LUT ranges.
+{% hint style=&quot;info&quot; %}
+**ダイナミックレンジ**: 作物、季節、生育段階によって値の範囲は異なります。LUT範囲を設定する前に、必ず特定のデータセットのピクセル値を確認してください。
 {% endhint %}
 
 ***
 
-## Custom Indices (Chloros+)
+## カスタムインデックス (Chloros+)
 
-### Creating Custom Index Formulas
+### カスタムインデックス式の作成
 
-{% hint style="info" %}
-**Where to Create**: Custom indices can be configured in **Project Settings** before processing, as well as in the Image Viewer sandbox sidebar.
+{% hint style=&quot;info&quot; %}
+**作成場所**: カスタムインデックスは、処理前の**プロジェクト設定**およびイメージビューアーのサンドボックスサイドバーで設定可能です。
 {% endhint %}
 
-**To create a custom index:**
+**カスタムインデックスの作成方法:**
 
-1. **Open Project Settings** (before processing) or Image Viewer sandbox sidebar
-2. Navigate to the **Index formula dropdown**
-3. Look for **"Custom"** option (must be logged in with Chloros+ license)
-4. **Define your formula** using band variables:
-   * Band names: `NIR`, `Red`, `Green`, `Blue`, `RedEdge`, etc.
-   * Operators: `+`, `-`, `*`, `/`, `^` (exponent)
-   * Functions: `sqrt()`, `abs()`, etc. (if supported)
-   * Parentheses: `()` for order of operations
-5. **Name your index** (e.g., "MyIndex" or "CustomNDVI")
-6. **Save the configuration**
+1. **プロジェクト設定**（処理前）またはイメージビューアーのサンドボックスサイドバーを開く
+2. **インデックス式ドロップダウン**に移動する
+3. **「カスタム」**オプションを探す（Chloros+ライセンスでのログイン必須）
+4. バンド変数を使用して**式を定義**:
+   * バンド名: `NIR`、`Red`、`Green`、`Blue`、`RedEdge` など
+   * 演算子: `+`, `-`, `*`, `/`, `^` (指数)
+   * 関数: `sqrt()`、`abs()` など (サポートされている場合)
+   * 括弧: 演算順序用 `()`
+5. **インデックスに名前を付ける** (例: &quot;MyIndex&quot; または &quot;CustomNDVI&quot;)
+6. **設定を保存**
 
-**Example custom formulas:**
+**カスタム計算式の例:**
 
 ```
 Modified NDVI with offset:
@@ -398,22 +398,22 @@ Exponential index:
 (NIR / Red) ^ 2
 ```
 
-{% hint style="warning" %}
-**Formula Validation**: Ensure your formula uses bands available in your camera. For example, RedEdge is only available on cameras with a RedEdge filter.
+{% hint style=&quot;warning&quot; %}
+**式検証**: カメラで利用可能なバンドを使用していることを確認してください。例: RedEdge は RedEdge フィルター搭載カメラでのみ利用可能です。
 {% endhint %}
 
 ***
 
-## Next Steps
+## 次のステップ
 
-Now that you understand the Index/LUT Sandbox:
+インデックス/LUTサンドボックスについて理解できたので：
 
-* **Apply to processing**: Use discovered settings in [Project Settings](../project-settings/page-2.md)
-* **Batch process**: Apply optimized indices to full datasets
-* **Learn more**: Read [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md)
+* **処理への適用**：[プロジェクト設定](../project-settings/project-settings.md)で発見した設定を使用
+* **バッチ処理**：最適化されたインデックスを全データセットに適用
+* **詳細学習**：[マルチスペクトルインデックス式](../project-settings/multispectral-index-formulas.md)
 
-Related documentation:
+関連ドキュメント：
 
-* [**Image Layers**](image-layers.md) - Layer management and visualization
-* [**Opening an Image Full Screen**](page-3.md) - Image Viewer basics
-* [**Processing Images (GUI)**](../processing-images-gui/page-1.md) - Full processing workflow
+* [**画像レイヤー**](image-layers.md) - レイヤー管理と可視化
+* [**画像の全画面表示**](opening-an-image-full-screen.md) - 画像ビューアーの基本操作
+* [**画像処理（GUI）**](../processing-images-gui/adding-files-to-a-project.md) - 完全な処理ワークフロー

@@ -1,48 +1,46 @@
-# CLI : Command Line
+# CLI : コマンドライン
 
-<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** は、Chloros 画像処理エンジンへの強力なコマンドラインアクセスを提供し、イメージングワークフローの自動化、スクリプティング、ヘッドレス操作を可能にします。
 
-The **Chloros CLI** provides powerful command-line access to the Chloros image processing engine, enabling automation, scripting, and headless operation for your imaging workflows.
+### 主な機能
 
-### Key Features
+* 🚀 **自動化** - 複数データセットのスクリプトによるバッチ処理
+* 🔗 **統合** - 既存ワークフローやパイプラインへの組み込み
+* 💻 **ヘッドレス操作** - GUIなしで実行
+* 🌍 **多言語対応** - 38言語をサポート
+* ⚡ **並列処理** - CPUに動的にスケーリング（最大16の並列ワーカー）
 
-* 🚀 **Automation** - Script batch processing of multiple datasets
-* 🔗 **Integration** - Embed in existing workflows and pipelines
-* 💻 **Headless Operation** - Run without GUI
-* 🌍 **Multi-Language** - Support for 38 languages
-* ⚡ **Parallel Processing** - Dynamically scales to your CPU (up to 16 parallel workers)
+### 要件
 
-### Requirements
-
-| Requirement          | Details                                                             |
+| 要件                                                                               | 詳細                                                                               |
 | -------------------- | ------------------------------------------------------------------- |
-| **Operating System** | Windows 10/11 (64-bit)                                              |
-| **License**          | Chloros+ ([paid plan required](https://cloud.mapir.camera/pricing)) |
-| **Memory**           | 8GB RAM minimum (16GB recommended)                                  |
-| **Internet**         | Required for license activation                                     |
-| **Disk Space**       | Varies by project size                                              |
+| **オペレーティングシステム** | Windows 10/11 (64ビット)                                              |
+| **ライセンス**          | Chloros+ ([有料プランが必要](https://cloud.mapir.camera/pricing)) |
+| **メモリ**           | 8GB RAM以上 (16GB推奨)                                                    |
+| **インターネット接続** | ライセンス有効化に必須                                                    |
+| **ディスク容量**       | プロジェクトサイズにより異なる                                              |
 
-{% hint style="warning" %}
-**License Requirement**: The CLI requires a paid Chloros+ subscription. Standard (free) plans do not have CLI access. Visit [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing) to upgrade.
+{% hint style=&quot;warning&quot; %}
+**ライセンス要件**: CLI には有料の Chloros+ サブスクリプションが必要です。 標準（無料）プランではCLIにアクセスできません。アップグレードは[https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)をご覧ください。
 {% endhint %}
 
-## Quick Start
+## クイックスタート
 
-### Installation
+### インストール
 
-The CLI is automatically included with the Chloros installer:
+CLI は Chloros インストーラーに自動的に含まれます：
 
-1. Download and run **Chloros Installer.exe**
-2. Complete the installation wizard
-3. CLI installed to: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
+1. **Chloros インストーラー.exe** をダウンロードして実行
+2. インストールウィザードを完了
+3. CLI は以下にインストールされます: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
 
-{% hint style="success" %}
-The installer automatically adds `chloros-cli` to your system PATH. Restart your terminal after installation.
+{% hint style=&quot;success&quot; %}
+インストーラーは自動的に `chloros-cli` をシステム PATH に追加します。インストール後、ターミナルを再起動してください。
 {% endhint %}
 
-### First-Time Setup
+### 初回セットアップ
 
-Before using the CLI, activate your Chloros+ license:
+CLI を使用する前に、Chloros+ ライセンスをアクティベートしてください:
 
 ```bash
 # Login with your Chloros+ account
@@ -55,9 +53,9 @@ chloros-cli status
 chloros-cli process "C:\Images\Dataset001"
 ```
 
-### Basic Usage
+### 基本操作
 
-Process a folder with default settings:
+デフォルト設定でフォルダを処理:
 
 ```powershell
 chloros-cli process "C:\Images\Dataset001"
@@ -65,9 +63,9 @@ chloros-cli process "C:\Images\Dataset001"
 
 ***
 
-## Command Reference
+## コマンドリファレンス
 
-### General Syntax
+### 基本構文
 
 ```
 chloros-cli [global-options] <command> [command-options]
@@ -75,89 +73,87 @@ chloros-cli [global-options] <command> [command-options]
 
 ***
 
-## Commands
+## コマンド一覧
 
-### `process` - Process Images
+### `process` - 画像処理
 
-Process images in a folder with calibration.
+キャリブレーション付きでフォルダ内の画像を処理します。
 
-**Syntax:**
+**構文:**
 
 ```bash
 chloros-cli process <input-folder> [options]
 ```
 
-**Example:**
+**例:**
 
 ```powershell
 chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
 ```
 
-#### Process Command Options
+#### 処理コマンドオプション
 
-| Option                | Type    | Default        | Description                                                                            |
+| オプション                | タイプ    | デフォルト        | 説明                                                                            |
 | --------------------- | ------- | -------------- | -------------------------------------------------------------------------------------- |
-| `<input-folder>`      | Path    | _Required_     | Folder containing RAW/JPG multispectral images                                         |
-| `-o, --output`        | Path    | Same as input  | Output folder for processed images                                                     |
-| `-n, --project-name`  | String  | Auto-generated | Custom project name                                                                    |
-| `--vignette`          | Flag    | Enabled        | Enable vignette correction                                                             |
-| `--no-vignette`       | Flag    | -              | Disable vignette correction                                                            |
-| `--reflectance`       | Flag    | Enabled        | Enable reflectance calibration                                                         |
-| `--no-reflectance`    | Flag    | -              | Disable reflectance calibration                                                        |
-| `--ppk`               | Flag    | Disabled       | Apply PPK corrections from .daq light sensor data                                      |
-| `--format`            | Choice  | TIFF (16-bit)  | Output format: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)` |
-| `--min-target-size`   | Integer | Auto           | Minimum target size in pixels for calibration panel detection                          |
-| `--target-clustering` | Integer | Auto           | Target clustering threshold (0-100)                                                    |
-| `--exposure-pin-1`    | String  | None           | Lock exposure for camera model (Pin 1)                                                 |
-| `--exposure-pin-2`    | String  | None           | Lock exposure for camera model (Pin 2)                                                 |
-| `--recal-interval`    | Integer | Auto           | Recalibration interval in seconds                                                      |
-| `--timezone-offset`   | Integer | 0              | Timezone offset in hours                                                               |
+| `<input-folder>`      | パス    | _必須_     | RAW/JPGマルチスペクトル画像を含むフォルダ                                         |
+| `-o, --output`        | パス    | 入力と同じ  | 処理済み画像の出力フォルダ                                                     |
+| `-n, --project-name`  | 文字列  | 自動生成 | カスタムプロジェクト名                                                                    |
+| `--vignette`          | フラグ    | 有効        | ビネット補正を有効化                                                             |
+| `--no-vignette`       | フラグ    | -              | ビネット補正を無効化                                                            |
+| `--reflectance`       | フラグ    | 有効        | 反射率キャリブレーションを有効化                                                         |
+| `--no-reflectance`    | フラグ    | -              | 反射率キャリブレーションを無効化                                                        |
+| `--ppk`               | フラグ    | 無効         | .daq光センサーデータからのPPK補正を適用                                      |
+| `--format`            | 選択    | TIFF (16ビット)  | 出力形式: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)` |
+| `--min-target-size`   | 整数 | 自動         | キャリブレーションパネル検出の最小ターゲットサイズ（ピクセル単位）                          |
+| `--target-clustering` | 整数 | 自動         | ターゲットクラスタリング閾値（0-100）                                                    |
+| `--exposure-pin-1`    | 文字列  | なし           | カメラモデル用露光ロック (ピン1)                                                 |
+| `--exposure-pin-2`    | 文字列  | なし           | カメラモデル用露光ロック (ピン2)                                                 |
+| `--recal-interval`    | 整数 | 自動         | 再校正間隔（秒単位）                                                      |
+| `--timezone-offset`   | 整数 | 0              | タイムゾーンオフセット（時間単位）                                                               |
 
 ***
 
-### `login` - Authenticate Account
+### `login` - アカウント認証
 
-Login with your Chloros+ credentials to enable CLI processing.
+Chloros+の認証情報でログインし、CLI処理を有効化してください。
 
-**Syntax:**
+**構文:**
 
 ```bash
 chloros-cli login <email> <password>
 ```
 
-**Example:**
+**例:**
 
 ```powershell
 chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
-{% hint style="warning" %}
-**Special Characters**: Use single quotes around passwords containing characters like `$`, `!`, or spaces.
+{% hint style=&quot;warning&quot; %}
+**特殊文字**: `$`、`!`、スペースなどの文字を含むパスワードはシングルクォートで囲んでください。
 {% endhint %}
 
-**Output:**
+**出力:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>***
 
-***
+### `logout` - 認証情報のクリア
 
-### `logout` - Clear Credentials
+保存された認証情報をクリアし、アカウントからログアウトします。
 
-Clear stored credentials and logout from your account.
-
-**Syntax:**
+**構文:**
 
 ```bash
 chloros-cli logout
 ```
 
-**Example:**
+**例:**
 
 ```powershell
 chloros-cli logout
 ```
 
-**Output:**
+**出力:**
 
 ```
 ✓ Logout successful
@@ -166,23 +162,23 @@ chloros-cli logout
 
 ***
 
-### `status` - Check License Status
+### `status` - ライセンス状態の確認
 
-Display current license and authentication status.
+現在のライセンスと認証状態を表示します。
 
-**Syntax:**
+**構文:**
 
 ```bash
 chloros-cli status
 ```
 
-**Example:**
+**例:**
 
 ```powershell
 chloros-cli status
 ```
 
-**Output:**
+**出力:**
 
 ```
 ╔══════════════════════════════════════╗
@@ -197,31 +193,31 @@ chloros-cli status
 
 ***
 
-### `export-status` - Check Export Progress
+### `export-status` - エクスポート進捗の確認
 
-Monitor Thread 4 export progress during or after processing.
+処理中または処理後にスレッド4のエクスポート進捗を監視します。
 
-**Syntax:**
+**構文:**
 
 ```bash
 chloros-cli export-status
 ```
 
-**Example:**
+**例:**
 
 ```powershell
 chloros-cli export-status
 ```
 
-**Use Case:** Call this command while processing is running to check export progress.
+**使用例:** 処理実行中にこのコマンドを呼び出し、エクスポート進捗を確認します。
 
 ***
 
-### `language` - Manage Interface Language
+### `language` - インターフェース言語の管理
 
-View or change the CLI interface language.
+CLI インターフェース言語を表示または変更します。
 
-**Syntax:**
+**構文:**
 
 ```bash
 # Show current language
@@ -234,7 +230,7 @@ chloros-cli language --list
 chloros-cli language <language-code>
 ```
 
-**Examples:**
+**例:**
 
 ```powershell
 # View current language
@@ -250,66 +246,66 @@ chloros-cli language es
 chloros-cli language ja
 ```
 
-#### Supported Languages (38 Total)
+#### サポート言語 (合計38言語)
 
-| Code    | Language              | Native Name      |
+| コード    | 言語               | ネイティブ名      |
 | ------- | --------------------- | ---------------- |
-| `en`    | English               | English          |
-| `es`    | Spanish               | Español          |
-| `pt`    | Portuguese            | Português        |
-| `fr`    | French                | Français         |
-| `de`    | German                | Deutsch          |
-| `it`    | Italian               | Italiano         |
-| `ja`    | Japanese              | 日本語              |
-| `ko`    | Korean                | 한국어              |
-| `zh`    | Chinese (Simplified)  | 简体中文             |
-| `zh-TW` | Chinese (Traditional) | 繁體中文             |
-| `ru`    | Russian               | Русский          |
-| `nl`    | Dutch                 | Nederlands       |
-| `ar`    | Arabic                | العربية          |
-| `pl`    | Polish                | Polski           |
-| `tr`    | Turkish               | Türkçe           |
-| `hi`    | Hindi                 | हिंदी            |
-| `id`    | Indonesian            | Bahasa Indonesia |
-| `vi`    | Vietnamese            | Tiếng Việt       |
-| `th`    | Thai                  | ไทย              |
-| `sv`    | Swedish               | Svenska          |
-| `da`    | Danish                | Dansk            |
-| `no`    | Norwegian             | Norsk            |
-| `fi`    | Finnish               | Suomi            |
-| `el`    | Greek                 | Ελληνικά         |
-| `cs`    | Czech                 | Čeština          |
-| `hu`    | Hungarian             | Magyar           |
-| `ro`    | Romanian              | Română           |
-| `uk`    | Ukrainian             | Українська       |
-| `pt-BR` | Brazilian Portuguese  | Português Brasileiro |
-| `zh-HK` | Cantonese             | 粵語             |
-| `ms`    | Malay                 | Bahasa Melayu    |
-| `sk`    | Slovak                | Slovenčina       |
-| `bg`    | Bulgarian             | Български        |
-| `hr`    | Croatian              | Hrvatski         |
-| `lt`    | Lithuanian            | Lietuvių         |
-| `lv`    | Latvian               | Latviešu         |
-| `et`    | Estonian              | Eesti            |
-| `sl`    | Slovenian             | Slovenščina      |
+| `en`    | 英語               | English          |
+| `es`    | スペイン語               | Español          |
+| `pt`    | ポルトガル語            | Português        |
+| `fr`    | フランス語                | Français         |
+| `de`    | ドイツ語                | Deutsch          |
+| `it`    | イタリア語               | Italiano         |
+| `ja`    | 日本語              | 日本語              |
+| `ko`    | 韓国語                | 한국어              |
+| `zh`    | 中国語（簡体字）  | 简体中文             |
+| `zh-TW` | 中国語（繁体字） | 繁體中文             |
+| `ru`    | ロシア語               | Русский          |
+| `nl`    | オランダ語         | Nederlands       |
+| `ar`    | アラビア語         | العربية          |
+| `pl`    | ポーランド語        | Polski           |
+| `tr`    | トルコ語            | Türkçe           |
+| `hi`    | ヒンディー語         | हिंदी            |
+| `id`    | インドネシア語       | Bahasa Indonesia |
+| `vi`    | ベトナム語         | Tiếng Việt       |
+| `th`    | タイ語                  | ไทย              |
+| `sv`    | スウェーデン語               | Svenska          |
+| `da`    | デンマーク語                | Dansk            |
+| `no`    | ノルウェー語             | Norsk            |
+| `fi`    | フィンランド語     | Suomi            |
+| `el`    | ギリシャ語         | Ελληνικά         |
+| `cs`    | チェコ語         | Čeština          |
+| `hu`    | ハンガリー語         | Magyar           |
+| `ro`    | ルーマニア語         | Română           |
+| `uk`    | ウクライナ語         | Українська       |
+| `pt-BR` | ブラジルポルトガル語 | Português Brasileiro |
+| `zh-HK` | 広東語             | 広東語             |
+| `ms`    | マレー語                 | マレー語    |
+| `sk`    | スロバキア語                | スロバキア語       |
+| `bg`    | ブルガリア語             | Български        |
+| `hr`    | クロアチア語              | Hrvatski         |
+| `lt`    | リトアニア語            | Lietuvių         |
+| `lv`    | ラトビア語            | Latviešu         |
+| `et`    | エストニア語            | Eesti            |
+| `sl`    | スロベニア語            | Slovenščina      |
 
-{% hint style="success" %}
-**Automatic Persistence**: Your language preference is saved to `~/.chloros/cli_language.json` and persists across all sessions.
+{% hint style=&quot;success&quot; %}
+**自動保存機能**: 言語設定は `~/.chloros/cli_language.json` に保存され、すべてのセッションで維持されます。
 {% endhint %}
 
 ***
 
-### `set-project-folder` - Set Default Project Folder
+### `set-project-folder` - デフォルトプロジェクトフォルダの設定
 
-Change the default project folder location (shared with GUI).
+デフォルトプロジェクトフォルダの場所を変更します（GUIと共有）。
 
-**Syntax:**
+**構文:**
 
 ```bash
 chloros-cli set-project-folder <folder-path>
 ```
 
-**Example:**
+**例:**
 
 ```powershell
 chloros-cli set-project-folder "C:\Projects\2025"
@@ -317,23 +313,23 @@ chloros-cli set-project-folder "C:\Projects\2025"
 
 ***
 
-### `get-project-folder` - Show Project Folder
+### `get-project-folder` - プロジェクトフォルダを表示
 
-Display the current default project folder location.
+現在のデフォルトプロジェクトフォルダの場所を表示します。
 
-**Syntax:**
+**構文:**
 
 ```bash
 chloros-cli get-project-folder
 ```
 
-**Example:**
+**例:**
 
 ```powershell
 chloros-cli get-project-folder
 ```
 
-**Output:**
+**出力:**
 
 ```
 ℹ Current project folder: C:\Projects\2025
@@ -341,11 +337,11 @@ chloros-cli get-project-folder
 
 ***
 
-### `reset-project-folder` - Reset to Default
+### `reset-project-folder` - デフォルトにリセット
 
-Reset the project folder to the default location.
+プロジェクトフォルダをデフォルトの場所にリセットします。
 
-**Syntax:**
+**構文:**
 
 ```bash
 chloros-cli reset-project-folder
@@ -353,19 +349,19 @@ chloros-cli reset-project-folder
 
 ***
 
-## Global Options
+## 全体オプション
 
-These options apply to all commands:
+これらのオプションは全てのコマンドに適用されます:
 
-| Option          | Type    | Default       | Description                                      |
+| オプション          | タイプ    | デフォルト       | 説明                                                      |
 | --------------- | ------- | ------------- | ------------------------------------------------ |
-| `--backend-exe` | Path    | Auto-detected | Path to backend executable                       |
-| `--port`        | Integer | 5000          | Backend API port number                          |
-| `--restart`     | Flag    | -             | Force restart backend (kills existing processes) |
-| `--version`     | Flag    | -             | Show version information and exit                |
-| `--help`        | Flag    | -             | Show help information and exit                   |
+| `--backend-exe` | パス    | 自動検出 | バックエンド実行ファイルへのパス                       |
+| `--port`        | 整数 | 5000          | バックエンド API ポート番号                          |
+| `--restart`     | フラグ    | -             | バックエンドの再起動を強制（既存プロセスを終了） |
+| `--version`     | フラグ    | -             | バージョン情報を表示して終了                |
+| `--help`        | フラグ    | -             | ヘルプ情報を表示して終了                   |
 
-**Example with Global Options:**
+**グローバルオプション使用例:**
 
 ```powershell
 chloros-cli --port 5001 process "C:\Datasets\Survey_001"
@@ -373,80 +369,77 @@ chloros-cli --port 5001 process "C:\Datasets\Survey_001"
 
 ***
 
-## Processing Settings Guide
+## 処理設定ガイド
 
-### Parallel Processing
+### 並列処理
 
-Chloros+ CLI **automatically scales** parallel processing to match your computer's capabilities:
+Chloros+ CLI は、コンピューターの性能に合わせて並列処理を**自動スケーリング**します:
 
-**How It Works:**
+**動作原理:**
 
-* Detects your CPU cores and RAM
-* Allocates workers: **2× CPU cores** (uses hyperthreading)
-* **Maximum: 16 parallel workers** (for stability)
+* CPUコア数とRAMを検出
+* ワーカーを割り当て: **CPUコア数×2** (ハイパースレッディング利用)
+* **最大: 16並列ワーカー** (安定性確保のため)
 
-**System Tiers:**
+**システム階層:**
 
-| System Type   | CPU        | RAM      | Workers  | Performance     |
-| ------------- | ---------- | -------- | -------- | --------------- |
-| **High-End**  | 16+ cores  | 32+ GB   | Up to 16 | Maximum speed   |
-| **Mid-Range** | 8-15 cores | 16-31 GB | 8-16     | Excellent speed |
-| **Low-End**   | 4-7 cores  | 8-15 GB  | 4-8      | Good speed      |
+| システムタイプ   | CPU        | RAM      | ワーカー  | パフォーマンス     |
+| ---------| **ハイエンド**  | 16+ コア  | 32+ GB   | 最大16   | 最高速度   |
+| **ミドルレンジ** | 8-15 コア | 16-31 GB | 8-16     | 優れた速度 |
+| **ローエンド**   | 4-7 コア  | 8-15 GB  | 4-8      | 良好な速度      |
 
-{% hint style="success" %}
-**Automatic Optimization**: The CLI automatically detects your system specs and configures optimal parallel processing. No manual configuration needed!
+{% hint style=&quot;success&quot; %}
+**自動最適化**: CLIはシステム仕様を自動検知し、最適な並列処理を設定します。手動設定不要！
 {% endhint %}
 
-### Debayer Methods
+### デベイヤー方式
 
-The CLI uses **High Quality (Faster)** as the default and recommended debayer algorithm:
+CLI はデフォルトで推奨されるデベイヤーアルゴリズムとして **高品質 (高速)** を使用します:
 
-| Method                      | Quality | Speed | Description                                 |
+| 方式                      | 品質 | 速度 | 説明                                 |
 | --------------------------- | ------- | ----- | ------------------------------------------- |
-| **High Quality (Faster)** ⭐ | ⭐⭐⭐⭐    | ⚡⚡⚡   | Edge-aware algorithm (default, recommended) |
+| **高品質（高速）** ⭐ | ⭐⭐⭐⭐    | ⚡⚡⚡   | エッジ認識アルゴリズム（デフォルト、推奨） |
 
-### Vignette Correction
+### ヴィネット補正
 
-**What it does:** Corrects light falloff at image edges (darker corners common in camera imagery).
+**機能：** 画像端部の光量減衰（カメラ画像でよく見られる暗い四隅）を補正します。
 
-* **Enabled by default** - Most users should keep this enabled
-* Use `--no-vignette` to disable
+* **デフォルトで有効** - ほとんどのユーザーはこの機能を有効にしたままにしておくべきです
+* 無効化するには `--no-vignette` を使用
 
-{% hint style="success" %}
-**Recommendation**: Always enable vignette correction to ensure uniform brightness across the frame.
+{% hint style=&quot;success&quot; %}
+**推奨設定**: フレーム全体の輝度を均一にするため、常にビネット補正を有効にしてください。
 {% endhint %}
 
-### Reflectance Calibration
+### 反射率キャリブレーション
 
-Converts raw sensor values to standardized reflectance percentages using calibration panels.
+キャリブレーションパネルを用いて、センサーの生の値を標準化された反射率パーセンテージに変換します。
 
-* **Enabled by default** - Essential for vegetation analysis
-* Requires calibration target panels in images
-* Use `--no-reflectance` to disable
+* **デフォルトで有効** - 植生解析に必須
+* 画像内に校正ターゲットパネルが必要
+* 無効化には `--no-reflectance` を使用
 
-{% hint style="info" %}
-**Requirements**: Ensure calibration panels are properly exposed and visible in your images for accurate reflectance conversion.
+{% hint style=&quot;info&quot; %}
+**要件**: 正確な反射率変換のため、画像内で校正パネルが適切に露出され可視化されていることを確認してください。
 {% endhint %}
 
-### PPK Corrections
+### PPK補正
 
-**What it does:** Applies Post-Processed Kinematic corrections using DAQ-A-SD log data for improved GPS accuracy.
+**機能:** GPS精度向上のため、DAQ-A-SDログデータを用いた後処理動的補正（PPK補正）を適用します。
 
-* **Disabled by default**
-* Use `--ppk` to enable
-* Requires .daq files in project folder from MAPIR DAQ-A-SD light sensor.
+* **デフォルトで無効化**
+* 有効化には`--ppk`を使用
+* MAPIR DAQ-A-SD光センサーからの.daqファイルをプロジェクトフォルダに必要。
 
-### Output Formats
+### 出力フォーマット
 
-<table><thead><tr><th width="197">Format</th><th width="130.20001220703125">Bit Depth</th><th width="116.5999755859375">File Size</th><th>Best For</th></tr></thead><tbody><tr><td><strong>TIFF (16-bit)</strong> ⭐</td><td>16-bit integer</td><td>Large</td><td>GIS analysis, photogrammetry (recommended)</td></tr><tr><td><strong>TIFF (32-bit, Percent)</strong></td><td>32-bit float</td><td>Very Large</td><td>Scientific analysis, research</td></tr><tr><td><strong>PNG (8-bit)</strong></td><td>8-bit integer</td><td>Medium</td><td>Visual inspection, web sharing</td></tr><tr><td><strong>JPG (8-bit)</strong></td><td>8-bit integer</td><td>Small</td><td>Quick preview, compressed output</td></tr></tbody></table>
+<table><thead><tr><th width="197">フォーマット</th><th width="130.20001220703125">ビット深度</th><th width="116.5999755859375">ファイルサイズ</th><th>最適用途</th></tr></thead><tbody><tr><td><strong>TIFF (16ビット)</strong> ⭐</td><td>16ビット整数</td><td>大</td><td>GIS分析、写真測量（推奨）</td></tr><tr><td><strong>TIFF (32ビット、パーセント)</strong></td><td>32ビット浮動小数点</td><td>非常に大きい</td><td>科学分析、研究</td></tr><tr><td><strong>PNG (8 ビット)</strong></td><td>8 ビット整数</td><td>中</td><td>目視検査、ウェブ共有</td></tr><tr><td><strong>JPG (8ビット)</strong></td><td>8ビット整数</td><td>小</td><td>クイックプレビュー、圧縮出力</td></tr></tbody></table>***
 
-***
+## 自動化とスクリプト
 
-## Automation & Scripting
+### PowerShell バッチ処理
 
-### PowerShell Batch Processing
-
-Process multiple dataset folders automatically:
+複数のデータセットフォルダを自動処理:
 
 ```powershell
 # process_all_datasets.ps1
@@ -470,9 +463,9 @@ foreach ($dataset in $datasets) {
 Write-Host "All datasets processed!" -ForegroundColor Green
 ```
 
-### Windows Batch Script
+### Windows バッチスクリプト
 
-Simple loop for batch processing:
+バッチ処理用簡易ループ:
 
 ```batch
 @echo off
@@ -497,9 +490,9 @@ echo All datasets processed!
 pause
 ```
 
-### Python Automation Script
+### Python 自動化スクリプト
 
-Advanced automation with error handling:
+エラー処理付き高度な自動化:
 
 ```python
 import subprocess
@@ -578,16 +571,16 @@ if __name__ == '__main__':
 
 ***
 
-## Processing Workflow
+## 処理ワークフロー
 
-### Standard Workflow
+### 標準ワークフロー
 
-1. **Input**: Folder containing RAW/JPG image pairs
-2. **Discovery**: CLI auto-scans for supported image files
-3. **Processing**: Parallel mode scales to your CPU cores (Chloros+)
-4. **Output**: Creates camera-model subfolders with processed images
+1. **入力**: RAW/JPG画像ペアを含むフォルダ
+2. **検出**: CLI が対応画像ファイルを自動スキャン
+3. **処理**: 並列モードでCPUコア数に応じてスケーリング (Chloros+)
+4. **出力**: 処理済み画像をカメラモデル別サブフォルダに生成
 
-### Example Output Structure
+### 出力構造例
 
 ```
 MyProject/
@@ -600,72 +593,72 @@ MyProject/
     └── ...
 ```
 
-### Processing Time Estimates
+### 処理時間の見積もり
 
-Typical processing times for 100 images (12MP each):
+100枚の画像（各12MP）の典型的な処理時間：
 
-| Mode              | Time      | Hardware                                     |
+| モード              | 時間      | ハードウェア                                     |
 | ----------------- | --------- | -------------------------------------------- |
-| **Parallel Mode** | 5-10 min  | i7/Ryzen 7, 16GB RAM, SSD (up to 16 workers) |
-| **Parallel Mode** | 10-15 min | i5/Ryzen 5, 8GB RAM, HDD (up to 8 workers)   |
+| **並列モード** | 5-10 分  | i7/Ryzen 7、16GB RAM、SSD (最大16ワーカー) |
+| **並列モード** | 10-15 分 | i5/Ryzen 5、8GB RAM、HDD (最大8ワーカー)   |
 
-{% hint style="info" %}
-**Performance Tip**: Processing time varies based on image count, resolution, and computer specs.
+{% hint style=&quot;info&quot; %}
+**パフォーマンスのヒント**: 処理時間は画像数、解像度、コンピュータのスペックによって異なります。
 {% endhint %}
 
 ***
 
-## Troubleshooting
+## トラブルシューティング
 
-### CLI Not Found
+### CLIが見つかりません
 
-**Error:**
+**エラー:**
 
 ```
 'chloros-cli' is not recognized as an internal or external command
 ```
 
-**Solutions:**
+**解決策:**
 
-1. Verify installation location:
+1. インストール場所を確認:
 
 ```powershell
 dir "C:\Program Files\Chloros\resources\cli\chloros-cli.exe"
 ```
 
-2. Use full path if not in PATH:
+2. PATHにない場合はフルパスを使用:
 
 ```powershell
 "C:\Program Files\Chloros\resources\cli\chloros-cli.exe" process "C:\Datasets\Field_A"
 ```
 
-3. Add to PATH manually:
-   * Open System Properties → Environment Variables
-   * Edit PATH variable
-   * Add: `C:\Program Files\Chloros\resources\cli`
-   * Restart terminal
+3. PATHに手動で追加:
+   * システムのプロパティ → 環境変数を起動
+   * PATH変数を編集
+   * 追加: `C:\Program Files\Chloros\resources\cli`
+   * ターミナルを再起動
 
 ***
 
-### Backend Failed to Start
+### バックエンドの起動に失敗しました
 
-**Error:**
+**エラー:**
 
 ```
 Backend failed to start within 30 seconds
 ```
 
-**Solutions:**
+**解決策:**
 
-1. Check if backend already running (close it first)
-2. Check Windows Firewall is not blocking
-3. Try different port:
+1. バックエンドが既に実行中か確認（実行中の場合は終了）
+2. ファイアウォールがブロックしていないか確認
+3. 別のポートを試す:
 
 ```powershell
 chloros-cli --port 5001 process "C:\Datasets\Field_A"
 ```
 
-4. Force restart backend:
+4. バックエンドを強制再起動:
 
 ```powershell
 chloros-cli --restart process "C:\Datasets\Field_A"
@@ -673,71 +666,71 @@ chloros-cli --restart process "C:\Datasets\Field_A"
 
 ***
 
-### License / Authentication Issues
+### ライセンス/認証の問題
 
-**Error:**
+**エラー:**
 
 ```
 Chloros+ license required for CLI access
 ```
 
-**Solutions:**
+**解決策:**
 
-1. Verify you have an active Chloros+ subscription
-2. Login with your credentials:
+1. 有効なChloros+サブスクリプションを確認
+2. 認証情報でログイン:
 
 ```powershell
 chloros-cli login user@example.com 'password'
 ```
 
-3. Check license status:
+3. ライセンス状態を確認:
 
 ```powershell
 chloros-cli status
 ```
 
-4. Contact support: info@mapir.camera
+4. サポートに連絡: info@mapir.camera
 
 ***
 
-### No Images Found
+### 画像が見つかりません
 
-**Error:**
+**エラー:**
 
 ```
 No images found in the specified folder
 ```
 
-**Solutions:**
+**解決策:**
 
-1. Verify folder contains supported formats (.RAW, .TIF, .JPG)
-2. Check folder path is correct (use quotes for paths with spaces)
-3. Ensure you have read permissions for the folder
-4. Check file extensions are correct
-
-***
-
-### Processing Stalls or Hangs
-
-**Solutions:**
-
-1. Check available disk space (ensure enough for output)
-2. Close other applications to free memory
-3. Reduce image count (process in batches)
+1. フォルダにサポートされている形式（.RAW、.TIF、.JPG）が含まれていることを確認してください
+2. フォルダパスが正しいことを確認してください（スペースを含むパスには引用符を使用してください）
+3. フォルダへの読み取り権限があることを確認してください
+4. ファイル拡張子が正しいか確認してください
 
 ***
 
-### Port Already in Use
+### 処理が停止またはハングする
 
-**Error:**
+**解決策:**
+
+1. 空きディスク容量を確認してください（出力用に十分な容量を確保してください）
+2. 他のアプリケーションを閉じてメモリを解放してください
+3. 画像数を減らしてください（バッチ処理で処理してください）
+
+***
+
+### ポートが既に使用中
+
+**エラー:**
 
 ```
 Port 5000 is already in use
 ```
 
-**Solution:**
+**解決策:**
 
-Specify a different port:
+別のポートを指定してください:
 
 ```powershell
 chloros-cli --port 5001 process "C:\Datasets\Field_A"
@@ -745,35 +738,35 @@ chloros-cli --port 5001 process "C:\Datasets\Field_A"
 
 ***
 
-## FAQ
+## よくある質問
 
-### Q: Do I need a license for the CLI?
+### Q: CLIの使用にはライセンスが必要ですか？
 
-**A:** Yes! The CLI requires a paid **Chloros+ license**.
+**A:** はい！CLIには有料の**Chloros+ライセンス**が必要です。
 
-* ❌ Standard (free) plan: CLI disabled
-* ✅ Chloros+ (paid) plans: CLI fully enabled
+* ❌ スタンダード（無料）プラン: CLIが無効化
+* ✅ Chloros+（有料）プラン：CLIが完全に有効化
 
-Subscribe at: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
-
-***
-
-### Q: Can I use the CLI on a server without GUI?
-
-**A:** Yes! The CLI runs completely headless. Requirements:
-
-* Windows Server 2016 or later
-* Visual C++ Redistributable installed
-* Sufficient RAM (8GB minimum, 16GB recommended)
-* One-time GUI license activation on any machine
+購読はこちら：[https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
 
 ***
 
-### Q: Where are processed images saved?
+### Q: GUIのないサーバーでCLIは使用できますか？
 
-**A:** By default, processed images are saved in the **same folder as input** in camera-model subfolders (e.g., `Survey3N_RGN/`).
+**A:** はい！CLIは完全にヘッドレスで動作します。要件：
 
-Use `-o` option to specify different output folder:
+* Windows Server 2016以降
+* Visual C++ 再配布可能パッケージのインストール
+* 十分なRAM（最低8GB、推奨16GB）
+* 任意のマシンでのGUIライセンスの一時的なアクティベーション
+
+***
+
+### Q: 処理済み画像はどこに保存されますか？
+
+**A:** デフォルトでは、処理済み画像は入力画像と同じフォルダ内のカメラモデル別サブフォルダ（例：`Survey3N_RGN/`）に保存されます。
+
+別の出力フォルダを指定するには `-o` オプションを使用してください：
 
 ```powershell
 chloros-cli process "C:\Input" -o "D:\Output"
@@ -781,13 +774,13 @@ chloros-cli process "C:\Input" -o "D:\Output"
 
 ***
 
-### Q: Can I process multiple folders at once?
+### Q: 複数のフォルダを同時に処理できますか？
 
-**A:** Not directly in one command, but you can use scripting to process folders sequentially. See [Automation & Scripting](CLI.md#automation--scripting) section.
+**A:** 単一のコマンドでは直接できませんが、スクリプトを使用してフォルダを順次処理できます。[自動化とスクリプト](CLI.md#automation--scripting)セクションを参照してください。
 
 ***
 
-### Q: How do I save CLI output to a log file?
+### Q: 出力をログファイルに保存するにはどうすればよいですか？
 
 **PowerShell:**
 
@@ -795,7 +788,7 @@ chloros-cli process "C:\Input" -o "D:\Output"
 chloros-cli process "C:\Datasets\Field_A" | Tee-Object -FilePath "processing.log"
 ```
 
-**Batch:**
+**バッチ:**
 
 ```batch
 chloros-cli process "C:\Datasets\Field_A" > processing.log 2>&1
@@ -803,25 +796,25 @@ chloros-cli process "C:\Datasets\Field_A" > processing.log 2>&1
 
 ***
 
-### Q: What happens if I press Ctrl+C during processing?
+### Q: 処理中にCtrl+Cを押すとどうなりますか？
 
-**A:** The CLI will:
+**A:** CLIは以下を実行します:
 
-1. Stop processing gracefully
-2. Shut down the backend
-3. Exit with code 130
+1. 処理を正常に停止
+2. バックエンドをシャットダウン
+3. 終了コード130で終了
 
-Partially processed images may remain in the output folder.
-
-***
-
-### Q: Can I automate CLI processing?
-
-**A:** Absolutely! The CLI is designed for automation. See [Automation & Scripting](CLI.md#automation--scripting) for PowerShell, Batch, and Python examples.
+部分的に処理された画像が出力フォルダに残る場合があります。
 
 ***
 
-### Q: How do I check the CLI version?
+### Q: CLI処理を自動化できますか？
+
+**A:** もちろん可能です！CLIは自動化を前提に設計されています。 PowerShell、バッチ、Pythonの例については[Automation &amp; Scripting](CLI.md#automation--scripting)を参照してください。
+
+***
+
+### Q: CLIのバージョンを確認するには？
 
 **A:**
 
@@ -829,7 +822,7 @@ Partially processed images may remain in the output folder.
 chloros-cli --version
 ```
 
-**Output:**
+**出力:**
 
 ```
 Chloros CLI 1.0.2
@@ -837,11 +830,11 @@ Chloros CLI 1.0.2
 
 ***
 
-## Getting Help
+## ヘルプの取得
 
-### Command-Line Help
+### コマンドラインヘルプ
 
-View help information directly in the CLI:
+CLI内で直接ヘルプ情報を表示:
 
 ```powershell
 # General help
@@ -853,19 +846,19 @@ chloros-cli login --help
 chloros-cli language --help
 ```
 
-### Support Channels
+### サポートチャネル
 
-* **Email**: info@mapir.camera
-* **Website**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* **Pricing**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
+* **メール**: info@mapir.camera
+* **ウェブサイト**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
+* **価格**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
 
 ***
 
-## Complete Examples
+## 完全な例
 
-### Example 1: Basic Processing
+### 例 1: 基本処理
 
-Process with default settings (vignette, reflectance):
+デフォルト設定での処理 (ビネット、反射率):
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A_2025_01_15"
@@ -873,9 +866,9 @@ chloros-cli process "C:\Datasets\Field_A_2025_01_15"
 
 ***
 
-### Example 2: High-Quality Scientific Output
+### 例 2: 高品質な科学出力
 
-32-bit float TIFF:
+32ビット浮動小数点 TIFF:
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" ^
@@ -886,9 +879,9 @@ chloros-cli process "C:\Datasets\Field_A" ^
 
 ***
 
-### Example 3: Fast Preview Processing
+### 例3: 高速プレビュー処理
 
-8-bit PNG without calibration for quick review:
+迅速な確認用、キャリブレーションなしの8ビット PNG:
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" ^
@@ -899,9 +892,9 @@ chloros-cli process "C:\Datasets\Field_A" ^
 
 ***
 
-### Example 4: PPK-Corrected Processing
+### 例4: PPK補正処理
 
-Apply PPK corrections with reflectance:
+反射率を用いたPPK補正を適用:
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" ^
@@ -911,9 +904,9 @@ chloros-cli process "C:\Datasets\Field_A" ^
 
 ***
 
-### Example 5: Custom Output Location
+### 例5: カスタム出力先
 
-Process to different drive with specific format:
+特定のフォーマットで別ドライブへ処理:
 
 ```powershell
 chloros-cli process "C:\Input\Raw_Images" ^
@@ -923,9 +916,9 @@ chloros-cli process "C:\Input\Raw_Images" ^
 
 ***
 
-### Example 6: Authentication Workflow
+### 例6: 認証ワークフロー
 
-Complete authentication flow:
+認証フローを完了する:
 
 ```powershell
 # Step 1: Login
@@ -943,9 +936,9 @@ chloros-cli logout
 
 ***
 
-### Example 7: Multi-Language Usage
+### 例7: 多言語対応
 
-Change interface language:
+インターフェース言語を変更する:
 
 ```powershell
 # List available languages

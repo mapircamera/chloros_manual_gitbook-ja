@@ -1,247 +1,247 @@
-# Opening an Image Full Screen
+# 画像のフルスクリーン表示
 
-The Chloros Image Viewer provides a dedicated full-screen interface for viewing, analyzing, and manipulating your multispectral images. Whether viewing original images or processed outputs, the Image Viewer offers powerful tools for inspection and analysis.
+Chloros イメージビューアは、マルチスペクトル画像の表示、分析、操作のための専用フルスクリーンインターフェースを提供します。オリジナル画像の表示でも処理済み出力の表示でも、イメージビューアは検査と分析のための強力なツールを提供します。
 
-## Accessing the Image Viewer
+## イメージビューアへのアクセス
 
-### From the File Browser
+### ファイルブラウザから
 
-The most common way to open an image in the Image Viewer:
+イメージビューアで画像を開く最も一般的な方法：
 
-1. Ensure you're in the **File Browser** tab <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
-2. Click any **image thumbnail** in the image grid
-3. The image opens in the **main preview area** (center of screen)
-4. The image is now loaded and ready for full-screen viewing
+1. **ファイルブラウザ**タブを表示していることを確認 <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
+2. 画像グリッド内の任意の**画像サムネイル**をクリック
+3. 画像が**メインプレビュー領域**（画面中央）に表示されます
+4. 画像が読み込まれ、フルスクリーン表示の準備が整います
 
-### Opening the Image Viewer Tab
+### イメージビューアタブの開く方法
 
-Once an image is loaded in the preview area:
+プレビュー領域に画像が読み込まれたら：
 
-1. Click the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> icon in the left sidebar
-2. The Image Viewer tab opens, displaying the selected image full-screen
-3. Advanced viewing and analysis tools become available in the left sidebar
-
-***
-
-## Image Viewer Interface Overview
-
-### Main Display Area
-
-The largest portion of the screen shows your image:
-
-* **Full resolution**: Images displayed at native resolution
-* **Zoomable**: Use controls or mouse wheel to zoom
-* **Pannable**: Click and drag to move around when zoomed
-* **Aspect ratio maintained**: Images scale proportionally
+1. 左サイドバーの**イメージビューア** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> アイコンをクリック
+2. イメージビューアタブが開き、選択した画像が全画面表示されます
+3. 左サイドバーに高度な表示・分析ツールが表示されます
 
 ***
 
-## Viewing Options
+## イメージビューアインターフェース概要
 
-### Basic Image Navigation
+### メイン表示領域
 
-#### Browse Through Images
+画面の大部分を占める画像表示領域：
 
-Navigate through your image set using keyboard shortcuts or buttons:
-
-* **Next image**: Click → button or press **→** (Right Arrow) key
-* **Previous image**: Click ← button or press **←** (Left Arrow) key
-* **Jump to specific image**: Return to File Browser and click desired thumbnail
-
-#### Zoom Controls
-
-Adjust magnification to inspect image details:
-
-**Zoom In:**
-
-* Click **+** (Plus) button
-* Press **+** or **=** key
-* Scroll mouse wheel **up**
-
-**Zoom Out:**
-
-* Click **−** (Minus) button
-* Press **−** (Minus) key
-* Scroll mouse wheel **down**
-
-**Fit to Screen:**
-
-* Click **↔** (Fit) button
-* Press **0** (Zero) key
-* Double-click on image
-
-#### Pan When Zoomed
-
-When zoomed in beyond screen size:
-
-1. Move mouse cursor over image
-2. Click and **hold left mouse button**
-3. **Drag** to move image around
-4. Release to stop panning
-
-**Alternative**: Use arrow keys to pan in small increments
+* **フル解像度**：ネイティブ解像度で表示
+* **ズーム可能**：コントロールまたはマウスホイールで拡大縮小
+* **パン可能**：ズーム時にクリック＆ドラッグで移動
+* **アスペクト比維持**：画像が比例して拡大縮小
 
 ***
 
-## Pixel Value Inspection
+## 表示オプション
 
-### Viewing Pixel Values at Cursor
+### 基本画像ナビゲーション
 
-As you move your mouse cursor over the image, pixel values display in real-time:
+#### 画像の閲覧
 
-**Value display location:**
+キーボードショートカットまたはボタンで画像セットを閲覧：
 
-* **Floating number and red line in right side index LUT gradient legend**
-* **When zoomed in further, floating value near cursor and highlighted pixel**
-* Shows values for pixel **under cursor or highlighted**
-* Updates as you move mouse
+* **次の画像**: →ボタンをクリック、または**→**（右矢印）キーを押す
+* **前の画像**: ←ボタンをクリック、または**←**（左矢印）キーを押す
+* **特定の画像へ移動**: ファイルブラウザに戻り、目的のサムネイルをクリック
 
-***
+#### ズーム操作
 
-## Image Types You Can View
+拡大率を調整して画像の詳細を確認:
 
-### Original Images (Pre-Processing)
+**拡大:**
 
-**RAW + JPG images from camera:**
+* **+**（プラス）ボタンをクリック
+* **+** または **=** キーを押す
+* マウスホイールを**上**にスクロール
 
-* Display RAW data as previewed
-* Show original, uncorrected values
-* Useful for checking image quality before processing
+**縮小:**
 
-### Calibrated Reflectance Images
+* **−**（マイナス）ボタンをクリック
+* **−**（マイナス）キーを押す
+* マウスホイールを**下**にスクロール
 
-**After processing:**
+**画面に合わせる:**
 
-* Vignette corrected
-* Reflectance calibrated
-* Multi-band TIFF (Red, Green, NIR, etc.)
-* Scientific data ready for analysis
+* **↔**（フィット）ボタンをクリック
+* **0**（ゼロ）キーを押す
+* 画像をダブルクリック
 
-### Index Images
+#### 拡大時のパン操作
 
-**NDVI, NDRE, GNDVI, etc. (\_NDVI.tif files):**
+画面サイズを超えて拡大した場合:
 
-* Single-band grayscale images
-* Pixel values represent index calculation results
-* Range typically -1 to +1 for normalized indices
-* Can apply color LUTs for visualization
+1. マウスカーソルを画像上に移動
+2. マウス左ボタンをクリックしたまま**保持**
+3. **ドラッグ**して画像を移動
+4. 離すと移動停止
 
-***
-
-## Index and LUT Application
-
-Apply multispectral indices and color Look-Up Tables:
-
-1. Locate **Index/LUT Sandbox** in **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sidebar
-2. Select vegetation index (NDVI, NDRE, etc.)
-3. Select multispectral formula, or create your own custom one (Chloros+ only)
-4. Apply color LUT gradient for visualization
-5. Adjust value ranges and thresholds
-
-See [Index/LUT Sandbox](index-lut-sandbox.md) for detailed instructions.
+**代替操作**: 矢印キーで微調整しながら移動
 
 ***
 
-## Keyboard Shortcuts
+## ピクセル値の検査
 
-### Navigation
+### カーソル位置のピクセル値表示
 
-* **→** (Right Arrow): Next image
-* **←** (Left Arrow): Previous image
-* **Home**: First image in list
-* **End**: Last image in list
+画像上でマウスカーソルを移動すると、ピクセル値がリアルタイムで表示されます:
 
-### Zoom
+**値表示位置:**
 
-* **+** or **=**: Zoom in
-* **−**: Zoom out
-* **0** (Zero): Fit to screen
-* **Mouse Wheel**: Zoom in/out
-
-### View Controls
-
-* **P**: Toggle pixel percent mode
-* **L**: Toggle layers panel
-* **Esc**: Close full-screen or return to File Browser
-
-### Other
-
-* **Ctrl+S**: Save current image
-* **F**: Full-screen mode (if available)
+* **右側インデックスLUTグラデーション凡例内の浮動小数点数と赤線**
+* **さらに拡大時：カーソル付近の浮動値とハイライトされたピクセル**
+* **カーソル下またはハイライトされたピクセル**の値を表示
+* マウス移動に伴い更新
 
 ***
 
-### Verifying Index Calculations
+## 表示可能な画像タイプ
 
-Check that indices calculated correctly:
+### オリジナル画像（前処理済み）
 
-1. Open NDVI or other index image
-2. Check vegetation areas:
-   * **NDVI**: Should show 0.4-0.9 for healthy plants
-   * **NDRE**: Higher values for vigorous growth
-   * **GNDVI**: Similar to NDVI but chlorophyll-sensitive
-3. Check non-vegetation:
-   * **Soil**: Near 0 or slightly negative
-   * **Water**: Negative values (-0.5 to 0)
+**カメラからのRAW + JPG画像：**
 
-***
+* RAWデータをプレビュー表示
+* 補正前のオリジナル値を表示
+* 処理前の画質確認に有用
 
-## Troubleshooting Viewing Issues
+### 補正済み反射率画像
 
-### Image Won't Open
+**処理後：**
 
-**Possible causes:**
+* ヴィネット補正済み
+* 反射率較正済み
+* マルチバンド TIFF (Red, Green, NIR, etc.)
+* 分析可能な科学データ
 
-* File corrupted during processing
-* Unsupported file format
-* Insufficient memory for large image
+### インデックス画像
 
-**Solutions:**
+**NDVI、NDRE、GNDVI など (\_NDVI.tif ファイル):**
 
-1. Try opening in external viewer to verify file integrity
-2. Check file format matches expected type
-3. Close other applications to free memory
-4. Try smaller/different image
-
-### Black or White Image Display
-
-**Possible causes:**
-
-* Value range outside display capability
-* 32-bit float image with unusual values
-* Index calculation error
-
-**Solutions:**
-
-1. Check pixel values - if all very low or very high, adjust display range
-2. Try opening in QGIS or similar with auto-range adjustment
-3. Check Debug Log from processing for errors
-
-### Pixel Values Seem Wrong
-
-**Possible causes:**
-
-* Viewing wrong image (original vs processed)
-* Calibration didn't apply correctly
-* Light sensor data wasn't included in input
-* Percent mode toggled incorrectly
-
-**Solutions:**
-
-1. Verify you're viewing processed output (check filename suffix)
-2. Check percent mode button state
-3. Compare with known-good images from same dataset
+* 単一バンドのグレースケール画像
+* ピクセル値は指標計算結果を表す
+* 通常、正規化指標の範囲は-1～+1
+* 可視化用にカラーLUTを適用可能
 
 ***
 
-## Next Steps
+## 指標とLUTの適用
 
-Now that you can view images full-screen:
+マルチスペクトル指標とカラールックアップテーブルを適用する手順：
 
-* [**Image Layers**](image-layers.md) - Learn about multi-band visualization
-* [**Index/LUT Sandbox**](index-lut-sandbox.md) - Apply custom indices and color mapping
-* [**Multispectral Index Formulas**](../project-settings/multispectral-index-formulas.md) - Understand available indices
+1. **画像ビューア**の**インデックス/LUTサンドボックス**を特定 <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> サイドバー
+2. 植生指数を選択（NDVI、NDREなど）
+3. マルチスペクトル計算式を選択、または独自のカスタム式を作成（Chloros+のみ）
+4. 可視化用にカラーLUTグラデーションを適用
+5. 値範囲と閾値を調整
 
-For processing workflow, see:
+詳細な手順は[インデックス/LUTサンドボックス](index-lut-sandbox.md)を参照。
 
-* [**Processing Images (GUI)**](../processing-images-gui/page-1.md) - Complete processing guide
+***
+
+## キーボードショートカット
+
+### ナビゲーション
+
+* **→**（右矢印）：次の画像
+* **←**（左矢印）：前の画像
+* **Home**：リストの最初の画像
+* **End**: リストの最終画像
+
+### ズーム
+
+* **+** または **=**: 拡大
+* **−**: 縮小
+* **0** (ゼロ): 画面に合わせる
+* **マウスホイール**: 拡大/縮小
+
+### 表示コントロール
+
+* **P**: ピクセルパーセントモードの切り替え
+* **L**: レイヤーパネルの表示/非表示
+* **Esc**: 全画面表示の終了またはファイルブラウザに戻る
+
+### その他
+
+* **Ctrl+S**: 現在の画像を保存
+* **F**: 全画面モード (利用可能な場合)
+
+***
+
+### インデックス計算の確認
+
+インデックスが正しく計算されていることを確認します：
+
+1. NDVI または他のインデックス画像を開く
+2. 植生領域を確認：
+   * **NDVI**: 健康な植物では 0.4-0.9 を示すべき
+   * **NDRE**: 活発な成長ではより高い値
+   * **GNDVI**: NDVIと同様だがクロロフィルに敏感
+3. 非植生領域を確認:
+   * **土壌**: 0付近またはわずかに負
+   * **水**: 負の値 (-0.5～0)
+
+***
+
+## 表示問題のトラブルシューティング
+
+### 画像が開かない
+
+**考えられる原因:**
+
+* 処理中にファイルが破損
+* サポートされていないファイル形式
+* 大型画像のメモリ不足
+
+**解決策:**
+
+1. 外部ビューアで開いてファイルの整合性を確認
+2. ファイル形式が想定タイプと一致するか確認
+3. 他のアプリケーションを閉じてメモリを解放
+4. 小さめ/別の画像で試す
+
+### 画像が黒または白で表示される
+
+**考えられる原因:**
+
+* 表示能力を超える値範囲
+* 異常な値を含む32ビット浮動小数点画像
+* インデックス計算エラー
+
+**解決策:**
+
+1. ピクセル値を確認 - 全てが極端に低い/高い場合、表示範囲を調整
+2. QGIS等の自動範囲調整機能付きソフトで開く
+3. 処理時のデバッグログでエラーを確認
+
+### ピクセル値が不自然
+
+**考えられる原因:**
+
+* 誤った画像を表示（オリジナルと処理済み）
+* キャリブレーションが正しく適用されていない
+* 入力データに光センサーデータが含まれていない
+* パーセントモードの切り替えが誤っている
+
+**解決策:**
+
+1. 処理済み出力ファイルを確認（ファイル名拡張子で判別）
+2. パーセントモードボタンの状態を確認
+3. 同一データセットの正常な画像と比較
+
+***
+
+## 次に取るべき手順
+
+フルスクリーン表示が可能になったので：
+
+* [**画像レイヤー**](image-layers.md) - マルチバンド可視化について学ぶ
+* [**インデックス/LUTサンドボックス**](index-lut-sandbox.md) - カスタムインデックスとカラーマッピングを適用
+* [**マルチスペクトルインデックス計算式**](../project-settings/multispectral-index-formulas.md) - 利用可能なインデックスを理解する
+
+処理ワークフローについては以下を参照:
+
+* [**画像処理 (GUI)**](../processing-images-gui/adding-files-to-a-project.md) - 完全な処理ガイド

@@ -1,165 +1,165 @@
-# Monitoring the Processing
+# 処理の監視
 
-Once processing has started, Chloros provides several ways to monitor progress, check for issues, and understand what's happening with your dataset. This page explains how to track your processing and interpret the information Chloros provides.
+処理が開始されると、Chlorosは進捗の監視、問題の確認、データセットの状態把握のための複数の方法を提供します。このページでは、処理の追跡方法とChlorosが提供する情報の解釈方法を説明します。
 
-## Progress Bar Overview
+## 進捗バーの概要
 
-The progress bar in the top header shows real-time processing status and completion percentage.
+上部ヘッダーの進捗バーは、リアルタイムの処理状況と完了率を表示します。
 
-### Free Mode Progress Bar
+### 無料モードの進捗バー
 
-For users without Chloros+ license:
+Chloros+ ライセンスをお持ちでないユーザー向け：
 
-**2-Stage Progress Display:**
+**2段階の進捗表示：**
 
-1. **Target Detect** - Finding calibration targets in images
-2. **Processing** - Applying corrections and exporting
+1. **ターゲット検出** - 画像内のキャリブレーションターゲットの検出
+2. **処理** - 補正の適用とエクスポート
 
-**Progress bar shows:**
+**プログレスバー表示内容：**
 
-* Overall completion percentage (0-100%)
-* Current stage name
-* Simple horizontal bar visualization
+* 総合完了率（0-100%）
+* 現在の段階名
+* 簡易水平バー表示
 
-### Chloros+ Progress Bar
+### Chloros+ プログレスバー
 
-For users with Chloros+ license:
+Chloros+ ライセンス保有ユーザー向け：
 
-**4-Stage Progress Display:**
+**4段階進捗表示：**
 
-1. **Detecting** - Finding calibration targets
-2. **Analyzing** - Examining images and preparing pipeline
-3. **Calibrating** - Applying vignette and reflectance corrections
-4. **Exporting** - Saving processed files
+1. **検出** - キャリブレーションターゲットの探索
+2. **解析** - 画像の検証と処理パイプラインの準備
+3. **キャリブレーション** - ビネット補正と反射率補正の適用
+4. **エクスポート** - 処理済みファイルの保存
 
-**Interactive Features:**
+**インタラクティブ機能:**
 
-* **Hover over** progress bar to see expanded 4-stage panel
-* **Click** progress bar to freeze/pin the expanded panel
-* **Click again** to unfreeze and auto-hide on mouse leave
-* Each stage shows individual progress (0-100%)
-
-***
-
-## Understanding Each Processing Stage
-
-### Stage 1: Detecting (Target Detection)
-
-**What's happening:**
-
-* Chloros scans images marked with Target checkbox
-* Computer vision algorithms identify the 4 calibration panels
-* Reflectance values extracted from each panel
-* Target timestamps recorded for proper calibration scheduling
-
-**Duration:**
-
-* With marked targets: 10-60 seconds
-* Without marked targets: 5-30+ minutes (scans all images)
-
-**Progress indicator:**
-
-* Detecting: 0% → 100%
-* Number of images scanned
-* Targets found count
-
-**What to watch for:**
-
-* Should complete quickly if targets properly marked
-* If taking too long, targets may not be marked
-* Check Debug Log for "Target found" messages
-
-### Stage 2: Analyzing
-
-**What's happening:**
-
-* Reading image EXIF metadata (timestamps, exposure settings)
-* Determining calibration strategy based on target timestamps
-* Organizing image processing queue
-* Preparing parallel processing workers (Chloros+ only)
-
-**Duration:** 5-30 seconds
-
-**Progress indicator:**
-
-* Analyzing: 0% → 100%
-* Fast stage, usually completes quickly
-
-**What to watch for:**
-
-* Should progress steadily without pauses
-* Warnings about missing metadata will appear in Debug Log
-
-### Stage 3: Calibrating
-
-**What's happening:**
-
-* **Debayering**: Converting RAW Bayer pattern to 3 channels
-* **Vignette correction**: Removing lens edge darkening
-* **Reflectance calibration**: Normalizing with target values
-* **Index calculation**: Computing multispectral indices
-* Processing each image through the full pipeline
-
-**Duration:** Majority of total processing time (60-80%)
-
-**Progress indicator:**
-
-* Calibrating: 0% → 100%
-* Current image being processed
-* Images completed / Total images
-
-**Processing behavior:**
-
-* **Free mode**: Processes one image at a time sequentially
-* **Chloros+ mode**: Processes up to 16 images simultaneously
-* **GPU acceleration**: Significantly speeds up this stage
-
-**What to watch for:**
-
-* Steady progress through image count
-* Check Debug Log for per-image completion messages
-* Warnings about image quality or calibration issues
-
-### Stage 4: Exporting
-
-**What's happening:**
-
-* Writing calibrated images to disk in selected format
-* Exporting multispectral index images with LUT colors
-* Creating camera model subfolders
-* Preserving original filenames with appropriate suffixes
-
-**Duration:** 10-20% of total processing time
-
-**Progress indicator:**
-
-* Exporting: 0% → 100%
-* Files being written
-* Export format and destination
-
-**What to watch for:**
-
-* Disk space warnings
-* File write errors
-* Completion of all configured outputs
+* 進捗バーに**カーソルを合わせる**と展開された4段階パネルが表示
+* **クリック** で展開パネルを固定/ピン留め
+* **再度クリック** で固定解除、マウス離し時に自動非表示
+* 各段階の個別進捗表示 (0-100%)
 
 ***
 
-## Debug Log Tab
+## 各処理段階の解説
 
-The Debug Log provides detailed information about processing progress and any issues encountered.
+### 段階1: 検出 (ターゲット検出)
 
-### Accessing the Debug Log
+**処理内容:**
 
-1. Click the **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> icon in the left sidebar
-2. Log panel opens showing real-time processing messages
-3. Auto-scrolls to show latest messages
+* Chlorosがターゲットチェックボックス付き画像をスキャン
+* コンピュータビジョンアルゴリズムが4つのキャリブレーションパネルを識別
+* 各パネルから反射率値を抽出
+* 正確なキャリブレーションスケジュールのためターゲットタイムスタンプを記録
 
-### Understanding Log Messages
+**所要時間:**
 
-#### Information Messages (White/Gray)
+* ターゲットマークあり: 10～60秒
+* ターゲットマークなし: 5～30分以上（全画像スキャン）
 
-Normal processing updates:
+**進捗インジケーター:**
+
+* 検出中: 0% → 100%
+* スキャン済み画像数
+* 検出済みターゲット数
+
+**確認事項:**
+
+* ターゲットが正しくマークされていれば迅速に完了する
+* 時間がかかりすぎる場合、ターゲットがマークされていない可能性がある
+* デバッグログで「ターゲット検出」メッセージを確認
+
+### ステージ2: 分析
+
+**処理内容:**
+
+* 画像のEXIFメタデータ（タイムスタンプ、露出設定）を読み込み
+* ターゲットのタイムスタンプに基づきキャリブレーション戦略を決定
+* 画像処理キューを整理
+* 並列処理ワーカーの準備（Chloros+のみ）
+
+**所要時間:** 5～30秒
+
+**進行状況インジケーター:**
+
+* 分析中: 0% → 100%
+* 高速ステージ、通常は短時間で完了
+
+**確認事項:**
+
+* 停止なく着実に進行するべき
+* メタデータ欠落に関する警告はデバッグログに表示
+
+### ステージ3: キャリブレーション
+
+**処理内容:**
+
+* **デベイヤー処理**: RAWベイヤーパターンを3色チャンネルに変換
+* **ビネット補正**: レンズ周辺部の暗化を除去
+* **反射率キャリブレーション**: 目標値で正規化
+* **インデックス計算**: マルチスペクトルインデックスを算出
+* 全画像をフルパイプラインで処理
+
+**所要時間:** 総処理時間の大半 (60-80%)
+
+**進行状況インジケーター:**
+
+* 較正中: 0% → 100%
+* 現在処理中の画像
+* 完了画像数 / 総画像数
+
+**処理動作:**
+
+* **フリーモード**: 画像を1枚ずつ順次処理
+* **Chloros+モード**: 最大16枚を同時処理
+* **GPUアクセラレーション**: この段階を大幅に高速化
+
+**確認事項:**
+
+* 画像数の着実な進行
+* デバッグログで画像ごとの完了メッセージを確認
+* 画像品質やキャリブレーション問題に関する警告
+
+### ステージ4: エクスポート
+
+**処理内容:**
+
+* 選択した形式でキャリブレーション済み画像をディスクに書き込み
+* LUTカラーによるマルチスペクトルインデックス画像をエクスポート
+* カメラモデル別サブフォルダを作成
+* 適切なサフィックス付きで元のファイル名を保持
+
+**所要時間:** 総処理時間の10～20%
+
+**進行状況インジケーター:**
+
+* エクスポート中: 0% → 100%
+* 書き込み中のファイル
+* エクスポート形式と保存先
+
+**確認事項:**
+
+* ディスク容量警告
+* ファイル書き込みエラー
+* 設定済み出力の全完了状況
+
+***
+
+## デバッグログタブ
+
+デバッグログは処理の進捗状況や発生した問題に関する詳細情報を提供します。
+
+### デバッグログのアクセス方法
+
+1. 左サイドバーの**デバッグログ** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> アイコンをクリック
+2. リアルタイム処理メッセージを表示するログパネルが開く
+3. 最新メッセージを表示するため自動スクロール
+
+### ログメッセージの理解
+
+#### 情報メッセージ (白/灰色)
+
+通常の処理更新:
 
 ```
 [INFO] Processing started
@@ -169,9 +169,9 @@ Normal processing updates:
 [INFO] Processing complete
 ```
 
-#### Warning Messages (Yellow)
+#### 警告メッセージ (黄色)
 
-Non-critical issues that don't stop processing:
+処理を停止しない非重大な問題：
 
 ```
 [WARN] No GPS data found in IMG_0145.RAW
@@ -179,11 +179,11 @@ Non-critical issues that don't stop processing:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Action:** Review warnings after processing, but don't interrupt
+**対応：** 処理後に警告を確認するが、中断しない
 
-#### Error Messages (Red)
+#### エラーメッセージ (Red)
 
-Critical issues that may cause processing to fail:
+処理失敗の原因となる重大な問題：
 
 ```
 [ERROR] Cannot write file - disk full
@@ -191,202 +191,202 @@ Critical issues that may cause processing to fail:
 [ERROR] No targets detected - enable reflectance calibration or mark target images
 ```
 
-**Action:** Stop processing, resolve error, restart
+**対応:** 処理を停止し、エラーを解決して再起動
 
-### Common Log Messages
+### 一般的なログメッセージ
 
-| Message                          | Meaning                                | Action Needed                                         |
+| メッセージ                          | 意味                                 | 必要な対応                                         |
 | -------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| "Target detected in \[filename]" | Calibration target found successfully  | None - normal                                         |
-| "Processing image X of Y"        | Current progress update                | None - normal                                         |
-| "No targets found"               | No calibration targets detected        | Mark target images or disable reflectance calibration |
-| "Insufficient disk space"        | Not enough storage for output          | Free up disk space                                    |
-| "Skipping corrupted file"        | Image file is damaged                  | Re-copy file from SD card                             |
-| "PPK data applied"               | GPS corrections from .daq file applied | None - normal                                         |
+| &quot;\[ファイル名\]でターゲットを検出&quot; | キャリブレーションターゲットを正常に検出 | 不要 - 正常 |
+| &quot;Y枚中X枚目の画像を処理中&quot;        | 現在の進捗更新                 | 不要 - 正常 |
+| &quot;ターゲットが見つかりません&quot;    | キャリブレーションターゲットを検出せず | ターゲット画像をマークするか反射率キャリブレーションを無効化 |
+| &quot;ディスク容量不足&quot;             | 出力用ストレージ不足                  | ディスク容量を解放                                    |
+| &quot;破損ファイルをスキップ&quot;         | 画像ファイルが損傷                   | SDカードからファイルを再コピー                             |
+| &quot;PPKデータ適用&quot;               | .daqファイルからのGPS補正を適用 | なし - 正常                                         |
 
-### Copying Log Data
+### ログデータのコピー
 
-To copy log for troubleshooting or support:
+トラブルシューティングやサポート用にログをコピーするには：
 
-1. Open Debug Log panel
-2. Click **"Copy Log"** button (or right-click → Select All)
-3. Paste into text file or email
-4. Send to MAPIR support if needed
-
-***
-
-## System Resource Monitoring
-
-### CPU Usage
-
-**Free Mode:**
-
-* 1 CPU core at \~100%
-* Other cores idle or available
-* System remains responsive
-
-**Chloros+ Parallel Mode:**
-
-* Multiple cores at 80-100% (up to 16 cores)
-* High overall CPU utilization
-* System may feel less responsive
-
-**To monitor:**
-
-* Windows Task Manager (Ctrl+Shift+Esc)
-* Performance tab → CPU section
-* Look for "Chloros" or "chloros-backend" processes
-
-### Memory (RAM) Usage
-
-**Typical usage:**
-
-* Small projects (< 100 images): 2-4 GB
-* Medium projects (100-500 images): 4-8 GB
-* Large projects (500+ images): 8-16 GB
-* Chloros+ parallel mode uses more RAM
-
-**If memory is low:**
-
-* Process smaller batches
-* Close other applications
-* Upgrade RAM if regularly processing large datasets
-
-### GPU Usage (Chloros+ with CUDA)
-
-When GPU acceleration is enabled:
-
-* NVIDIA GPU shows high utilization (60-90%)
-* VRAM usage increases (requires 4GB+ VRAM)
-* Calibrating stage is significantly faster
-
-**To monitor:**
-
-* NVIDIA System Tray icon
-* Task Manager → Performance → GPU
-* GPU-Z or similar monitoring tool
-
-### Disk I/O
-
-**What to expect:**
-
-* High disk read during Analyzing stage
-* High disk write during Exporting stage
-* SSD significantly faster than HDD
-
-**Performance tip:**
-
-* Use SSD for project folder when possible
-* Avoid network drives for large datasets
-* Ensure disk isn't near capacity (affects write speed)
+1. デバッグログパネルを開く
+2. **「ログをコピー」**ボタンをクリック（または右クリック → 全選択）
+3. テキストファイルまたはメールに貼り付ける
+4. 必要に応じてMAPIRサポートに送信
 
 ***
 
-## Detecting Problems During Processing
+## システムリソース監視
 
-### Warning Signs
+### CPU使用率
 
-**Progress stalls (no change for 5+ minutes):**
+**フリーモード:**
 
-* Check Debug Log for errors
-* Verify disk space available
-* Check Task Manager to ensure Chloros is running
+* 1つのCPUコアが\~100%
+* 他のコアはアイドル状態または利用可能
+* システムは応答性を維持
 
-**Error messages appear frequently:**
+**Chloros+ 並列モード:**
 
-* Stop processing and review errors
-* Common causes: disk space, corrupted files, memory issues
-* See Troubleshooting section below
+* 複数のコアが80-100%（最大16コア）
+* 全体的なCPU使用率が高い
+* システムの応答性が低下する場合あり
 
-**System becomes unresponsive:**
+**監視方法:**
 
-* Chloros+ parallel mode using too many resources
-* Consider reducing concurrent tasks or upgrading hardware
-* Free mode is less resource-intensive
+* Windows タスクマネージャー (Ctrl+Shift+Esc)
+* パフォーマンスタブ → CPUセクション
+* 「Chloros」または「chloros-backend」プロセスを確認
 
-### When to Stop Processing
+### メモリ(RAM)使用率
 
-Stop processing if you see:
+**標準的な使用量:**
 
-* ❌ "Disk full" or "Cannot write file" errors
-* ❌ Repeated image file corruption errors
-* ❌ System completely frozen (not responding)
-* ❌ Realized wrong settings were configured
-* ❌ Wrong images imported
+* 小規模プロジェクト（100枚未満の画像）：2～4 GB
+* 中規模プロジェクト（100～500枚の画像）：4～8 GB
+* 大規模プロジェクト（500枚以上の画像）：8～16 GB
+* Chloros+並列モードではより多くのRAMを使用
 
-**How to stop:**
+**メモリ不足の場合:**
 
-1. Click **Stop/Cancel button** (replaces Start button)
-2. Processing halts, progress is lost
-3. Fix issues and restart from beginning
+* 処理バッチを小さくする
+* 他のアプリケーションを閉じる
+* 大規模データセットを定期的に処理する場合はRAMを増設する
 
-***
+### GPU使用量（CUDA搭載のChloros+）
 
-## Troubleshooting During Processing
+GPUアクセラレーション有効時:
 
-### Processing is Very Slow
+* NVIDIA GPUの利用率が高くなる（60-90%）
+* VRAM使用量が増加（4GB以上のVRAMが必要）
+* キャリブレーション段階が大幅に高速化
 
-**Possible causes:**
+**監視方法：**
 
-* Unmarked target images (scanning all images)
-* HDD instead of SSD storage
-* Insufficient system resources
-* Many indices configured
-* Network drive access
+* NVIDIAシステムトレイアイコン
+* タスクマネージャー → パフォーマンス → GPU
+* GPU-Zなどの監視ツール
 
-**Solutions:**
+### ディスクI/O
 
-1. If just started and in Detecting stage: Cancel, mark targets, restart
-2. For future: Use SSD, reduce indices, upgrade hardware
-3. Consider CLI for batch processing large datasets
+**想定される動作：**
 
-### "Disk Space" Warnings
+* 解析段階でディスク読み取りが急増
+* エクスポート段階でディスク書き込みが急増
+* SSDはHDDより大幅に高速
 
-**Solutions:**
+**パフォーマンス向上策:**
 
-1. Free up disk space immediately
-2. Move project to drive with more space
-3. Reduce number of indices to export
-4. Use JPG format instead of TIFF (smaller files)
-
-### Frequent "Corrupted File" Messages
-
-**Solutions:**
-
-1. Re-copy images from SD card to ensure integrity
-2. Test SD card for errors
-3. Remove corrupted files from project
-4. Continue processing remaining images
-
-### System Overheating / Throttling
-
-**Solutions:**
-
-1. Ensure adequate ventilation
-2. Clean dust from computer vents
-3. Reduce processing load (use Free mode instead of Chloros+)
-4. Process during cooler times of day
+* 可能ならプロジェクトフォルダにSSDを使用
+* 大容量データセットではネットワークドライブを避ける
+* ディスク容量が限界に近づいていないことを確認（書き込み速度に影響）
 
 ***
 
-## Processing Complete Notification
+## 処理中の問題検出
 
-When processing finishes:
+### 警告サイン
 
-* Progress bar reaches 100%
-* **"Processing Complete"** message appears in Debug Log
-* Start button becomes enabled again
-* All output files are in camera model subfolder
+**処理が停止（5分以上変化なし）:**
+
+* デバッグログでエラーを確認
+* ディスク空き容量を検証
+* タスクマネージャーでChlorosが実行中か確認
+
+**エラーメッセージが頻繁に表示される:**
+
+* 処理を停止しエラーを確認
+* 一般的な原因: ディスク容量不足、ファイル破損、メモリ問題
+* 下記トラブルシューティングセクションを参照
+
+**システムが応答しなくなる場合：**
+
+* Chloros+ 並列モードがリソースを過剰に消費
+* 同時タスク数の削減またはハードウェアのアップグレードを検討
+* フリーモードはリソース消費が少ない
+
+### 処理を停止すべき場合
+
+以下の現象が発生した場合は処理を停止してください：
+
+* ❌ 「ディスク容量不足」または「ファイル書き込み不可」エラー
+* ❌ 画像ファイル破損エラーが繰り返し発生
+* ❌ システムが完全にフリーズ（応答なし）
+* ❌ 誤った設定が構成されていることに気付いた
+* ❌ 誤った画像がインポートされた
+
+**停止方法:**
+
+1. **停止/キャンセルボタン**をクリック（開始ボタンの代わり）
+2. 処理が停止し、進行状況は失われます
+3. 問題を修正し、最初から再実行してください
 
 ***
 
-## Next Steps
+## 処理中のトラブルシューティング
 
-Once processing completes:
+### 処理が非常に遅い場合
 
-1. **Review results** - See [Finishing the Processing](finishing-the-processing.md)
-2. **Check output folder** - Verify all files exported correctly
-3. **Review Debug Log** - Check for any warnings or errors
-4. **Preview processed images** - Use Image Viewer or external software
+**考えられる原因:**
 
-For information about reviewing and using your processed results, see [Finishing the Processing](finishing-the-processing.md).
+* 対象画像が未指定（全画像スキャン中）
+* SSDではなくHDDストレージの使用
+* システムリソース不足
+* 設定されたインデックス数が多すぎる
+* ネットワークドライブへのアクセス
+
+**解決策:**
+
+1. 処理開始直後で検出段階の場合：キャンセル→対象画像を選択→再起動
+2. 今後の対策：SSDの使用、インデックス削減、ハードウェアのアップグレード
+3. 大規模データセットのバッチ処理にはCLIの使用を検討
+
+### 「ディスク容量不足」警告
+
+**解決策：**
+
+1. すぐにディスク容量を解放
+2. プロジェクトを空き容量の多いドライブに移動
+3. エクスポートするインデックス数を減らす
+4. TIFFの代わりにJPG形式を使用（ファイルサイズが小さい）
+
+### 頻繁な「ファイル破損」メッセージ
+
+**解決策:**
+
+1. 完全性を確保するためSDカードから画像を再コピー
+2. SDカードのエラーをテスト
+3. プロジェクトから破損ファイルを削除
+4. 残りの画像の処理を継続
+
+### システムの過熱／スロットリング
+
+**解決策:**
+
+1. 十分な換気を確保する
+2. コンピュータの通気口からほこりを除去する
+3. 処理負荷を軽減する（Chloros+の代わりにFreeモードを使用）
+4. 1日のうち気温が低い時間帯に処理を行う
+
+***
+
+## 処理完了通知
+
+処理が終了すると:
+
+* 進捗バーが100%に達する
+* デバッグログに**「処理完了」**メッセージが表示される
+* 開始ボタンが再び有効になる
+* 全出力ファイルがカメラモデルサブフォルダ内に存在する
+
+***
+
+## 次に取るべき手順
+
+処理完了後：
+
+1. **結果の確認** - [処理の完了](finishing-the-processing.md)を参照
+2. **出力フォルダを確認** - 全てのファイルが正しくエクスポートされていることを確認
+3. **デバッグログを確認** - 警告やエラーがないかチェック
+4. **処理済み画像をプレビュー** - イメージビューアまたは外部ソフトウェアを使用
+
+処理結果の確認と使用方法については、[処理の完了](finishing-the-processing.md)を参照してください。

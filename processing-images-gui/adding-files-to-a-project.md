@@ -1,204 +1,204 @@
-# Adding Files to a Project
+# プロジェクトへのファイル追加
 
-Once you've created or opened a project in Chloros, the next step is to add your multispectral images to begin processing. The File Browser<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> tab makes it easy to import images and manage your dataset.
+Chlorosでプロジェクトを作成または開いたら、次にマルチスペクトル画像を追加して処理を開始します。ファイルブラウザ<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> タブを使用すると、画像のインポートやデータセットの管理が簡単に行えます。
 
-## Accessing the File Browser
+## ファイルブラウザへのアクセス方法
 
-1. Open or create a project in Chloros
-2. Click the **File Browser** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> icon in the left sidebar
-3. The File Browser panel will display your project's file list
+1. Chlorosでプロジェクトを開くか作成する
+2. 左サイドバーの**ファイルブラウザ** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> アイコンをクリック
+3. ファイルブラウザパネルにプロジェクトのファイル一覧が表示されます
 
-{% hint style="info" %}
-**Supported File Types**: Chloros supports RAW+JPG and JPG image files from MAPIR Survey3W and Survey3N cameras. Only RAW+JPG are recommended.
+{%ヒント style=&quot;info&quot; %}
+**対応ファイル形式**: Chloros は MAPIR Survey3W および Survey3N カメラの RAW+JPG および JPG 画像ファイルに対応しています。RAW+JPG 形式のみ推奨されます。
 {% endhint %}
 
 ***
 
-## Adding Images to Your Project
+## プロジェクトへの画像追加
 
-There are two primary ways to add images to your project:
+プロジェクトに画像を追加する主な方法は2つあります：
 
-### Method 1: Add Files
+### 方法1：ファイルの追加
 
-Use this option to import individual image files or a small selection of files.
+個別の画像ファイルまたは少数のファイルを選択してインポートする場合に使用します。
 
-1. Click the **"Add Files"** button at the top of the File Browser panel
-2. Navigate to the folder containing your images
-3. Select one or more image files (hold **Ctrl** to select multiple files)
-4. Click **"Open"** to import the selected files
+1. ファイルブラウザパネル上部の**「ファイルを追加」**ボタンをクリック
+2. 画像ファイルが保存されているフォルダに移動
+3. 1つ以上の画像ファイルを選択（複数選択時は**Ctrl**キーを押しながらクリック）
+4. **「開く」**をクリックして選択ファイルをインポート
 
-### Method 2: Add Folder
+### 方法2: フォルダを追加
 
-Use this option to import all images from a folder at once.
+フォルダ内の全画像を一度にインポートする場合に使用します。
 
-1. Click the **"Add Folder"** button at the top of the File Browser panel
-2. Navigate to and select the folder containing your capture session images
-3. Click **"Select Folder"** to import all supported images from that folder
-
-***
-
-## Understanding the File Browser Table
-
-Once images are imported, they appear in a table with the following columns:
-
-### Thumbnail
-
-* Small preview of each image
-* Click thumbnail to view full image in the main preview area
-
-### File Name
-
-* Original filename from the camera
-* Maintains camera naming convention (e.g., IMG\_0001.RAW)
-
-### Timestamp
-
-* Date and time the image was captured
-* Extracted from image EXIF metadata
-* Used for PPK synchronization and calibration target detection
-
-### Camera Model
-
-* Automatically detected camera and filter configuration
-* Examples: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
-* Used to apply correct processing profiles
-
-### Target Column (Checkbox)
-
-* Check this box for images that contain calibration targets
-* Greatly speeds up target detection during processing
-* See [Choosing Target Images](choosing-target-images.md) for details
+1. ファイルブラウザパネル上部の**「フォルダを追加」**ボタンをクリック
+2. キャプチャセッション画像を含むフォルダに移動して選択
+3. **「フォルダを選択」**をクリックし、そのフォルダ内のサポート対象画像をすべてインポート
 
 ***
 
-## Managing Files in Your Project
+## ファイルブラウザテーブルの理解
 
-### Removing Files
+画像がインポートされると、以下の列を持つテーブルに表示されます：
 
-To remove unwanted images from your project:
+### サムネイル
 
-1. Select one or more images in the File Browser table
-2. Click the **"Remove Selected"** button
-3. Confirm removal (files are not deleted from disk, only removed from the project)
+* 各画像の小さなプレビュー
+* サムネイルをクリックするとメインプレビュー領域で画像全体を表示
 
-### Sorting and Filtering
+### ファイル名
 
-* **Sort by column**: Click any column header to sort images
-* **Timestamp sort**: Useful for organizing chronological capture sequences
-* **Camera model filter**: Group images by camera type if using multiple cameras
+* カメラからの元のファイル名
+* カメラの命名規則を維持（例: IMG\_0001.RAW）
 
-***
+### タイムスタンプ
 
-## Image Preview
+* 画像が撮影された日時
+* 画像のEXIFメタデータから抽出
+* PPK同期およびキャリブレーションターゲット検出に使用
 
-### Viewing Full Image
+### カメラモデル
 
-Click any image thumbnail in the File Browser to display it in the main preview area:
+* 自動検出されたカメラとフィルターの構成
+* 例: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
+* 正しい処理プロファイルを適用するために使用
 
-1. Image appears in the center preview panel
-2. Use zoom controls to inspect image details
-3. Navigate between images using arrow keys
+### ターゲット列（チェックボックス）
 
-### Quick Navigation
-
-* **Previous Image**: Click left arrow or press ← key
-* **Next Image**: Click right arrow or press → key
-* **Zoom In/Out**: Use mouse wheel or zoom buttons
-* **Pan**: Click and drag on image when zoomed in
+* キャリブレーションターゲットを含む画像にチェック
+* 処理中のターゲット検出を大幅に高速化
+* 詳細は[ターゲット画像の選択](choosing-target-images.md)を参照
 
 ***
 
-## Duplicate File Handling
+## プロジェクト内のファイル管理
 
-Chloros automatically detects and ignores duplicate files:
+### ファイルの削除
 
-* Files with identical filenames are skipped
-* Prevents accidental double-processing
-* Warning message displayed when duplicates are detected
+プロジェクトから不要な画像を削除するには：
 
-{% hint style="warning" %}
-**Important**: Do not rename or modify your original image files before importing. Chloros relies on original filenames and metadata for proper processing.
+1. ファイルブラウザのテーブルで1つ以上の画像を選択
+2. **「選択した画像を削除」**ボタンをクリック
+3. 削除を確認（ファイルはディスクから削除されず、プロジェクトから除外されるのみ）
+
+### 並べ替えとフィルタリング
+
+* **列で並べ替え**：任意の列ヘッダーをクリックして画像を並べ替え
+* **タイムスタンプ順**：撮影順序で整理するのに便利
+* **カメラモデルフィルター**：複数カメラ使用時、カメラタイプ別に画像をグループ化
+
+***
+
+## 画像プレビュー
+
+### 画像のフル表示
+
+ファイルブラウザの画像サムネイルをクリックすると、メインプレビュー領域に表示されます：
+
+1. 画像が中央のプレビューパネルに表示されます
+2. ズームコントロールで画像の詳細を確認
+3. 矢印キーで画像間を移動
+
+### クイックナビゲーション
+
+* **前の画像**: 左矢印をクリックまたは←キーを押す
+* **次の画像**: 右矢印をクリックまたは→キーを押す
+* **ズームイン/アウト**: マウスホイールまたはズームボタンを使用
+* **パン**: 拡大表示時に画像上でクリック＆ドラッグ
+
+***
+
+## 重複ファイル処理
+
+Chlorosは重複ファイルを自動検出・無視します：
+
+* 同一ファイル名はスキップ
+* 誤った二重処理を防止
+* 重複検出時は警告メッセージを表示
+
+{% hint style=&quot;warning&quot; %}
+**重要**: 取り込み前に元の画像ファイルの名前変更や修正を行わないでください。Chlorosは適切な処理のために元のファイル名とメタデータに依存しています。
 {% endhint %}
 
 ***
 
-## Mixed Camera Datasets
+## 混合カメラデータセット
 
-If your project contains images from multiple MAPIR cameras:
+プロジェクトに複数のカメラの画像が含まれる場合:
 
-1. Chloros automatically detects each camera model
-2. Each camera type is processed with its appropriate calibration profile
-3. File Browser displays camera model in the Camera Model column
-4. Processing applies correct settings for each camera type
+1. Chloros が各カメラモデルを自動検出
+2. 各カメラタイプは適切なキャリブレーションプロファイルで処理
+3. ファイルブラウザの「カメラモデル」列にカメラモデルを表示
+4. 各カメラタイプに正しい設定を適用
 
-**Example scenario**: Survey3W RGN + Survey3N OCN dual-camera setup
-
-***
-
-## Best Practices
-
-### Organize Before Import
-
-* Keep calibration target images in the same folder as survey images
-* Maintain original folder structure from your camera/SD card
-* Don't mix datasets from different sessions in one project
-
-### File Naming
-
-* Preserve original camera filenames (IMG\_0001.RAW, etc.)
-* Don't rename files before import
-* Original names contain important metadata
-
-### Calibration Target Images
-
-* Always include 1-2 calibration target images per session
-* Capture targets before and after the capture session
-* Place targets in the same lighting conditions as capture area
-* Mark target images using the Target checkbox to speed up processing
+**使用例**: Survey3W + Survey3N + OCN デュアルカメラ構成
 
 ***
 
-## Common Issues and Solutions
+## ベストプラクティス
 
-### Images Not Appearing After Import
+### インポート前の整理
 
-**Possible causes:**
+* キャリブレーションターゲット画像は調査画像と同じフォルダに保管
+* カメラ/SDカードの元のフォルダ構造を維持
+* 異なるセッションのデータセットを1つのプロジェクトで混在させない
 
-* File format not supported (only RAW+JPG and JPG from MAPIR cameras)
-* Images are from non-MAPIR cameras (see [Supported Cameras](../supported-cameras.md))
-* File corruption or incomplete transfer from SD card
+### ファイル命名
 
-**Solution**: Verify file format and camera model compatibility
+* カメラの元のファイル名（IMG\_0001.RAWなど）を保持
+* インポート前にファイル名を変更しない
+* 元の名前には重要なメタデータが含まれる
 
-### Camera Model Not Detected
+### キャリブレーションターゲット画像
 
-**Possible causes:**
-
-* Modified EXIF metadata
-* Images edited in external software
-* Incomplete file transfer
-
-**Solution**: Re-import original, unmodified files from camera/SD card
-
-### Missing Timestamps
-
-**Possible causes:**
-
-* Camera clock not set correctly
-* EXIF data stripped by external software
-
-**Solution**: Verify camera time settings were correct during capture
+* セッションごとに必ず1～2枚のキャリブレーションターゲット画像を含める
+* キャプチャセッションの前後でターゲットを撮影する
+* ターゲットを撮影エリアと同じ照明条件下に配置する
+* 処理を高速化するため、ターゲット画像には「ターゲット」チェックボックスを適用する
 
 ***
 
-## Next Steps
+## よくある問題と解決策
 
-Once your files are imported:
+### インポート後に画像が表示されない
 
-1. **Review the file list** - Ensure all images loaded correctly
-2. **Check camera models** - Verify correct camera detection
-3. **Mark target images** - See [Choosing Target Images](choosing-target-images.md)
-4. **Adjust settings** - Configure processing options in [Project Settings](adjusting-project-settings.md)
-5. **Start processing** - See [Starting the Processing](starting-the-processing.md)
+**考えられる原因:**
 
-For detailed information about project configuration, see [Adjusting Project Settings](adjusting-project-settings.md).
+* ファイル形式が非対応（MAPIRカメラのRAW+JPGおよびJPGのみ対応）
+* MAPIR以外のカメラで撮影された画像（[対応カメラ](../supported-cameras.md)参照）
+* ファイル破損またはSDカードからの転送不完全
+
+**解決策：** ファイル形式とカメラモデルの互換性を確認
+
+### カメラモデルが検出されない
+
+**考えられる原因：**
+
+* EXIFメタデータが変更されている
+* 外部ソフトウェアで画像が編集されている
+* ファイル転送が不完全
+
+**解決策：** カメラ/SDカードから元の未変更ファイルを再インポート
+
+### タイムスタンプが欠落している
+
+**考えられる原因：**
+
+* カメラ時計の設定誤り
+* 外部ソフトウェアによるEXIFデータ削除
+
+**解決策**: 撮影時のカメラ時刻設定が正しいことを確認
+
+***
+
+## 次に取るべき手順
+
+ファイルのインポート完了後:
+
+1. **ファイルリストの確認** - 全ての画像が正しく読み込まれたことを確認
+2. **カメラモデルの検証** - 正しいカメラ検出を確認
+3. **対象画像のマーク付け** - [対象画像の選択](choosing-target-images.md) を参照
+4. **設定の調整** - [プロジェクト設定](adjusting-project-settings.md) で処理オプションを構成
+5. **処理を開始** - [処理の開始](starting-the-processing.md)を参照
+
+プロジェクト設定の詳細については、[プロジェクト設定の調整](adjusting-project-settings.md)を参照してください。

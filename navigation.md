@@ -1,47 +1,45 @@
 # GUI : ナビゲーション
 
-初めて Chloros と Chloros (ブラウザ) を起動すると、バックエンドが起動します。準備が完了すると、左上のメイン メニュー アイコン <img src=".gitbook/assets/image (1).png" alt="" data-size="line"> が表示されます。
+Chloros および Chloros (ブラウザ) を初めて起動すると、バックエンドが起動します。準備が整うと、左上のメインメニューアイコンが表示されます <img src=".gitbook/assets/image (1).png" alt="" data-size="line"> .
 
 <figure><img src=".gitbook/assets/header.JPG" alt=""><figcaption></figcaption></figure>
 
-上部ヘッダーには左から右に次の内容が含まれます。
+左から右へ、上部ヘッダーには以下の項目が含まれます：
 
 ### <img src=".gitbook/assets/image (1) (1).png" alt="" data-size="line"> メインメニュー
 
-メイン メニューから、新しいプロジェクトを開始したり、既存のプロジェクトを開いたり、プロジェクト フォルダーを開くことができます。
+メインメニューから新規プロジェクトの作成、既存プロジェクトの開く、プロジェクトフォルダの開くが可能です。
 
 ### <img src=".gitbook/assets/image (2).png" alt="" data-size="line"> 再生/開始ボタン
 
-有効にすると、処理開始ボタンは画像処理パイプラインを開始します。
+有効化されている場合、この処理開始ボタンで画像処理パイプラインが開始されます。
 
-### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> プログレスバー <img src=".gitbook/assets/image (5).png" alt="" data-size="line">
+### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> 進行状況バー <img src=".gitbook/assets/image (5).png" alt="" data-size="line">無料版Chlorosモード（全ファイルを順次処理）では、進行状況バーは2段階（ターゲット検出と処理）を表示します。
 
-すべてのファイルを順番に処理する無料の Chloros モードでは、進行状況バーにターゲット検出と処理の 2 つのステージが表示されます。
-
-すべてのファイルを同時に処理する有料の Chloros+ ライセンス モードでは、進行状況バーに検出、分析、調整、エクスポートの 4 つの段階が表示されます。 Chloros+ プログレス バーの上にマウス カーソルを置くと、拡張 4 プログレス バー パネルがドロップダウンするので、それに従うことができます。上部の進行状況バーをクリックするとドロップダウン パネルがフリーズし、もう一度クリックするとフリーズが解除されます。
+有料版Chloros+ライセンスモード（全ファイルを同時処理）では、進行状況バーは4段階（検出中、分析中、キャリブレーション中、エクスポート中）を表示します。 マウスカーソルをChloros+の進捗バー上に置くと、拡張された4段階の進捗バーパネルがドロップダウン表示され、処理状況を追跡できます。上部の進捗バーをクリックするとドロップダウンパネルが固定され、再度クリックすると解除されます。
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 
 ## サイドメニュー
 
-左側のサイドバー メニューには、操作できるさまざまなアイコンが含まれています。
+左サイドバーメニューには、操作可能な各種アイコンが含まれます：
 
-#### <img src=".gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> [プロジェクト設定](project-settings/page-2.md)
+#### <img src=".gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> [プロジェクト設定](project-settings/project-settings.md)
 
-[プロジェクト設定] タブでは、プロジェクトのグローバル設定とプロジェクト処理設定を調整できます。ファイルの処理を開始する前にこれらを調整してください。
+プロジェクト設定タブでは、プロジェクト全体の設定および処理設定を調整できます。ファイル処理を開始する前にこれらの設定を行ってください。
 
-#### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> ファイル ブラウザ
+#### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> ファイルブラウザ
 
-ファイル/フォルダーを追加したり、プロジェクトからファイルを削除したりします。重複したファイルは無視されます。ターゲット イメージのターゲット列ボックスをチェックすると、処理ではターゲットのチェックされたイメージのみが参照されるため、処理時間が大幅に短縮されます。
+プロジェクトへのファイル/フォルダの追加や削除を行います。重複ファイルは無視されます。ターゲット画像の列ボックスをチェックすると、処理はチェックされた画像のみを対象とするため、処理時間が大幅に短縮されます。
 
-#### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [画像ビューア](image-viewer-gui/page-3.md)
+#### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [画像ビューア](image-viewer-gui/opening-an-image-full-screen.md)
 
-メイン画像ビューアで画像をクリックすると、[画像ビューア] タブで画像が全画面で開きます。
+メイン画像ビューアで画像をクリックすると、画像ビューアタブで全画面表示されます。
 
-#### <img src=".gitbook/assets/icon_log.JPG" alt="" data-size="line"> デバッグ ログ
+#### <img src=".gitbook/assets/icon_log.JPG" alt="" data-size="line"> デバッグログ
 
-問題が発生した場合は、デバッグ出力のログを確認してください。ログをコピー/ダウンロードし、[MAPIRのサポート](https://www.mapir.camera/community/contact) に送信して支援を受けてください。
+問題発生時にデバッグ出力のログを確認してください。ログをコピー/ダウンロードし、[MAPIRサポート](https://www.mapir.camera/community/contact)に送信して支援を受けてください。
 
-#### <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> [ユーザーログイン](chromos+-login.md)
+#### <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> [ユーザーログイン](chloros+-login.md)
 
-ユーザー ログイン サイドバーを使用すると、Chloros+ アカウントにログインして高度な機能のロックを解除できます。現在のアプリケーションのバージョンを表示したり、Chloros GUI および CLI で表示されるテキストの言語を調整したりすることもできます。
+ユーザーログインサイドバーでは、Chloros+アカウントにログインして高度な機能を有効化できます。また、現在のアプリケーションバージョンを確認したり、Chloros GUIおよびCLIで表示されるテキストの言語を変更したりできます。

@@ -2,46 +2,44 @@
 metaLinks: {}
 ---
 
-# Getting Started
+# はじめに
 
-<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
-
-Chloros is a software application from [MAPIR](https://www.mapir.camera) to process images and other sensor data.
+<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>Chlorosは、画像やその他のセンサーデータを処理するための[MAPIR](https://www.mapir.camera)のソフトウェアアプリケーションです。
 
 ***
 
-Chloros is available in 4 application modes:
+Chlorosは4つのアプリケーションモードで利用可能です：
 
-## Chloros: Desktop GUI application
+## Chloros: デスクトップGUIアプリケーション
 
-\[Recommended] Standalone separate window with all features.
+\[推奨] すべての機能を備えた独立したスタンドアロンウィンドウ。
 
-## Chloros (Browser): Web-based GUI interface
+## Chloros (ブラウザ版): WebベースのGUIインターフェース
 
-Runs in your web browser (Chrome/Edge). Best for slower computers with <4GB VRAM.
+ウェブブラウザ（Chrome/Edge）上で動作。VRAMが4GB未満の低スペックPCに最適。
 
-## [Chloros CLI: Command line interface](CLI.md)
+## [Chloros CLI: コマンドラインインターフェース](CLI.md)
 
-Command-line batch processing. Perfect for automation, scripting, and advanced workflows. _CLI requires a Chloros+ license to access._
+コマンドラインによるバッチ処理。自動化、スクリプト作成、高度なワークフローに最適。_CLIの利用にはChloros+ライセンスが必要です。_
 
 ## [Chloros API: Python SDK](api-python-sdk.md)
 
-Programmatic Python interface for automation and custom workflows. Perfect for research pipelines, integration with existing Python applications, and building custom tools. _API requires a Chloros+ license to access._
+自動化およびカスタムワークフロー向けのプログラム可能な Python インターフェース。研究パイプライン、既存の Python アプリケーションとの統合、カスタムツール構築に最適です。_API へのアクセスには Chloros+ ライセンスが必要です。_
 
 ***
 
 ## Chloros+
 
-While Chloros is free to use for most tasks, you may find you want more. That is where a paid license for Chloros+ can benefit you. With a Chloros+ license you can unlock new features such as:
+Chlorosはほとんどのタスクで無料で利用可能ですが、さらなる機能が必要になる場合があります。そのような場合にChloros+の有料ライセンスが役立ちます。 Chloros+ライセンスでは、以下のような新機能が利用可能になります：
 
-* **Multi-threaded Processing**: greatly speed up image processing for larger projects by simultaneously processing images through the pipeline.
-* **GPU (CUDA) Acceleration**: take advantage of today's higher GPU memory options to further speed up the image processing pipeline. We recommend 4GB or more of VRAM for best results.
-* **Chloros+** [**CLI**](CLI.md) **Access**: run Chloros+ from the command line to automate and integrate into your own software.
-* **Chloros+** [**API**](api-python-sdk.md) **Access:** run Chloros+ from Python for programmatic control, enabling seamless integration with your research pipelines, data analysis workflows, and custom applications.
-* **Multiple Device Usage**: each Chloros+ license allows for 2+ devices to be registered. Use your MAPIR Cloud account to manage registered devices. Add support for more devices by upgrading your Chloros+ license.
-* **Custom Multispectral Index Formulas:** enter in custom multispectral indices in the Chloros raster calculators, both for processing and the image viewing sandbox.
+* **マルチスレッド処理**：パイプラインを通じた画像の同時処理により、大規模プロジェクトの画像処理を大幅に高速化。
+* **GPU（CUDA）アクセラレーション**：最新のGPUメモリオプションを活用し、画像処理パイプラインをさらに高速化。最適な結果を得るには4GB以上のVRAMを推奨。
+* **Chloros+** [**CLI**](CLI.md) **アクセス**：コマンドラインからChloros+を実行し、自動化や自社ソフトウェアへの統合を実現します。
+* **Chloros+** [**API**](api-python-sdk.md) **アクセス:** PythonからChloros+を実行し、プログラム制御を実現。研究パイプライン、データ分析ワークフロー、カスタムアプリケーションとのシームレスな統合を可能にします。
+* **複数デバイス利用**: 各Chloros+ライセンスで2台以上のデバイスを登録可能。登録デバイスはMAPIR Cloudアカウントで管理。Chloros+ライセンスのアップグレードで対応デバイス数を拡張。
+* **カスタム多波長指数式：** Chloros ラスター計算ツールにカスタム多波長指数を入力可能。処理時と画像閲覧サンドボックスの両方で利用できます。
 
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary" data-icon="envira">Chloros+ Pricing &#x26; Signup</a></p>
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary" data-icon="envira">Chloros+ 価格とサインアップ</a></p>
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 

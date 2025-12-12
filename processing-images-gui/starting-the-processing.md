@@ -1,366 +1,366 @@
-# Starting the Processing
+# 処理の開始
 
-Once you've imported your images, marked your calibration targets, and configured your project settings, you're ready to begin processing. This page guides you through initiating the Chloros processing pipeline.
+画像のインポート、キャリブレーションターゲットのマーク付け、プロジェクト設定の構成が完了したら、処理を開始する準備が整いました。このページでは、Chloros処理パイプラインの開始手順をガイドします。
 
-## Pre-Processing Checklist
+## 事前処理チェックリスト
 
-Before clicking the Start button, verify that everything is ready:
+[開始]ボタンをクリックする前に、以下の項目がすべて準備されていることを確認してください：
 
-* [ ] **Files imported** - All images appear in File Browser
-* [ ] **Target images marked** - Target column checked for calibration images
-* [ ] **Camera models detected** - Camera Model column shows correct cameras
-* [ ] **Settings configured** - Project Settings reviewed and adjusted
-* [ ] **Indices selected** - Desired multispectral indices added (if needed)
-* [ ] **Export format chosen** - Output format appropriate for your workflow
+* [ ] **ファイルのインポート** - 全ての画像がファイルブラウザに表示されている
+* [ ] **ターゲット画像のマーク** - キャリブレーション画像のターゲット列にチェックが入っている
+* [ ] **カメラモデル検出済み** - カメラモデル列に正しいカメラが表示されている
+* [ ] **設定構成済み** - プロジェクト設定を確認・調整済み
+* [ ] **インデックス選択済み** - 必要なマルチスペクトルインデックスを追加済み（必要な場合）
+* [ ] **出力形式選択済み** - ワークフローに適した出力形式を設定済み
 
-{% hint style="info" %}
-**Tip**: Click through a few images in the File Browser to verify they loaded correctly before processing.
+{% hint style=&quot;info&quot; %}
+**ヒント**: 処理前にファイルブラウザで数枚の画像をクリックし、正しく読み込まれたことを確認してください。
 {% endhint %}
 
 ***
 
-## Starting the Processing
+## 処理の開始
 
-### Locate the Start Button
+### 開始ボタンの位置
 
-The Start/Play button is located in the top header bar of Chloros:
+開始/再生ボタンはChlorosのヘッダー上部バーにあります：
 
-* Position: Top center of the window
-* Icon: **Play/Start button** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">
-* Status: Button is enabled (bright) when ready to process
+* 位置：ウィンドウ上部中央
+* アイコン：**再生/開始ボタン** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">
+* 状態: 処理準備完了時、ボタンは有効（明るい）状態
 
-### Click to Start
+### クリックして開始
 
-1. Click the **Play/Start button** in the top header
-2. Processing begins immediately
-3. The button becomes disabled (grayed out) during processing
-4. Progress bar updates, showing processing status
+1. 上部ヘッダーの**再生/開始ボタン**をクリック
+2. 処理が直ちに開始
+3. 処理中はボタンが無効（グレー表示）に
+4. 進行状況バーが更新され、処理状態を表示
 
-{% hint style="success" %}
-**Processing Started**: Once clicked, Chloros automatically handles all processing steps - target detection, debayering, calibration, index calculation, and export.
+{% hint style=&quot;success&quot; %}
+**処理開始**: クリック後、Chlorosが自動的に全処理ステップを実行 - ターゲット検出、デベイヤー処理、キャリブレーション、インデックス計算、エクスポート。
 {% endhint %}
 
 ***
 
-## Understanding Processing Modes
+## 処理モードの理解
 
-Chloros operates in two different processing modes depending on your license:
+Chlorosは、ライセンスに応じて2つの異なる処理モードで動作します：
 
-### Free Mode (Sequential Processing)
+### 無料モード（順次処理）
 
-**Available to all users**
+**すべてのユーザーが利用可能**
 
-**How it works:**
+**動作原理:**
 
-* Processes images one at a time, sequentially
-* Single-threaded operation
-* Lower memory usage
+* 画像を1枚ずつ順次処理
+* シングルスレッド動作
+* メモリ使用量が少ない
 
-**Progress bar shows 2 stages:**
+**進行状況バーは2段階を表示:**
 
-1. **Target Detect** - Scanning for calibration targets
-2. **Processing** - Applying calibration and exporting images
+1. **ターゲット検出** - キャリブレーションターゲットのスキャン
+2. **処理** - キャリブレーションの適用と画像のエクスポート
 
-**Processing time:**
+**処理時間:**
 
-* Much slower than Chloros+ parallel mode
-* Suitable for small to medium datasets (< 200 images)
+* Chloros+ 並列モードより大幅に遅い
+* 中小規模データセット（200枚未満）に適する
 
-### Chloros+ Mode (Parallel Processing)
+### Chloros+ モード（並列処理）
 
-**Requires Chloros+ license**
+**Chloros+ ライセンスが必要**
 
-**How it works:**
+**動作原理：**
 
-* Processes multiple images simultaneously
-* Multi-threaded operation (up to 16 parallel workers)
-* Utilizes multiple CPU cores
-* Optional GPU (CUDA) acceleration with NVIDIA graphics cards
+* 複数画像を同時に処理
+* マルチスレッド動作（最大16の並列ワーカー）
+* 複数CPUコアを活用
+* NVIDIAグラフィックカードによるGPU（CUDA）アクセラレーション（オプション）
 
-**Progress bar shows 4 stages:**
+**進行状況バーは4段階を表示：**
 
-1. **Detecting** - Finding calibration targets
-2. **Analyzing** - Examining image metadata and preparing pipeline
-3. **Calibrating** - Applying corrections and calibrations
-4. **Exporting** - Saving processed images and indices
+1. **検出** - キャリブレーションターゲットの発見
+2. **解析** - 画像メタデータの検証とパイプラインの準備
+3. **キャリブレーション** - 補正とキャリブレーションを適用
+4. **エクスポート** - 処理済み画像とインデックスを保存
 
-**Progress bar interaction:**
+**プログレスバー操作方法:**
 
-* **Hover mouse** over bar to see detailed 4-stage dropdown panel
-* **Click** progress bar to freeze the dropdown panel in place
-* **Click again** to unfreeze and hide panel
+* **マウスをホバー** すると詳細な4段階のドロップダウンパネルが表示
+* **クリック** でドロップダウンパネルを固定
+* **再度クリック** でパネルを非表示に解除
 
-**Processing time:**
+**処理時間:**
 
-* Significantly faster than free mode
-* Scales with CPU core count
-* GPU acceleration further improves speed
+* フリーモードより大幅に高速
+* CPUコア数に比例して処理速度が向上
+* GPUアクセラレーションでさらに高速化
 
-{% hint style="info" %}
-**Chloros+ Speed**: Parallel processing can be 5-10x faster than sequential mode for large datasets. A 500-image project that takes 2 hours in free mode may complete in 15-20 minutes with Chloros+.
+{% hint style=&quot;info&quot; %}
+**Chloros+ 速度**: 大規模データセットでは、並列処理により順次モードより5～10倍高速化。フリーモードで2時間かかる500画像プロジェクトが、Chloros+では15～20分で完了可能。
 {% endhint %}
 
 ***
 
-## What Happens During Processing
+## 処理中の動作
 
-### Stage 1: Target Detection
+### ステージ1: ターゲット検出
 
-**What Chloros does:**
+**Chloros の動作:**
 
-* Scans marked target images (or all images if none marked)
-* Identifies the 4 calibration panels in each target
-* Extracts reflectance values from target panels
-* Records target timestamps for calibration scheduling
+* マークされたターゲット画像（マークなしの場合は全画像）をスキャン
+* 各ターゲット内の4つのキャリブレーションパネルを識別
+* ターゲットパネルから反射率値を抽出
+* キャリブレーションスケジューリング用にターゲットのタイムスタンプを記録
 
-**Duration:** 1-30 seconds (with marked targets), 5-30+ minutes (unmarked)
+**所要時間:** 1～30秒（マーク付きターゲットの場合）、5～30分以上（マークなしの場合）
 
-### Stage 2: Debayering (RAW Conversion)
+### ステージ2: デベイヤー処理（RAW変換）
 
-**What Chloros does:**
+**Chlorosの処理内容:**
 
-* Converts RAW Bayer pattern data to full RGB images
-* Applies high-quality demosaicing algorithm
-* Preserves maximum image quality and detail
+* RAWベイヤーパターンデータを完全なRGB画像に変換
+* 高品質デモザイクアルゴリズムを適用
+* 最大画質と細部を保持
 
-**Duration:** Varies by image count and CPU speed
+**所要時間:** 画像数とCPU速度により変動
 
-### Stage 3: Calibration
+### ステージ3: キャリブレーション
 
-**What Chloros does:**
+**Chlorosの処理内容:**
 
-* **Vignette correction**: Removes lens darkening at edges
-* **Reflectance calibration**: Normalizes using target reflectance values
-* Applies corrections across all bands/channels
-* Uses appropriate calibration target for each image based on timestamp
+* **ヴィネット補正**: レンズ周辺部の暗化を除去
+* **反射率キャリブレーション**: ターゲット反射率値を用いて正規化
+* 全バンド/チャンネルに補正を適用
+* タイムスタンプに基づき各画像に適切なキャリブレーションターゲットを使用
 
-**Duration:** Majority of processing time
+**所要時間:** 処理時間の大部分を占める
 
-### Stage 4: Index Calculation
+### ステージ4: 指数計算
 
-**What Chloros does:**
+**Chlorosの処理内容:**
 
-* Calculates configured multispectral indices (NDVI, NDRE, etc.)
-* Applies band math to calibrated images
-* Generates index images for each selected index
+* 設定されたマルチスペクトル指数（NDVI、NDREなど）を計算
+* 較正済み画像にバンド演算を適用
+* 選択された各インデックス用のインデックス画像を生成
 
-**Duration:** A few seconds per image
+**所要時間:** 画像ごとに数秒
 
-### Stage 5: Export
+### ステージ5: エクスポート
 
-**What Chloros does:**
+**Chlorosの処理内容:**
 
-* Saves calibrated images in selected format
-* Exports index images with configured LUT colors
-* Writes files to camera model subfolders
-* Preserves original filenames with suffixes
+* 較正済み画像を選択した形式で保存
+* 設定されたLUTカラーでインデックス画像をエクスポート
+* カメラモデル別サブフォルダへファイルを書き込み
+* オリジナルファイル名をサフィックス付きで保持
 
-**Duration:** Varies by export format and file size
+**所要時間:** エクスポート形式とファイルサイズにより変動
 
 ***
 
-## Processing Behavior
+## 処理動作
 
-### Automatic Processing Pipeline
+### 自動処理パイプライン
 
-Once started, the entire pipeline runs automatically:
+開始後、パイプライン全体が自動実行:
 
-* No user interaction needed
-* All configured steps execute in sequence
-* Progress updates shown in real-time
+* ユーザー操作不要
+* 設定済み全ステップを順次実行
+* 進行状況をリアルタイムで表示
 
-### Computer Usage During Processing
+### 処理中のコンピューター使用状況
 
-**Free Mode:**
+**フリーモード:**
 
-* Relatively low CPU usage (single-threaded)
-* Computer remains responsive for other tasks
-* Safe to minimize Chloros and work in other applications
+* CPU使用率が比較的低い（シングルスレッド）
+* 他のタスクでコンピューターが応答可能
+* Chlorosを最小化して他のアプリケーションで作業可能
 
-**Chloros+ Parallel Mode:**
+**Chloros+ 並列モード:**
 
-* High CPU usage (multi-threaded, up to 16 cores)
-* With GPU acceleration: High GPU usage
-* Computer may be less responsive during processing
-* Avoid starting other CPU-intensive tasks
+* 高いCPU使用率（マルチスレッド、最大16コア）
+* GPUアクセラレーション時：高いGPU使用率
+* 処理中はコンピュータの応答性が低下する可能性あり
+* 他のCPU負荷の高いタスクの起動は避ける
 
-{% hint style="warning" %}
-**Performance Tip**: For best Chloros+ performance, close other applications and let Chloros use full system resources.
+{% hint style=&quot;warning&quot; %}
+**パフォーマンスのヒント**: Chloros+ の最高のパフォーマンスを得るには、他のアプリケーションを閉じて Chloros がシステムリソースを完全に使用できるようにしてください。
 {% endhint %}
 
-### Processing Cannot Be Paused
+### 処理は一時停止できません
 
-**Important limitations:**
+**重要な制限事項:**
 
-* Once started, processing cannot be paused
-* You can cancel processing, but progress is lost
-* Partial results are not saved
-* Must restart from beginning if canceled
+* 処理開始後は一時停止できません
+* 処理はキャンセル可能ですが、進行状況は失われます
+* 部分的な結果は保存されません
+* キャンセルした場合、最初から再実行する必要があります
 
-**Planning tip:** For very large projects, consider processing in batches or using CLI for better control.
-
-***
-
-## Monitoring Your Processing
-
-While processing runs, you can:
-
-* **Watch progress bar** - See overall completion percentage
-* **View current stage** - Detect, Analyze, Calibrate, or Export
-* **Check log tab** - See detailed processing messages and warnings
-* **Preview completed images** - Some export files may appear during processing
-
-For detailed information on monitoring, see [Monitoring the Processing](monitoring-the-processing.md).
+**計画のヒント:** 非常に大規模なプロジェクトでは、バッチ処理やCLIの使用による制御強化をご検討ください。
 
 ***
 
-## Canceling Processing
+## 処理状況の監視
 
-If you need to stop processing:
+処理実行中は以下の操作が可能です：
 
-### How to Cancel
+* **進捗バーの確認** - 総完了率を表示
+* **現在の段階の確認** - 検出、分析、キャリブレーション、またはエクスポート
+* **ログタブの確認** - 詳細な処理メッセージと警告を表示
+* **完了済み画像のプレビュー** - 処理中に一部のエクスポートファイルが表示される場合があります
 
-1. Locate the **Stop/Cancel button** (replaces Start button during processing)
-2. Click the Stop button
-3. Processing halts immediately
-4. Partial results are discarded
+監視の詳細については、[処理の監視]((monitoring-the-processing.md) を参照してください。
 
-### When to Cancel
+***
 
-**Valid reasons to cancel:**
+## 処理の中止
 
-* Realized incorrect settings were used
-* Forgot to mark target images
-* Wrong images imported
-* System running too slow or unresponsive
+処理を停止する必要がある場合：
 
-**After canceling:**
+### 中止方法
 
-* Review and fix any issues
-* Adjust settings as needed
-* Restart processing from the beginning
-* For the cleanest experience, completely close Chloros and restart
+1. **停止/キャンセルボタン** を確認（処理中は開始ボタンと入れ替わります）
+2. 停止ボタンをクリック
+3. 処理が即時停止
+4. 途中結果は破棄されます
 
-{% hint style="warning" %}
-**No Partial Results**: Canceling discards all progress. Chloros does not save partially processed images.
+### キャンセルすべきタイミング
+
+**キャンセルの正当な理由:**
+
+* 誤った設定を使用していたことに気付いた場合
+* 対象画像のマーク付けを忘れた場合
+* 誤った画像をインポートした場合
+* システムの動作が遅すぎる、または応答しない場合
+
+**キャンセル後の対応:**
+
+* 問題点を確認し修正する
+* 必要に応じて設定を調整する
+* 処理を最初から再実行する
+* 最適な動作のためには、Chlorosを完全に終了し再起動してください
+
+{% hint style=&quot;warning&quot; %}
+**部分的な結果は一切保存されません**：キャンセルすると進行状況が全て破棄されます。Chlorosは部分的に処理された画像を保存しません。
 {% endhint %}
 
 ***
 
-## Processing Time Estimates
+## 処理時間の見積もり
 
-Actual processing time varies greatly based on:
+実際の処理時間は以下によって大きく変動します：
 
-* Number of images
-* Image resolution
-* RAW vs JPG input format
-* Processing mode (Free vs Chloros+)
-* CPU speed and core count
-* GPU availability (Chloros+ only)
-* Number of indices to calculate
-* Export format complexity
+* 画像枚数
+* 画像解像度
+* RAW 対 JPG 入力形式
+* 処理モード（Free 対 Chloros+）
+* CPU速度とコア数
+* GPU利用可否（Chloros+のみ）
+* 計算するインデックス数
+* エクスポート形式の複雑さ
 
-### Rough Estimates (Chloros+, 12MP images, modern CPU)
+### おおよその見積もり（Chloros+、12MP画像、最新CPU）
 
-| Image Count | Free Mode | Chloros+ (CPU) | Chloros+ (GPU) |
+| 画像数 | 無料モード | Chloros+ (CPU) | Chloros+ (GPU) |
 | ----------- | --------- | -------------- | -------------- |
-| 50 images   | 15-20 min | 5-8 min        | 3-5 min        |
-| 100 images  | 30-40 min | 10-15 min      | 5-8 min        |
-| 200 images  | 1-1.5 hrs | 20-30 min      | 10-15 min      |
-| 500 images  | 2-3 hrs   | 45-60 min      | 20-30 min      |
-| 1000 images | 4-6 hrs   | 1.5-2 hrs      | 40-60 min      |
+| 50枚   | 15-20分 | 5-8分        | 3-5分        |
+| 100枚   | 30-40分 | 10-15分      | 5-8分        |
+| 200枚   | 1-1.5時間 | 20-30分      | 10-15分      |
+| 500枚  | 2-3時間   | 45-60分      | 20-30分      |
+| 1000枚 | 4-6時間   | 1.5-2時間      | 40-60分      |
 
-{% hint style="info" %}
-**First Run**: Initial processing may take longer as Chloros builds caches and profiles. Subsequent processing of similar datasets will be faster.
+{% hint style=&quot;info&quot; %}
+**初回実行時**: キャッシュとプロファイルを構築するため、初期処理に時間がかかる場合があります。Chloros 類似データセットのその後の処理は高速化されます。
 {% endhint %}
 
 ***
 
-## Common Issues at Start
+## 起動時の一般的な問題
 
-### Start Button Disabled (Grayed Out)
+### 起動ボタンが無効化（グレー表示）
 
-**Possible causes:**
+**考えられる原因:**
 
-* No images imported
-* Backend not fully started
-* Previous processing still running
-* Project not fully loaded
+* 画像がインポートされていない
+* バックエンドが完全に起動していない
+* 以前の処理がまだ実行中
+* プロジェクトが完全に読み込まれていない
 
-**Solutions:**
+**解決策:**
 
-1. Wait for backend to fully initialize (check main menu icon)
-2. Verify images are imported in File Browser
-3. Restart Chloros if button remains disabled
-4. Check Debug Log for error messages
+1. バックエンドが完全に初期化されるまで待機（メインメニューアイコンを確認）
+2. ファイルブラウザで画像がインポートされていることを確認
+3. ボタンが無効なままの場合、Chlorosを再起動
+4. デバッグログでエラーメッセージを確認
 
-### Processing Starts Then Immediately Fails
+### 処理開始直後に失敗する
 
-**Possible causes:**
+**考えられる原因:**
 
-* No valid images in project
-* Corrupted image files
-* Insufficient disk space
-* Insufficient memory (RAM)
+* プロジェクト内に有効な画像がない
+* 画像ファイルが破損している
+* ディスク容量が不足している
+* メモリ（RAM）が不足している
 
-**Solutions:**
+**解決策:**
 
-1. Check Debug Log <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> for error messages
-2. Verify disk space available
-3. Try processing a smaller subset of images
-4. Verify images are not corrupted
+1. デバッグログを確認 <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> でエラーメッセージを確認
+2. 空きディスク容量を確認
+3. より少数の画像で処理を試行
+4. 画像が破損していないことを確認
 
-### "No Targets Detected" Warning
+### 「ターゲットが検出されません」警告
 
-**Possible causes:**
+**考えられる原因:**
 
-* Forgot to mark target images
-* Target images don't contain visible targets
-* Target detection settings too strict
+* ターゲット画像のマーク付け忘れ
+* ターゲット画像に可視ターゲットが含まれていない
+* ターゲット検出設定が厳しすぎる
 
-**Solutions:**
+**解決策:**
 
-1. Review [Choosing Target Images](choosing-target-images.md)
-2. Mark appropriate images in Target column
-3. Verify targets are visible in marked images
-4. Adjust target detection settings if needed
-
-***
-
-## Tips for Successful Processing
-
-### Before Starting
-
-1. **Test with small subset first** - Process 10-20 images to verify settings
-2. **Check available disk space** - Ensure 2-3x dataset size free
-3. **Close unnecessary applications** - Free up system resources
-4. **Verify target images** - Preview marked targets to ensure quality
-5. **Save project** - Project auto-saves, but good practice to save manually
-
-### During Processing
-
-1. **Avoid system sleep** - Disable power saving modes
-2. **Keep Chloros in foreground** - Or at least visible in taskbar
-3. **Monitor progress occasionally** - Check for warnings or errors
-4. **Don't load other heavy applications** - Especially with Chloros+ parallel mode
-
-### Chloros+ GPU Acceleration
-
-If using NVIDIA GPU acceleration:
-
-1. Update NVIDIA drivers to latest version
-2. Ensure GPU has 4GB+ VRAM
-3. Close GPU-intensive applications (games, video editing)
-4. Monitor GPU temperature (ensure adequate cooling)
+1. [ターゲット画像の選択](choosing-target-images.md) を確認
+2. ターゲット列で適切な画像にマーク
+3. マーク済み画像にターゲットが可視化されているか確認
+4. 必要に応じてターゲット検出設定を調整
 
 ***
 
-## Next Steps
+## 処理成功のためのヒント
 
-Once processing has started:
+### 開始前
 
-1. **Monitor the progress** - See [Monitoring the Processing](monitoring-the-processing.md)
-2. **Wait for completion** - Processing runs automatically
-3. **Review results** - See [Finishing the Processing](finishing-the-processing.md)
+1. **まず小規模なサブセットでテスト** - 設定確認のため10～20枚の画像を処理
+2. **利用可能なディスク容量の確認** - データセットサイズの2～3倍の空き容量を確保
+3. **不要なアプリケーションの終了** - システムリソースを解放
+4. **ターゲット画像の確認** - マークしたターゲットをプレビューし品質を保証
+5. **プロジェクトを保存** - 自動保存されますが、手動保存が推奨されます
 
-For information about what to do during processing, see [Monitoring the Processing](monitoring-the-processing.md).
+### 処理中
+
+1. **システムのスリープを回避** - 省電力モードを無効化
+2. **Chlorosをフォアグラウンドに維持** - タスクバーに表示される状態を保つ
+3. **進捗を随時確認** - 警告やエラーをチェック
+4. **他の重いアプリケーションを起動しない** - 特にChloros+並列モード使用時
+
+### Chloros+ GPUアクセラレーション
+
+NVIDIA GPUアクセラレーション使用時：
+
+1. NVIDIAドライバを最新版に更新
+2. GPUのVRAMが4GB以上あることを確認
+3. GPU負荷の高いアプリケーション（ゲーム、動画編集）を終了
+4. GPU温度を監視（十分な冷却を確保）
+
+***
+
+## 次に取るべき手順
+
+処理が開始されたら：
+
+1. **進捗を監視** - [処理の監視](monitoring-the-processing.md)を参照
+2. **完了を待つ** - 処理は自動実行されます
+3. **結果を確認する** - [処理の終了](finishing-the-processing.md)を参照
+
+処理中の対応については、[処理の監視](monitoring-the-processing.md)を参照してください。

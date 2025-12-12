@@ -1,306 +1,306 @@
-# Finishing the Processing
+# 処理の完了
 
-Once Chloros completes processing, it's time to review your results, verify output quality, and prepare your processed images for use in your workflow. This page guides you through the final steps and next actions.
+Chlorosの処理が完了したら、結果を確認し、出力品質を検証し、ワークフローで使用する処理済み画像を準備する段階です。このページでは、最終手順と次のアクションについて説明します。
 
-## Processing Complete Indication
+## 処理完了の表示
 
-When processing finishes successfully, you'll see several indicators:
+処理が正常に終了すると、以下のインジケーターが表示されます：
 
-* ✅ **Progress bar**: Reaches 100% completion
-* ✅ **Debug Log**: Shows "Processing Complete" message
-* ✅ **Start button**: Becomes enabled again (ready for next processing run)
-* ✅ **Output files**: All processed images saved to camera model subfolder
-
-***
-
-## Locating Your Processed Images
-
-### Opening the Output Folder
-
-1. Click the **Main Menu** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> icon (top left)
-2. Select **"Open Project Folder"**
-3. Your file explorer opens to the project directory
-4. Locate your project by name
+* ✅ **進捗バー**：100%完了に達する
+* ✅ **デバッグログ**：「処理完了」メッセージが表示される
+* ✅ **開始ボタン**：再度有効化される（次の処理実行準備完了）
+* ✅ **出力ファイル**：処理済み画像が全てカメラモデルサブフォルダに保存
 
 ***
 
-## Reviewing Processed Images
+## 処理済み画像の場所
 
-### Quick Preview in File Explorer
+### 出力フォルダの開く方法
 
-**Windows built-in preview:**
-
-1. Navigate to camera model subfolder
-2. Select an image file
-3. Preview appears in Windows Explorer preview pane
-4. Use arrow keys to browse through images
-
-### Preview in External Image Viewers
-
-**Recommended viewers:**
-
-* **QGIS** - Free GIS software (best for georeferenced multispectral analysis)
-* **IrfanView** - Fast, lightweight image viewer (supports TIFF)
-* **Adobe Photoshop** - Professional editing (TIFF support)
-* **GIMP** - Free alternative to Photoshop
-* **Windows Photos** - Basic viewing (may not support 16-bit TIFF)
-
-### Preview in Chloros Image Viewer
-
-Use Chloros's built-in Image Viewer for advanced visualization:
-
-1. Click an image thumbnail in the File Browser
-2. Image opens in the main preview area
-3. Click **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab in left sidebar
-4. Use [Index/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md) for interactive analysis
-
-See [Image Viewer](../image-viewer-gui/page-3.md) for detailed instructions.
+1. **メインメニュー** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> アイコン（左上）をクリック
+2. **「プロジェクトフォルダを開く」**を選択
+3. ファイルエクスプローラーがプロジェクトディレクトリを開きます
+4. プロジェクト名を指定してフォルダを特定
 
 ***
 
-## Reviewing the Debug Log
+## 処理済み画像の確認
 
-### Check for Warnings or Errors
+### ファイルエクスプローラーでの簡易プレビュー
 
-1. Open **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> tab
-2. Scroll through messages
-3. Look for yellow warnings or red errors
-4. Review any issues noted
-5. Contact MAPIR support for assistance
+**Windows内蔵プレビュー:**
 
-### Saving the Log
+1. カメラモデルサブフォルダに移動
+2. 画像ファイルを選択
+3. Windowsエクスプローラーのプレビューペインに表示
+4. 矢印キーで画像を切り替え
 
-To keep a record of processing or to send to MAPIR Support:
+### 外部画像ビューアでのプレビュー
 
-1. Click **"Copy"** or **"Download"** button
-2. Save as text file in project folder
-3. Include with project documentation
-4. Send to MAPIR support if issues encountered
+**推奨ビューア:**
 
-***
+* **QGIS** - 無料GISソフトウェア（地理参照マルチスペクトル解析に最適）
+* **IrfanView** - 高速軽量画像ビューア（TIFF対応）
+* **Adobe Photoshop** - プロ向け編集ソフト（TIFF 対応）
+* **GIMP** - Photoshop の無料代替ソフト
+* **Windows Photos** - 基本表示機能（16ビット TIFF に対応しない場合あり）
 
-## Common Output Issues and Solutions
+### Chloros イメージビューアーでのプレビュー
 
-### Issue: Missing Output Files
+高度な視覚化には Chloros の組み込みイメージビューアーを使用します：
 
-**Possible causes:**
+1. ファイルブラウザで画像サムネイルをクリック
+2. 画像がメインプレビュー領域で開きます
+3. 左サイドバーの**イメージビューアー** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> タブをクリック
+4. [インデックス/LUTサンドボックス](../image-viewer-gui/index-lut-sandbox.md)でインタラクティブ解析を実施
 
-* Files didn't meet processing criteria
-* Target-only images (excluded from export)
-* Disk space ran out during export
-* File corruption during processing
-
-**Solutions:**
-
-1. Check Debug Log for skip/error messages
-2. Verify disk space was sufficient
-3. Count files: Should match (original count - target count) × (indices + 1)
-4. Re-import and reprocess any missing files
-
-### Issue: Dark or Bright Edges (Vignetting Still Visible)
-
-**Possible causes:**
-
-* Vignette correction disabled
-* Camera/lens not in Chloros profile database
-* Extreme vignetting beyond correction capability
-
-**Solutions:**
-
-1. Verify vignette correction was enabled in Project Settings
-2. Check camera model correctly detected
-3. Contact MAPIR support if vignetting persists
-
-### Issue: Incorrect Colors or Values
-
-**Possible causes:**
-
-* No calibration targets detected
-* Wrong calibration target model selected
-* Reflectance calibration disabled
-* Poor quality target images
-
-**Solutions:**
-
-1. Verify reflectance calibration was enabled
-2. Check "Target found" messages in Debug Log
-3. Review target image quality
-4. Reprocess with proper targets marked
-
-### Issue: NDVI Values Seem Wrong
-
-**Expected NDVI ranges:**
-
-* **Water, rocks, soil**: -0.1 to 0.2
-* **Sparse/unhealthy vegetation**: 0.2 to 0.4
-* **Moderate vegetation**: 0.4 to 0.6
-* **Healthy, dense vegetation**: 0.6 to 0.9
-
-**If values are outside these ranges:**
-
-1. Verify reflectance calibration was applied
-2. Verify light sensor log was included
-3. Check calibration targets were detected
-4. Ensure correct camera model was detected
-5. Review target image capture timing and conditions
+詳細手順は[画像ビューア](../image-viewer-gui/opening-an-image-full-screen.md)を参照
 
 ***
 
-## Using Your Processed Images
+## デバッグログの確認
 
-### For Photogrammetry / Orthomosaic Creation
+### 警告またはエラーの確認
 
-**Recommended workflow:**
+1. **デバッグログ** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> タブを開く
+2. メッセージをスクロールして確認
+3. 黄色の警告または赤色のエラーを探す
+4. 記録された問題をレビュー
+5. サポートが必要な場合はMAPIRサポートに連絡
 
-1. **Import calibrated reflectance images** into photogrammetry software:
+### ログの保存
+
+処理記録の保存またはMAPIRサポートへの送信には：
+
+1. **「コピー」**または**「ダウンロード」**ボタンをクリック
+2. プロジェクトフォルダにテキストファイルとして保存
+3. プロジェクト文書に添付
+4. 問題が発生した場合、MAPIRサポートへ送信
+
+***
+
+## 一般的な出力問題と解決策
+
+### 問題：出力ファイルが欠落している
+
+**考えられる原因:**
+
+* ファイルが処理基準を満たしていない
+* ターゲット専用画像（エクスポート対象外）
+* エクスポート中にディスク容量不足が発生
+* 処理中のファイル破損
+
+**解決策:**
+
+1. デバッグログでスキップ/エラーメッセージを確認
+2. ディスク容量が十分だったか検証
+3. ファイル数を確認：（元のファイル数 - ターゲットファイル数）× (インデックス数 + 1)
+4. 不足ファイルを再インポートし再処理
+
+### 問題：暗部または明部のエッジ（ビネット補正後も残存）
+
+**考えられる原因：**
+
+* ビネット補正が無効
+* カメラ/レンズがChlorosプロファイルデータベース未登録
+* 補正能力を超える極端なビネット
+
+**解決策：**
+
+1. プロジェクト設定でヴィネット補正が有効になっていることを確認
+2. カメラモデルが正しく検出されているか確認
+3. ヴィネットが残る場合はMAPIRサポートに連絡
+
+### 問題：色または値が不正確
+
+**考えられる原因：**
+
+* キャリブレーションターゲットが検出されない
+* 誤ったキャリブレーションターゲットモデルが選択されている
+* 反射率キャリブレーションが無効
+* ターゲット画像の品質が低い
+
+**解決策:**
+
+1. 反射率キャリブレーションが有効になっていることを確認
+2. デバッグログの「ターゲット検出」メッセージを確認
+3. ターゲット画像の品質を確認
+4. 適切なターゲットをマークして再処理
+
+### 問題: NDVI値が不適切に見える
+
+**想定されるNDVI範囲:**
+
+* **水、岩、土壌**: -0.1 ～ 0.2
+* **まばら/不健康な植生**: 0.2 ～ 0.4
+* **中程度の植生**: 0.4 ～ 0.6
+* **健康で密な植生**: 0.6 ～ 0.9
+
+**値がこれらの範囲外の場合:**
+
+1. 反射率キャリブレーションが適用されていることを確認
+2. 光センサーログが含まれていることを確認
+3. キャリブレーションターゲットが検出されていることを確認
+4. 正しいカメラモデルが検出されていることを確認
+5. ターゲット画像の撮影タイミングと条件を確認
+
+***
+
+## 処理済み画像の使用方法
+
+### 写真測量／オルソモザイク作成の場合
+
+**推奨ワークフロー：**
+
+1. **キャリブレーション済み反射率画像を**写真測量ソフトウェアにインポート:
    * Pix4Dmapper
    * Agisoft Metashape
    * DroneDeploy
    * WebODM
-2. **Keep EXIF metadata**: Ensure GPS data preserved for geotagging
-3. **Calibrated workflows**: Use reflectance images for scientific accuracy
-4. **Process index mosaics**: Create NDVI orthomosaics from individual index images
-5. **Export georeferenced GeoTIFF**: For use in GIS applications
+2. **EXIFメタデータを保持**: 地理タグ付け用にGPSデータを確実に保存
+3. **キャリブレーション済みワークフロー**: 科学的精度のために反射率画像を使用
+4. **インデックスモザイクを処理**: 個々のインデックス画像からNDVIオルソモザイクを作成
+5. **地理参照済みGeoTIFFをエクスポート**: GISアプリケーションで使用するため
 
-### For GIS Analysis
+### GIS解析用
 
-**Recommended workflow:**
+**推奨ワークフロー:**
 
-1. **Load into QGIS, ArcGIS, or similar**
-2. **Use 16-bit TIFF** reflectance images for multi-band analysis
-3. **Use index images** (NDVI, NDRE) as ready-to-use vegetation layers
-4. **Raster calculator**: Combine bands for custom analysis
-5. **Export**: Create classification maps, change detection, vegetation health maps
+1. **QGIS、ArcGIS、または類似ソフトに読み込み**
+2. **16ビットTIFF**反射率画像を使用したマルチバンド解析
+3. **インデックス画像**（NDVI、NDRE）を即利用可能な植生レイヤーとして使用
+4. **ラスター計算機**：カスタム解析のためのバンド結合
+5. **エクスポート**：分類マップ、変化検出、植生健全性マップの作成
 
-### For Direct Analysis / Reporting
+### 直接分析／レポート作成用
 
-**Recommended workflow:**
+**推奨ワークフロー：**
 
-1. **Use index images with LUT colors** for visual reports
-2. **Extract statistics**: Mean NDVI per field/plot
-3. **Time series**: Compare indices across multiple sessions
-4. **Generate reports**: Include maps, statistics, and visualizations
-
-***
-
-## Archiving and Backup
-
-### Recommended Backup Strategy
-
-**What to save:**
-
-* ✅ **Original RAW/JPG images** - Archive on separate drive/cloud
-* ✅ **Processed outputs** - Keep calibrated images and indices
-* ✅ **Project file** - Contains all settings for reprocessing if needed
-* ✅ **Debug Log** - Documents processing details
-* ✅ **Calibration target images** - For verification and reprocessing
-
-**Storage recommendations:**
-
-* **Immediate backup**: External hard drive
-* **Long-term archive**: Cloud storage (Google Drive, Dropbox, etc.)
-* **Critical data**: Keep 2-3 copies in different locations
+1. **LUTカラー付き指標画像**を視覚的レポートに活用
+2. **統計値抽出**：フィールド／プロットごとの平均NDVI
+3. **時系列**：複数セッション間の指標比較
+4. **レポート生成**：マップ、統計、可視化データを包含
 
 ***
 
-## Next Processing Runs
+## アーカイブとバックアップ
 
-### Reusing Project Settings
+### 推奨バックアップ戦略
 
-If processing similar datasets in the future:
+**保存対象：**
 
-1. **Save Project Template** (if not already done)
-2. **Create new project** using saved template
-3. **Import new images**
-4. **Process** with identical settings for consistency
+* ✅ **オリジナルRAW/JPG画像** - 別ドライブ/クラウドにアーカイブ
+* ✅ **処理済み出力** - キャリブレーション済み画像とインデックスを保持
+* ✅ **プロジェクトファイル** - 再処理に必要な全設定を含む
+* ✅ **デバッグログ** - 処理詳細を記録
+* ✅ **キャリブレーションターゲット画像** - 検証と再処理用
 
-### Batch Processing Multiple Sessions
+**保存に関する推奨事項:**
 
-For multiple sessions/datasets:
-
-**Option 1: GUI - Multiple Projects**
-
-* Create separate project for each session
-* Use consistent template settings
-* Process one at a time
-
-**Option 2: Chloros CLI (Chloros+ only)**
-
-* Automate batch processing
-* Process multiple folders with scripts
-* See [CLI Documentation](../CLI.md)
-
-**Option 3: Python SDK (Chloros+ only)**
-
-* Programmatic control
-* Integration with analysis pipelines
-* See [API Documentation](../api-python-sdk.md)
+* **即時バックアップ**: 外付けハードドライブ
+* **長期アーカイブ**: クラウドストレージ（Googleドライブ、Dropboxなど）
+* **重要データ**: 異なる場所に2～3コピーを保管
 
 ***
 
-## Troubleshooting Post-Processing
+## 次回以降の処理実行
 
-### Re-Processing with Different Settings
+### プロジェクト設定の再利用
 
-If results aren't satisfactory:
+類似データセットを将来処理する場合:
 
-1. Keep original images (never delete)
-2. Open same project in Chloros
-3. Adjust settings in Project Settings panel
-4. Process again - outputs will overwrite previous results
+1. **プロジェクトテンプレートの保存**（未保存の場合）
+2. 保存済みテンプレートで**新規プロジェクト作成**
+3. **新規画像のインポート**
+4. 一貫性を保つため同一設定で**処理実行**
 
-### Processing Subset of Images
+### 複数セッションのバッチ処理
 
-To reprocess only specific images:
+複数セッション/データセットの場合：
 
-1. Create new project
-2. Import only the images needing reprocessing
-3. Use same settings template
-4. Process smaller dataset
+**オプション1: GUI - 複数プロジェクト**
 
-### Getting Help
+* 各セッションごとに個別のプロジェクトを作成
+* 一貫したテンプレート設定を使用
+* 1つずつ順次処理
 
-If you encounter issues:
+**オプション2: Chloros CLI (Chloros+ のみ)**
 
-* 📧 **Email**: info@mapir.camera (include Debug Log)
-* 🌐 **Support**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* 📚 **FAQ**: [Frequently Asked Questions](../faq.md)
-* 📖 **Documentation**: [Chloros Manual](../)
+* バッチ処理を自動化
+* スクリプトで複数フォルダを処理
+* [CLI ドキュメント](../CLI.md) を参照
 
-***
+**オプション 3: Python SDK (Chloros+ のみ)**
 
-## Summary: Complete Workflow
-
-You've now completed the full Chloros processing workflow:
-
-1. ✅ **Created project** - See [Projects](../projects.md)
-2. ✅ **Added files** - See [Adding Files](page-1.md)
-3. ✅ **Adjusted settings** - See [Adjusting Project Settings](adjusting-project-settings.md)
-4. ✅ **Marked targets** - See [Choosing Target Images](choosing-target-images.md)
-5. ✅ **Started processing** - See [Starting the Processing](starting-the-processing.md)
-6. ✅ **Monitored progress** - See [Monitoring the Processing](monitoring-the-processing.md)
-7. ✅ **Reviewed results** - This page
-
-**Your calibrated, reflectance-corrected multispectral images are ready for analysis!**
+* プログラムによる制御
+* 分析パイプラインとの統合
+* [API ドキュメント](../api-python-sdk.md) を参照
 
 ***
 
-## Additional Resources
+## 後処理のトラブルシューティング
 
-### Advanced Features
+### 異なる設定での再処理
 
-* [**Image Viewer**](../image-viewer-gui/page-3.md) - Interactive visualization and analysis
-* [**Index/LUT Sandbox**](../image-viewer-gui/index-lut-sandbox.md) - Custom index testing
-* [**Multispectral Index Formulas**](../project-settings/multispectral-index-formulas.md) - Complete index reference
+結果が満足のいくものでない場合：
 
-### Automation & Integration
+1. 元の画像を保持する （絶対に削除しないでください）
+2. Chlorosで同じプロジェクトを開く
+3. プロジェクト設定パネルで設定を調整する
+4. 再処理 - 出力は以前の結果を上書きします
 
-* [**CLI Documentation**](../CLI.md) - Command-line batch processing
-* [**Python SDK**](../api-python-sdk.md) - Programmatic automation
-* [**Chloros+ Features**](../#chloros) - Advanced processing capabilities
+### 画像サブセットの処理
 
-### Support & Learning
+特定の画像のみを再処理する場合：
 
-* [**FAQ**](../faq.md) - Common questions answered
-* [**Calibration Targets**](../calibration-targets.md) - Understanding reflectance calibration
-* [**Supported Cameras**](../supported-cameras.md) - Compatible hardware
+1. 新しいプロジェクトを作成する
+2. 再処理が必要な画像のみをインポートする
+3. 同じ設定テンプレートを使用する
+4. 小規模なデータセットを処理する
+
+### ヘルプの入手方法
+
+問題が発生した場合：
+
+* 📧 **メール**: info@mapir.camera (デバッグログを添付)
+* 🌐 **サポート**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
+* 📚 **FAQ**: [よくある質問](../faq.md)
+* 📖 **ドキュメント**: [Chloros マニュアル](../)
+
+***
+
+## まとめ: 完全なワークフロー
+
+これでChloros処理の完全なワークフローが完了しました：
+
+1. ✅ **プロジェクト作成** - [プロジェクト](../projects.md)を参照
+2. ✅ **ファイルを追加** - [ファイルの追加](adding-files-to-a-project.md) を参照
+3. ✅ **設定を調整** - [プロジェクト設定の調整](adjusting-project-settings.md) を参照(adjusting-project-settings.md)
+4. ✅ **ターゲット画像の選択** - [ターゲット画像の選択](choosing-target-images.md)を参照
+5. ✅ **処理の開始** - [処理の開始](starting-the-processing.md)を参照
+6. ✅ **進捗を監視** - [処理の監視](monitoring-the-processing.md)を参照
+7. ✅ **結果を確認** - このページ
+
+**キャリブレーション済み、反射率補正済みのマルチスペクトル画像が分析準備完了です！**
+
+***
+
+## 追加リソース
+
+### 高度な機能
+
+* [**画像ビューアー**](../image-viewer-gui/opening-an-image-full-screen.md) - インタラクティブな可視化と分析
+* [**インデックス/LUTサンドボックス**](../image-viewer-gui/index-lut-sandbox.md) - カスタムインデックスのテスト
+* [**マルチスペクトル指数計算式**](../project-settings/multispectral-index-formulas.md) - 完全な指数リファレンス
+
+### 自動化と統合
+
+* [**CLI ドキュメント**](../CLI.md) - コマンドラインによるバッチ処理
+* [**Python SDK**](../api-python-sdk.md) - プログラムによる自動化
+* [**Chloros+ 機能**](../#chloros) - 高度な処理機能
+
+### サポートと学習
+
+* [**よくある質問**](../faq.md) - よくある質問への回答
+* [**キャリブレーションターゲット**](../calibration-targets.md) - 反射率キャリブレーションの理解
+* [**対応カメラ**](../supported-cameras.md) - 互換性のあるハードウェア

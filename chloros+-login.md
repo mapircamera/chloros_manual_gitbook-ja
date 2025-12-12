@@ -6,7 +6,9 @@
 
 ログイン後、アカウント詳細が表示されます：
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI ログイン
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
+
+## CLI ログイン
 
 Chloros+ の認証情報でログインし、CLI 処理を有効化してください。
 
@@ -28,7 +30,9 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 
 **出力:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### プラン有効期限
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
+
+### プラン有効期限
 
 GUIに表示されるプラン有効期限は、ライセンスが無効になる時期を示します。月額サブスクリプションの場合、有効期限は月末です。年間サブスクリプションの場合、サブスクリプション開始から1年後です。ライセンスチェックには月1回のインターネット接続による検証が必要で、30日間の猶予期間が設けられています。
 

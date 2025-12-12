@@ -38,7 +38,7 @@ Chloros および Chloros (ブラウザ) を初めて起動すると、バック
 
 #### <img src=".gitbook/assets/icon_log.JPG" alt="" data-size="line"> デバッグログ
 
-問題発生時にデバッグ出力のログを確認してください。ログをコピー/ダウンロードし、[MAPIRサポート](https://www.mapir.camera/community/contact)に送信して支援を受けてください。
+問題発生時にはログのデバッグ出力内容を確認してください。ログをコピー/ダウンロードし、[MAPIRサポート](https://www.mapir.camera/community/contact)へ送信して支援を受けてください。
 
 #### <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> [ユーザーログイン](chloros+-login.md)
 

@@ -1,6 +1,6 @@
 # CLI : コマンドライン
 
-<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** は、Chloros 画像処理エンジンへの強力なコマンドラインアクセスを提供し、イメージングワークフローの自動化、スクリプティング、ヘッドレス操作を可能にします。
+<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** は、Chloros 画像処理エンジンへの強力なコマンドラインアクセスを提供し、画像処理ワークフローの自動化、スクリプト化、ヘッドレス操作を可能にします。
 
 ### 主な機能
 
@@ -77,7 +77,7 @@ chloros-cli [global-options] <command> [command-options]
 
 ### `process` - 画像処理
 
-キャリブレーション付きでフォルダ内の画像を処理します。
+キャリブレーションを使用してフォルダ内の画像を処理します。
 
 **構文:**
 
@@ -103,12 +103,12 @@ chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
 | `--reflectance`       | フラグ    | 有効        | 反射率キャリブレーションを有効化                                                         |
 | `--no-reflectance`    | フラグ    | -              | 反射率キャリブレーションを無効化                                                        |
 | `--ppk`               | フラグ    | 無効         | .daq光センサーデータからのPPK補正を適用                                      |
-| `--format`            | 選択    | TIFF (16ビット)  | 出力形式: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)` |
-| `--min-target-size`   | 整数 | 自動         | キャリブレーションパネル検出の最小ターゲットサイズ（ピクセル単位）                          |
-| `--target-clustering` | 整数 | 自動         | ターゲットクラスタリング閾値（0-100）                                                    |
+| `--format`            | 選択      | TIFF (16ビット)  | 出力形式: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)` |
+| `--min-target-size`   | 整数 | 自動           | キャリブレーションパネル検出の最小ターゲットサイズ（ピクセル単位）                          |
+| `--target-clustering` | 整数 | 自動           | ターゲットクラスタリング閾値（0-100）                                                    |
 | `--exposure-pin-1`    | 文字列  | なし           | カメラモデル用露光ロック (ピン1)                                                 |
 | `--exposure-pin-2`    | 文字列  | なし           | カメラモデル用露光ロック (ピン2)                                                 |
-| `--recal-interval`    | 整数 | 自動         | 再校正間隔（秒単位）                                                      |
+| `--recal-interval`    | 整数 | 自動           | 再校正間隔（秒単位）                                                      |
 | `--timezone-offset`   | 整数 | 0              | タイムゾーンオフセット（時間単位）                                                               |
 
 ***
@@ -254,10 +254,10 @@ chloros-cli language ja
 | `es`    | スペイン語               | Español          |
 | `pt`    | ポルトガル語            | Português        |
 | `fr`    | フランス語                | Français         |
-| `de`    | ドイツ語                | Deutsch          |
-| `it`    | イタリア語               | Italiano         |
-| `ja`    | 日本語              | 日本語              |
-| `ko`    | 韓国語                | 한국어              |
+| `de`    | ドイツ語             | Deutsch          |
+| `it`    | イタリア語             | Italiano         |
+| `ja`    | 日本語             | 日本語              |
+| `ko`    | 韓国語             | 한국어              |
 | `zh`    | 中国語（簡体字）  | 简体中文             |
 | `zh-TW` | 中国語（繁体字） | 繁體中文             |
 | `ru`    | ロシア語               | Русский          |
@@ -402,7 +402,7 @@ CLI はデフォルトで推奨されるデベイヤーアルゴリズムとし�
 
 ### ヴィネット補正
 
-**機能：** 画像端部の光量減衰（カメラ画像でよく見られる暗い四隅）を補正します。
+**機能：** 画像端部の光量減衰（カメラ画像でよく見られる暗角）を補正します。
 
 * **デフォルトで有効** - ほとんどのユーザーはこの機能を有効にしたままにしておくべきです
 * 無効化するには `--no-vignette` を使用
@@ -435,7 +435,7 @@ CLI はデフォルトで推奨されるデベイヤーアルゴリズムとし�
 
 <table><thead><tr><th width="197">フォーマット</th><th width="130.20001220703125">ビット深度</th><th width="116.5999755859375">ファイルサイズ</th><th>最適用途</th></tr></thead><tbody><tr><td><strong>TIFF (16ビット)</strong> ⭐</td><td>16ビット整数</td><td>大</td><td>GIS分析、写真測量（推奨）</td></tr><tr><td><strong>TIFF (32ビット、パーセント)</strong></td><td>32ビット浮動小数点</td><td>非常に大きい</td><td>科学分析、研究</td></tr><tr><td><strong>PNG (8 ビット)</strong></td><td>8 ビット整数</td><td>中</td><td>目視検査、ウェブ共有</td></tr><tr><td><strong>JPG (8ビット)</strong></td><td>8ビット整数</td><td>小</td><td>クイックプレビュー、圧縮出力</td></tr></tbody></table>***
 
-## 自動化とスクリプト
+## オートメーションとスクリプト
 
 ### PowerShell バッチ処理
 
@@ -490,7 +490,7 @@ echo All datasets processed!
 pause
 ```
 
-### Python 自動化スクリプト
+### Python オートメーションスクリプト
 
 エラー処理付き高度な自動化:
 
@@ -651,7 +651,7 @@ Backend failed to start within 30 seconds
 **解決策:**
 
 1. バックエンドが既に実行中か確認（実行中の場合は終了）
-2. ファイアウォールがブロックしていないか確認
+2. Windows ファイアウォールがブロックしていないか確認
 3. 別のポートを試す:
 
 ```powershell
@@ -751,7 +751,7 @@ chloros-cli --port 5001 process "C:\Datasets\Field_A"
 
 ***
 
-### Q: GUIのないサーバーでCLIは使用できますか？
+### Q: GUIのないサーバーでCLIを使用できますか？
 
 **A:** はい！CLIは完全にヘッドレスで動作します。要件：
 
@@ -780,7 +780,7 @@ chloros-cli process "C:\Input" -o "D:\Output"
 
 ***
 
-### Q: 出力をログファイルに保存するにはどうすればよいですか？
+### Q: CLIの出力をログファイルに保存するにはどうすればよいですか？
 
 **PowerShell:**
 

@@ -38,6 +38,6 @@ GUIに表示されるプラン有効期限は、ライセンスが無効にな�
 
 ### デバイス制限
 
-各Chloros+プランでは登録可能なデバイス数が異なります。Chloros+アカウントでログインする各デバイスは登録デバイス数にカウントされます。MAPIR Cloudアカウントページでデバイスの名前変更や削除が可能です。
+各Chloros+プランでは登録可能なデバイス数が異なります。Chloros+アカウントでログインする各デバイスは登録デバイス数にカウントされます。MAPIRクラウドアカウントページでデバイスの名前変更や削除が可能です。
 
-<table><thead><tr><th width="168.5999755859375" align="right">Chloros+プラン</th><th align="center">COPPER</th><th align="center">ブロンズ</th><th align="center">シルバー</th><th align="center">ゴールド</th></tr></thead><tbody><tr><td align="right">対応デバイス</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
+<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ プラン</th><th align="center">COPPER</th><th align="center">ブロンズ</th><th align="center">シルバー</th><th align="center">ゴールド</th></tr></thead><tbody><tr><td align="right">対応デバイス</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>

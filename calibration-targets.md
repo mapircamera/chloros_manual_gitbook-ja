@@ -9,7 +9,9 @@ metaLinks:
 
 MAPIRは、様々な用途に対応する多様な較正ターゲットを提供しています。下記のコンパクトなT4-R50には、250～2,500 nmの光反射率を測定済みの4枚のパネルが含まれています。
 
-<figure><img src=".gitbook/assets/t4-r50_2.jpg" alt=""><figcaption><p>MAPIR T4-R50</p></figcaption></figure>T4拡散基準ターゲットの反射率曲線は以下の通りです（[データダウンロードはこちら](https://cdn.shopify.com/s/files/1/0972/5566/files/MAPIR_Diffuse_Reflectance_Standard_Calibration_Target_Data_T4.xlsx?v=1741759157)）：
+<figure><img src=".gitbook/assets/t4-r50_2.jpg" alt=""><figcaption><p>MAPIR T4-R50</p></figcaption></figure>
+
+T4拡散基準ターゲットの反射率曲線は以下の通りです（[データダウンロードはこちら](https://cdn.shopify.com/s/files/1/0972/5566/files/MAPIR_Diffuse_Reflectance_Standard_Calibration_Target_Data_T4.xlsx?v=1741759157)）：
 
 <figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4 (250-2500nm).png" alt=""><figcaption><p>MAPIR T4 反射率 :: 250-2500nm</p></figcaption></figure>
 

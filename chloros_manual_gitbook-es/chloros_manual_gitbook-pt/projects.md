@@ -1,17 +1,17 @@
-# Projects
+# プロジェクト
 
-Chloros allows you to create projects which can be reopened in the future.
+Chloros を使用すると、将来的に再開できるプロジェクトを作成できます。
 
-## New Project
+## 新しいプロジェクト
 
 <figure><img src=".gitbook/assets/project_new.JPG" alt=""><figcaption></figcaption></figure>
 
-Select "New Project" from the main menu and enter a unique name for your project.
+メインメニューから「新しいプロジェクト」を選択し、プロジェクトの一意の名前を入力します。
 
-## Open Project
+## プロジェクトを開く
 
 <figure><img src=".gitbook/assets/project_open.JPG" alt=""><figcaption></figcaption></figure>
 
-Select "Open Project" to see a list of existing projects in the Project Folder. If no projects exist the secondary side menu will not open. You can see some GUI created projects (t1, t2, t3) listed in the above photo. The DATE\_TIME projects were created by the CLI using the default project naming scheme. Clicking any project name will open it.
+「プロジェクトを開く」を選択すると、プロジェクト フォルダー内の既存のプロジェクトのリストが表示されます。プロジェクトが存在しない場合、セカンダリ サイド メニューは開きません。上の写真には、GUI で作成されたプロジェクト (t1、t2、t3) がいくつかリストされています。 DATE\_TIME プロジェクトは、デフォルトのプロジェクト命名スキームを使用して CLI によって作成されました。任意のプロジェクト名をクリックするとプロジェクトが開きます。
 
-Clicking the "Open Project Folder" button opens your computer's file explorer at the project path. You can adjust the project path in the [Project Settings](project-settings/page-2.md).
+[プロジェクト フォルダーを開く] ボタンをクリックすると、コンピューターのファイル エクスプローラーがプロジェクト パスで開きます。 [プロジェクト設定](project-settings/page-2.md) でプロジェクト パスを調整できます。

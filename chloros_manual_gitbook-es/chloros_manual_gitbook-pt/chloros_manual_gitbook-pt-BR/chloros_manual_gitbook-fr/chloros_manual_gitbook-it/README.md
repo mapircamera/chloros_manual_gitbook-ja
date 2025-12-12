@@ -1,41 +1,41 @@
-﻿# Chloros User Manual - Italian
+# Chloros ユーザーマニュアル - イタリア語
 
-This is the Italian translation of the Chloros Professional Multispectral Image Processing Software user manual.
+これは、Chloros プロフェッショナル マルチスペクトル画像処理ソフトウェア ユーザー マニュアルのイタリア語翻訳です。
 
-## About Chloros
+## クロロスについて
 
-Chloros is professional multispectral image processing software that transforms imagery into actionable insights with powerful desktop software, command-line tools, and Python API.
+Chloros は、強力なデスクトップ ソフトウェア、コマンドライン ツール、Python API を使用して画像を実用的な洞察に変換するプロフェッショナルなマルチスペクトル画像処理ソフトウェアです。
 
-### Features
-- Desktop and Browser interfaces
-- CLI and Python SDK (Chloros+)
-- Available in 28 languages
-- 24+ vegetation indices
-- Reflectance calibration
-- Ambient light sensor support
+### 特徴
+- デスクトップとブラウザのインターフェース
+- CLI および Python SDK (Chloros+)
+- 28 言語で利用可能
+- 24 以上の植生インデックス
+- 反射率の校正
+- 環境光センサーのサポート
 
-## Documentation
+## ドキュメント
 
-This manual is synchronized with GitBook. The documentation covers:
-- Installation and setup
-- Image processing workflows
-- Calibration procedures
-- Vegetation index calculations
-- CLI and Python SDK usage
-- API reference
+このマニュアルは GitBook と同期されています。ドキュメントの内容は次のとおりです。
+- インストールとセットアップ
+- 画像処理ワークフロー
+- 校正手順
+- 植生指数の計算
+- CLI と Python SDK の使用法
+- APIリファレンス
 
-## Links
+## リンク
 
-- [Main Website](https://www.mapir.camera)
-- [Chloros Download](https://drive.google.com/file/d/1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4/view?usp=drive_link)
-- [Chloros+ Plans](https://cloud.mapir.camera/pricing)
-- [English Documentation](https://mapir.gitbook.io/chloros)
-- [Support](https://www.mapir.camera/community/contact)
+- __リンク_0__
+- __リンク_0__
+- __リンク_0__
+- __リンク_0__
+- __リンク_0__
 
-## Translation Status
+## 翻訳ステータス
 
-Translation in progress - This manual will be translated to Italian soon.
+翻訳中 - このマニュアルは間もなくイタリア語に翻訳される予定です。
 
-## License
+## ライセンス
 
-Copyright MAPIR Camera. All rights reserved.
+著作権 MAPIR カメラ。無断転載を禁じます。

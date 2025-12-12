@@ -4,21 +4,21 @@ metaLinks:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/output-image-formats
 ---
 
-# Output Image Formats
+# 出力画像フォーマット
 
-### TIFF (16-bit)
+### TIFF（16ビット）
 
-16-bit (pixel digital number 0 - 65535) TIFF (.tif) format output.
+16ビット（ピクセルデジタル番号0～65535）TIFF（.tif）形式出力。
 
-### TIFF (32-bit, Percent %)
+### TIFF (32 ビット、パーセント %)
 
-32-bit (pixel float 0.0 - 1.0) TIFF (.tif) format output. Pixel values represent reflectance percentages where 0.0 = 0% and 1.0 = 100%.
+32 ビット (ピクセル浮動小数点 0.0 ～ 1.0) TIFF (.tif) 形式の出力。ピクセル値は反射率を表し、0.0 = 0%、1.0 = 100% となります。
 
-### **JPG (8-bit)**
+### **JPG (8ビット)**
 
-8-bit (pixel digital number 0 -255) JPG (.jpg) format output.
+8ビット(ピクセルデジタル番号0～255)JPG(.jpg)形式で出力します。
 
-### **PNG (8-bit)**
+### **PNG (8 ビット)**
 
-8-bit (pixel digital number 0 - 255) PNG (.png) format output. Lossless compression suitable for web viewing and visualization.
+8ビット(ピクセルデジタル番号0～255)のPNG(.png)形式で出力します。 Web 表示や視覚化に適した可逆圧縮。
 

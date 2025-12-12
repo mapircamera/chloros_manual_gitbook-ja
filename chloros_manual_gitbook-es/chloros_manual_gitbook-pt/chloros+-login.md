@@ -1,43 +1,43 @@
-# Chloros+ Login
+# クロロス+ ログイン
 
-## Chloros and Chloros (Browser) Login
+## クロロスとクロロス（ブラウザ）ログイン
 
-The user <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> sidebar menu allows you to log into your Chloros+ account and unlock additional features.
+ユーザー <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> サイドバー メニューを使用すると、Chloros+ アカウントにログインし、追加機能のロックを解除できます。
 
-When logged in your account details will be shown:
+ログインすると、アカウントの詳細が表示されます:
 
 <figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
 
-## CLI Login
+## CLIログイン
 
-Login with your Chloros+ credentials to enable CLI processing.
+Chloros+ 認証情報を使用してログインし、CLI 処理を有効にします。
 
-**Syntax:**
+**構文：**
 
 ```bash
 chloros-cli login <email> <password>
 ```
 
-**Example:**
+**例：**
 
 ```powershell
 chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
-{% hint style="warning" %}
-**Special Characters**: Use single quotes around passwords containing characters like `$`, `!`, or spaces.
-{% endhint %}
+{% ヒント スタイル="警告" %}
+**特殊文字**: `$`、`!`、スペースなどの文字を含むパスワードは一重引用符で囲みます。
+{% エンドヒント %}
 
-**Output:**
+**出力：**
 
 <figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
 
-### Plan Expiration
+### プランの有効期限
 
-The plan expiration in the GUI shows when your license will become invalid. For recurring monthly subscriptions the expiration is at the end of the month. For yearly subscriptions it is a year after you started the subscription. The license check requires a monthly internet connection to verify, with a 30 day grace period.
+GUI のプランの有効期限は、ライセンスがいつ無効になるかを示します。定期的な月次サブスクリプションの場合、有効期限は月末になります。年間サブスクリプションの場合、サブスクリプションを開始してから 1 年後となります。ライセンス チェックでは、月次のインターネット接続を確認する必要があり、30 日間の猶予期間があります。
 
-### Device Limit
+### デバイス制限
 
-Each Chloros+ plan offers a different number of registered devices. Each device you log into with a Chloros+ account will count towards your number of registered devices. You can rename and remove a device on your MAPIR Cloud account page.
+Chloros+ プランごとに提供される登録デバイスの数は異なります。 Chloros+ アカウントでログインした各デバイスは、登録済みデバイスの数としてカウントされます。 MAPIR Cloud アカウント ページでデバイスの名前を変更したり削除したりできます。
 
-<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ Plan</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">Devices Supported</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
+<table><thead><tr><th width="168.5999755859375" align="right">クロロス+計画</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">デバイスサポート済み</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>

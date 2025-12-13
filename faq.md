@@ -1,17 +1,16 @@
 ---
-description: Frequently Asked Questions
+description: よくあるご質問
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/faq
 ---
-
-# FAQ
+# よくある質問
 
 <details>
 
-<summary>ChlorosでMAPIR以外のブランドのカメラ画像を処理できますか？</summary>
+<summary>Chlorosで、MAPIRブランド以外のカメラの画像を処理できますか？</summary>
 
-いいえ、ChlorosはMAPIRカメラの画像処理のみをサポートしています。 詳細は[対応カメラモデル一覧](supported-cameras.md)をご確認ください。MAPIR Cloudでは他カメラの処理も提供しております。全リストは[こちら](https://mapir.gitbook.io/mapir-cloud/supported-cameras)をご覧ください。
+いいえ、ChlorosはMAPIRカメラの画像処理のみをサポートしています。 詳細は[対応カメラモデル一覧](supported-cameras.md)をご確認ください。MAPIR Cloudでは他カメラの処理も提供しており、全リストは[こちら](https://mapir.gitbook.io/mapir-cloud/supported-cameras)をご覧ください。
 
 </details>
 
@@ -33,9 +32,9 @@ metaLinks:
 
 <details>
 
-<summary>MAPIR Survey3 カメラを自動露出に設定し、Chloros で画像を処理できますか？</summary>
+<summary>MAPIR Survey3カメラを自動露出に設定し、Chlorosで画像を処理できますか？</summary>
 
-いいえ。Survey3 イメージデータセットは、露出が固定/ロックされている必要があります。したがって、自動シャッタースピードや自動 ISO は使用できません。同じカメラモデルのすべての画像は、シャッタースピードと ISO (露出) が同一である必要があります。
+いいえ。Survey3 イメージデータセットは、露出が固定/ロックされている必要があります。したがって、自動シャッタースピードや自動 ISO は使用できません。同じカメラモデルの画像はすべて、シャッタースピードと ISO (露出) が同一である必要があります。
 
 </details>
 
@@ -43,7 +42,7 @@ metaLinks:
 
 <summary>Chlorosはオルソモザイク画像の処理や解析が可能ですか？</summary>
 
-いいえ。MAPIRカメラの個別画像のみをサポートしており、オルソモザイクマップのような結合画像はサポートしていません。
+いいえ。MAPIRカメラの個別画像のみをサポートしており、オルソモザイクマップのような結合済み画像はサポートしていません。
 
 </details>
 
@@ -65,7 +64,7 @@ metaLinks:
 
 <details>
 
-<summary>MAPIRはX機能をサポートする予定はありますか？MAPIRがXを提供してくれると本当に願っています。</summary>
+<summary>MAPIRはX機能をサポートする予定はありますか？MAPIRにX機能が搭載されればと強く願っています。</summary>
 
 当社製品に関するフィードバックは常に歓迎しております。製品の問題点や改善提案がございましたら、[お問い合わせ](https://www.mapir.camera/community/contact)よりご意見をお寄せください。当社の研究開発の大半は、お客様の最重要ニーズを反映して進められています。
 

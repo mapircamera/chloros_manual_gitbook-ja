@@ -1,6 +1,6 @@
 # GUI : ナビゲーション
 
-Chloros および Chloros (ブラウザ) を初めて起動すると、バックエンドが起動します。準備が整うと、左上のメインメニューアイコンが表示されます <img src=".gitbook/assets/image (1).png" alt="" data-size="line"> .
+Chloros および Chloros (ブラウザ) を初回起動すると、バックエンドが起動します。準備が整うと、左上のメインメニューアイコンが表示されます <img src=".gitbook/assets/image (1).png" alt="" data-size="line"> .
 
 <figure><img src=".gitbook/assets/header.JPG" alt=""><figcaption></figcaption></figure>
 
@@ -14,9 +14,9 @@ Chloros および Chloros (ブラウザ) を初めて起動すると、バック
 
 有効化されている場合、この処理開始ボタンで画像処理パイプラインが開始されます。
 
-### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> 進行状況バー <img src=".gitbook/assets/image (5).png" alt="" data-size="line">無料版Chlorosモード（全ファイルを順次処理）では、進行状況バーは2段階（ターゲット検出と処理）を表示します。
+### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> 進行状況バー <img src=".gitbook/assets/image (5).png" alt="" data-size="line">無料版Chlorosモード（全ファイルを順次処理）では、進行状況バーは「ターゲット検出」と「処理中」の2段階を表示します。
 
-有料版Chloros+ライセンスモード（全ファイルを同時処理）では、進行状況バーは4段階（検出中、分析中、キャリブレーション中、エクスポート中）を表示します。 マウスカーソルをChloros+の進捗バー上に置くと、拡張された4段階の進捗バーパネルがドロップダウン表示され、処理状況を追跡できます。上部の進捗バーをクリックするとドロップダウンパネルが固定され、再度クリックすると解除されます。
+有料版Chloros+ライセンスモード（全ファイルを同時処理）では、進行状況バーは「検出中」「分析中」「キャリブレーション中」「エクスポート中」の4段階を表示します。 マウスカーソルをChloros+の進捗バー上に置くと、拡張された4段階の進捗バーパネルがドロップダウン表示され、処理状況を追跡できます。上部の進捗バーをクリックするとドロップダウンパネルが固定され、再度クリックすると解除されます。
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 
@@ -38,8 +38,8 @@ Chloros および Chloros (ブラウザ) を初めて起動すると、バック
 
 #### <img src=".gitbook/assets/icon_log.JPG" alt="" data-size="line"> デバッグログ
 
-問題発生時にはログのデバッグ出力内容を確認してください。ログをコピー/ダウンロードし、[MAPIRサポート](https://www.mapir.camera/community/contact)へ送信して支援を受けてください。
+問題発生時にデバッグ出力のログを確認してください。ログをコピー/ダウンロードし、[MAPIR サポート](https://www.mapir.camera/community/contact) に送信して支援を受けてください。
 
 #### <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> [ユーザーログイン](chloros+-login.md)
 
-ユーザーログインサイドバーでは、Chloros+アカウントにログインして高度な機能を有効化できます。また、現在のアプリケーションバージョンを確認したり、Chloros GUIおよびCLIで表示されるテキストの言語を変更したりできます。
+ユーザーログインサイドバーでは、Chloros+アカウントにログインして高度な機能を有効化できます。また、現在のアプリケーションバージョンを確認したり、Chloros GUIおよびCLIで表示されるテキストの言語を設定したりできます。

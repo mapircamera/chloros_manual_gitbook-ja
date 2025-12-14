@@ -27,7 +27,7 @@
 * [プロジェクト設定](project-settings/project-settings.md)
 * [マルチスペクトル指数式](project-settings/multispectral-index-formulas.md)
 
-## 画像ビューア (GUI)
+## イメージビューア (GUI)
 
 * [画像のフルスクリーン表示](image-viewer-gui/opening-an-image-full-screen.md)
 * [画像レイヤー](image-viewer-gui/image-layers.md)

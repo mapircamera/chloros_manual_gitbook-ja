@@ -1,6 +1,6 @@
 # CLI : コマンドライン
 
-<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** は、Chloros 画像処理エンジンへの強力なコマンドラインアクセスを提供し、画像処理ワークフローの自動化、スクリプト化、ヘッドレス操作を可能にします。
+<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** は、Chloros 画像処理エンジンへの強力なコマンドラインアクセスを提供し、イメージングワークフローの自動化、スクリプト化、ヘッドレス操作を可能にします。
 
 ### 主な機能
 
@@ -12,12 +12,12 @@
 
 ### 要件
 
-| 要件                                                                               | 詳細                                                                               |
+| 要件                                                             | 詳細                                                             |
 | -------------------- | ------------------------------------------------------------------- |
 | **オペレーティングシステム** | Windows 10/11 (64ビット)                                              |
 | **ライセンス**          | Chloros+ ([有料プランが必要](https://cloud.mapir.camera/pricing)) |
 | **メモリ**           | 8GB RAM以上 (16GB推奨)                                                    |
-| **インターネット接続** | ライセンス有効化に必須                                                    |
+| **インターネット**         | ライセンス有効化に必須                                                    |
 | **ディスク容量**       | プロジェクトサイズにより異なる                                              |
 
 {% hint style=&quot;warning&quot; %}
@@ -28,11 +28,11 @@
 
 ### インストール
 
-CLI は Chloros インストーラーに自動的に含まれます：
+CLI は Chloros インストーラーに自動的に含まれています：
 
 1. **Chloros インストーラー.exe** をダウンロードして実行
 2. インストールウィザードを完了
-3. CLI は以下にインストールされます: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
+3. CLI のインストール先: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
 
 {% hint style=&quot;success&quot; %}
 インストーラーは自動的に `chloros-cli` をシステム PATH に追加します。インストール後、ターミナルを再起動してください。
@@ -55,7 +55,7 @@ chloros-cli process "C:\Images\Dataset001"
 
 ### 基本操作
 
-デフォルト設定でフォルダを処理:
+デフォルト設定でフォルダを処理：
 
 ```powershell
 chloros-cli process "C:\Images\Dataset001"
@@ -77,7 +77,7 @@ chloros-cli [global-options] <command> [command-options]
 
 ### `process` - 画像処理
 
-キャリブレーションを使用してフォルダ内の画像を処理します。
+キャリブレーション付きでフォルダ内の画像を処理します。
 
 **構文:**
 
@@ -133,9 +133,7 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 **特殊文字**: `$`、`!`、スペースなどの文字を含むパスワードはシングルクォートで囲んでください。
 {% endhint %}
 
-**出力:**
-
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>***
+**出力:**<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>***
 
 ### `logout` - 認証情報のクリア
 
@@ -160,11 +158,15 @@ chloros-cli logout
 ℹ Credentials cleared from cache
 ```
 
+{% hint style=&quot;info&quot; %}
+**SDK ユーザー**: Python SDK は、Python スクリプト内で認証情報をクリアするためのプログラム的な `logout()` メソッドも提供します。 詳細は[Python SDK ドキュメント](api-python-sdk.md#logout)を参照してください。
+{% endhint %}
+
 ***
 
 ### `status` - ライセンス状態の確認
 
-現在のライセンスと認証状態を表示します。
+現在のライセンスおよび認証状態を表示します。
 
 **構文:**
 
@@ -209,9 +211,7 @@ chloros-cli export-status
 chloros-cli export-status
 ```
 
-**使用例:** 処理実行中にこのコマンドを呼び出し、エクスポート進捗を確認します。
-
-***
+**使用例:** 処理実行中にこのコマンドを呼び出し、エクスポート進捗を確認します。***
 
 ### `language` - インターフェース言語の管理
 
@@ -230,7 +230,7 @@ chloros-cli language --list
 chloros-cli language <language-code>
 ```
 
-**例:**
+**使用例:**
 
 ```powershell
 # View current language
@@ -246,51 +246,51 @@ chloros-cli language es
 chloros-cli language ja
 ```
 
-#### サポート言語 (合計38言語)
+#### 対応言語 (全38言語)
 
 | コード    | 言語               | ネイティブ名      |
 | ------- | --------------------- | ---------------- |
 | `en`    | 英語               | English          |
-| `es`    | スペイン語               | Español          |
-| `pt`    | ポルトガル語            | Português        |
-| `fr`    | フランス語                | Français         |
+| `es`    | スペイン語         | Español          |
+| `pt`    | ポルトガル語       | Português        |
+| `fr`    | フランス語            | Français         |
 | `de`    | ドイツ語             | Deutsch          |
-| `it`    | イタリア語             | Italiano         |
+| `it`    | イタリア語            | Italiano         |
 | `ja`    | 日本語             | 日本語              |
-| `ko`    | 韓国語             | 한국어              |
+| `ko`    | 韓国語                | 한국어              |
 | `zh`    | 中国語（簡体字）  | 简体中文             |
 | `zh-TW` | 中国語（繁体字） | 繁體中文             |
 | `ru`    | ロシア語               | Русский          |
-| `nl`    | オランダ語         | Nederlands       |
-| `ar`    | アラビア語         | العربية          |
-| `pl`    | ポーランド語        | Polski           |
-| `tr`    | トルコ語            | Türkçe           |
-| `hi`    | ヒンディー語         | हिंदी            |
-| `id`    | インドネシア語       | Bahasa Indonesia |
-| `vi`    | ベトナム語         | Tiếng Việt       |
+| `nl`    | オランダ語                 | Nederlands       |
+| `ar`    | アラビア語                | العربية          |
+| `pl`    | ポーランド語                | Polski           |
+| `tr`    | トルコ語               | Türkçe           |
+| `hi`    | ヒンディー語                 | हिंदी            |
+| `id`    | インドネシア語            | Bahasa Indonesia |
+| `vi`    | ベトナム語            | Tiếng Việt       |
 | `th`    | タイ語                  | ไทย              |
 | `sv`    | スウェーデン語               | Svenska          |
 | `da`    | デンマーク語                | Dansk            |
-| `no`    | ノルウェー語             | Norsk            |
-| `fi`    | フィンランド語     | Suomi            |
-| `el`    | ギリシャ語         | Ελληνικά         |
-| `cs`    | チェコ語         | Čeština          |
-| `hu`    | ハンガリー語         | Magyar           |
-| `ro`    | ルーマニア語         | Română           |
-| `uk`    | ウクライナ語         | Українська       |
-| `pt-BR` | ブラジルポルトガル語 | Português Brasileiro |
-| `zh-HK` | 広東語             | 広東語             |
-| `ms`    | マレー語                 | マレー語    |
-| `sk`    | スロバキア語                | スロバキア語       |
-| `bg`    | ブルガリア語             | Български        |
-| `hr`    | クロアチア語              | Hrvatski         |
-| `lt`    | リトアニア語            | Lietuvių         |
-| `lv`    | ラトビア語            | Latviešu         |
-| `et`    | エストニア語            | Eesti            |
-| `sl`    | スロベニア語            | Slovenščina      |
+| `no`    | ノルウェー語         | Norsk            |
+| `fi`    | フィンランド語       | Suomi            |
+| `el`    | ギリシャ語           | Ελληνικά         |
+| `cs`    | チェコ語                 | Čeština          |
+| `hu`    | ハンガリー語             | Magyar           |
+| `ro`    | ルーマニア語              | Română           |
+| `uk`    | ウクライナ語             | Українська       |
+| `pt-BR` | ブラジルポルトガル語  | Português Brasileiro |
+| `zh-HK` | 広東語             | 粵語             |
+| `ms`    | マレー語             | Bahasa Melayu    |
+| `sk`    | スロバキア語         | Slovenčina       |
+| `bg`    | ブルガリア語         | Български        |
+| `hr`    | クロアチア語              | クロアチア語         |
+| `lt`    | リトアニア語            | リトアニア語         |
+| `lv`    | ラトビア語               | ラトビア語         |
+| `et`    | エストニア語         | エストニア語        |
+| `sl`    | スロベニア語         | スロベニア語        |
 
 {% hint style=&quot;success&quot; %}
-**自動保存機能**: 言語設定は `~/.chloros/cli_language.json` に保存され、すべてのセッションで維持されます。
+**自動保存**: 言語設定は `~/.chloros/cli_language.json` に保存され、全セッションで維持されます。
 {% endhint %}
 
 ***
@@ -353,7 +353,7 @@ chloros-cli reset-project-folder
 
 これらのオプションは全てのコマンドに適用されます:
 
-| オプション          | タイプ    | デフォルト       | 説明                                                      |
+| オプション        | タイプ    | デフォルト       | 説明                                      |
 | --------------- | ------- | ------------- | ------------------------------------------------ |
 | `--backend-exe` | パス    | 自動検出 | バックエンド実行ファイルへのパス                       |
 | `--port`        | 整数 | 5000          | バックエンド API ポート番号                          |
@@ -373,15 +373,11 @@ chloros-cli --port 5001 process "C:\Datasets\Survey_001"
 
 ### 並列処理
 
-Chloros+ CLI は、コンピューターの性能に合わせて並列処理を**自動スケーリング**します:
-
-**動作原理:**
+Chloros+ CLI は、お使いのコンピュータの性能に合わせて並列処理を**自動スケーリング**します:**動作原理:**
 
 * CPUコア数とRAMを検出
 * ワーカーを割り当て: **CPUコア数×2** (ハイパースレッディング利用)
-* **最大: 16並列ワーカー** (安定性確保のため)
-
-**システム階層:**
+* **最大: 16並列ワーカー** (安定性確保のため)**システム階層:**
 
 | システムタイプ   | CPU        | RAM      | ワーカー  | パフォーマンス     |
 | ---------| **ハイエンド**  | 16+ コア  | 32+ GB   | 最大16   | 最高速度   |
@@ -389,12 +385,12 @@ Chloros+ CLI は、コンピューターの性能に合わせて並列処理を*
 | **ローエンド**   | 4-7 コア  | 8-15 GB  | 4-8      | 良好な速度      |
 
 {% hint style=&quot;success&quot; %}
-**自動最適化**: CLIはシステム仕様を自動検知し、最適な並列処理を設定します。手動設定不要！
+**自動最適化**: CLIはシステム仕様を自動検知し、最適な並列処理を設定します。手動設定は不要です！
 {% endhint %}
 
 ### デベイヤー方式
 
-CLI はデフォルトで推奨されるデベイヤーアルゴリズムとして **高品質 (高速)** を使用します:
+CLI はデフォルトで推奨されるデベイヤーアルゴリズムとして **高品質（高速）** を使用します：
 
 | 方式                      | 品質 | 速度 | 説明                                 |
 | --------------------------- | ------- | ----- | ------------------------------------------- |
@@ -402,7 +398,7 @@ CLI はデフォルトで推奨されるデベイヤーアルゴリズムとし�
 
 ### ヴィネット補正
 
-**機能：** 画像端部の光量減衰（カメラ画像でよく見られる暗角）を補正します。
+**機能：** 画像端部の光量減衰（カメラ画像でよく見られる暗い四隅）を補正します。
 
 * **デフォルトで有効** - ほとんどのユーザーはこの機能を有効にしたままにしておくべきです
 * 無効化するには `--no-vignette` を使用
@@ -429,11 +425,11 @@ CLI はデフォルトで推奨されるデベイヤーアルゴリズムとし�
 
 * **デフォルトで無効化**
 * 有効化には`--ppk`を使用
-* MAPIR DAQ-A-SD光センサーからの.daqファイルをプロジェクトフォルダに必要。
+* MAPIR DAQ-A-SD光センサーの.daqファイルをプロジェクトフォルダに配置する必要あり。
 
 ### 出力フォーマット
 
-<table><thead><tr><th width="197">フォーマット</th><th width="130.20001220703125">ビット深度</th><th width="116.5999755859375">ファイルサイズ</th><th>最適用途</th></tr></thead><tbody><tr><td><strong>TIFF (16ビット)</strong> ⭐</td><td>16ビット整数</td><td>大</td><td>GIS分析、写真測量（推奨）</td></tr><tr><td><strong>TIFF (32ビット、パーセント)</strong></td><td>32ビット浮動小数点</td><td>非常に大きい</td><td>科学分析、研究</td></tr><tr><td><strong>PNG (8 ビット)</strong></td><td>8 ビット整数</td><td>中</td><td>目視検査、ウェブ共有</td></tr><tr><td><strong>JPG (8ビット)</strong></td><td>8ビット整数</td><td>小</td><td>クイックプレビュー、圧縮出力</td></tr></tbody></table>***
+<table><thead><tr><th width="197">フォーマット</th><th width="130.20001220703125">ビット深度</th><th width="116.5999755859375">ファイルサイズ</th><th>最適用途</th></tr></thead><tbody><tr><td><strong>TIFF (16ビット)</strong> ⭐</td><td>16ビット整数</td><td>大</td><td>GIS分析、写真測量（推奨）</td></tr><tr><td><strong>TIFF (32ビット、パーセント)</strong></td><td>32ビット浮動小数点</td><td>超大規模</td><td>科学分析、研究</td></tr><tr><td><strong>PNG (8 ビット)</strong></td><td>8 ビット整数</td><td>中</td><td>目視検査、ウェブ共有</td></tr><tr><td><strong>JPG (8ビット)</strong></td><td>8ビット整数</td><td>小</td><td>クイックプレビュー、圧縮出力</td></tr></tbody></table>***
 
 ## オートメーションとスクリプト
 
@@ -583,6 +579,7 @@ if __name__ == '__main__':
 ### 出力構造例
 
 ```
+
 MyProject/
 ├── project.json                             # Project metadata
 ├── 2025_0203_193056_008.JPG                # Original JPG
@@ -640,17 +637,16 @@ dir "C:\Program Files\Chloros\resources\cli\chloros-cli.exe"
 
 ***
 
-### バックエンドの起動に失敗しました
-
-**エラー:**
+### バックエンドの起動に失敗しました**エラー:**
 
 ```
+
 Backend failed to start within 30 seconds
 ```
 
 **解決策:**
 
-1. バックエンドが既に実行中か確認（実行中の場合は終了）
+1. バックエンドが既に実行中か確認（まず終了）
 2. Windows ファイアウォールがブロックしていないか確認
 3. 別のポートを試す:
 
@@ -666,11 +662,10 @@ chloros-cli --restart process "C:\Datasets\Field_A"
 
 ***
 
-### ライセンス/認証の問題
-
-**エラー:**
+### ライセンス/認証の問題**エラー:**
 
 ```
+
 Chloros+ license required for CLI access
 ```
 
@@ -693,26 +688,23 @@ chloros-cli status
 
 ***
 
-### 画像が見つかりません
-
-**エラー:**
+### 画像が見つかりません**エラー:**
 
 ```
+
 No images found in the specified folder
 ```
 
 **解決策:**
 
-1. フォルダにサポートされている形式（.RAW、.TIF、.JPG）が含まれていることを確認してください
-2. フォルダパスが正しいことを確認してください（スペースを含むパスには引用符を使用してください）
+1. フォルダ内にサポート形式（.RAW、.TIF、.JPG）が含まれていることを確認
+2. フォルダパスが正しいことを確認（スペースを含むパスは引用符で囲む）
 3. フォルダへの読み取り権限があることを確認してください
 4. ファイル拡張子が正しいか確認してください
 
 ***
 
-### 処理が停止またはハングする
-
-**解決策:**
+### 処理が停止またはハングする**解決策:**
 
 1. 空きディスク容量を確認してください（出力用に十分な容量を確保してください）
 2. 他のアプリケーションを閉じてメモリを解放してください
@@ -720,11 +712,10 @@ No images found in the specified folder
 
 ***
 
-### ポートが既に使用中
-
-**エラー:**
+### ポートが既に使用中**エラー:**
 
 ```
+
 Port 5000 is already in use
 ```
 
@@ -742,18 +733,16 @@ chloros-cli --port 5001 process "C:\Datasets\Field_A"
 
 ### Q: CLIの使用にはライセンスが必要ですか？
 
-**A:** はい！CLIには有料の**Chloros+ライセンス**が必要です。
+**A:**はい！CLIには有料の**Chloros+ライセンス**が必要です。
 
-* ❌ スタンダード（無料）プラン: CLIが無効化
+* ❌ スタンダード（無料）プラン: CLI無効
 * ✅ Chloros+（有料）プラン：CLIが完全に有効化
 
 購読はこちら：[https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
 
 ***
 
-### Q: GUIのないサーバーでCLIを使用できますか？
-
-**A:** はい！CLIは完全にヘッドレスで動作します。要件：
+### Q: GUIのないサーバーでCLIは使用できますか？**A:** はい！CLIは完全にヘッドレスで動作します。要件：
 
 * Windows Server 2016以降
 * Visual C++ 再配布可能パッケージのインストール
@@ -762,9 +751,7 @@ chloros-cli --port 5001 process "C:\Datasets\Field_A"
 
 ***
 
-### Q: 処理済み画像はどこに保存されますか？
-
-**A:** デフォルトでは、処理済み画像は入力画像と同じフォルダ内のカメラモデル別サブフォルダ（例：`Survey3N_RGN/`）に保存されます。
+### Q: 処理済み画像はどこに保存されますか？**A:** デフォルトでは、処理済み画像は入力画像と同じフォルダ内のカメラモデル別サブフォルダ（例：`Survey3N_RGN/`）に保存されます。
 
 別の出力フォルダを指定するには `-o` オプションを使用してください：
 
@@ -774,15 +761,9 @@ chloros-cli process "C:\Input" -o "D:\Output"
 
 ***
 
-### Q: 複数のフォルダを同時に処理できますか？
+### Q: 複数のフォルダを同時に処理できますか？**A:** 単一のコマンドでは直接できませんが、スクリプトを使用してフォルダを順次処理できます。[自動化とスクリプト](CLI.md#automation--scripting)セクションを参照してください。***
 
-**A:** 単一のコマンドでは直接できませんが、スクリプトを使用してフォルダを順次処理できます。[自動化とスクリプト](CLI.md#automation--scripting)セクションを参照してください。
-
-***
-
-### Q: CLIの出力をログファイルに保存するにはどうすればよいですか？
-
-**PowerShell:**
+### Q: 出力結果をログファイルに保存するにはどうすればよいですか？**PowerShell:**
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" | Tee-Object -FilePath "processing.log"
@@ -796,9 +777,7 @@ chloros-cli process "C:\Datasets\Field_A" > processing.log 2>&1
 
 ***
 
-### Q: 処理中にCtrl+Cを押すとどうなりますか？
-
-**A:** CLIは以下を実行します:
+### Q: 処理中にCtrl+Cを押すとどうなりますか？**A:** CLIは以下を実行します:
 
 1. 処理を正常に停止
 2. バックエンドをシャットダウン
@@ -808,15 +787,9 @@ chloros-cli process "C:\Datasets\Field_A" > processing.log 2>&1
 
 ***
 
-### Q: CLI処理を自動化できますか？
+### Q: CLI処理を自動化できますか？**A:** もちろん可能です！CLIは自動化を前提に設計されています。 PowerShell、バッチ、Pythonの例については[Automation &amp; Scripting](CLI.md#automation--scripting)を参照してください。***
 
-**A:** もちろん可能です！CLIは自動化を前提に設計されています。 PowerShell、バッチ、Pythonの例については[Automation &amp; Scripting](CLI.md#automation--scripting)を参照してください。
-
-***
-
-### Q: CLIのバージョンを確認するには？
-
-**A:**
+### Q: CLIのバージョンを確認するには？**A:**
 
 ```powershell
 chloros-cli --version
@@ -825,6 +798,7 @@ chloros-cli --version
 **出力:**
 
 ```
+
 Chloros CLI 1.0.2
 ```
 
@@ -850,9 +824,7 @@ chloros-cli language --help
 
 * **メール**: info@mapir.camera
 * **ウェブサイト**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* **価格**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
-
-***
+* **価格**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)***
 
 ## 完全な例
 
@@ -916,7 +888,7 @@ chloros-cli process "C:\Input\Raw_Images" ^
 
 ***
 
-### 例6: 認証ワークフロー
+### 例 6: 認証ワークフロー
 
 認証フローを完了する:
 
@@ -936,7 +908,7 @@ chloros-cli logout
 
 ***
 
-### 例7: 多言語対応
+### 例 7: 多言語対応
 
 インターフェース言語を変更する:
 

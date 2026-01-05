@@ -25,10 +25,12 @@
 ## プロジェクト設定
 
 * [プロジェクト設定](project-settings/project-settings.md)
-* [マルチスペクトル指数式](project-settings/multispectral-index-formulas.md)
+* [マルチスペクトル指数計算式](project-settings/multispectral-index-formulas.md)
 
-## イメージビューア (GUI)
+## 画像ビューア (GUI)
 
-* [画像のフルスクリーン表示](image-viewer-gui/opening-an-image-full-screen.md)
+* [画像グリッド](image-viewer-gui/image-grid.md)
+* [画像の全画面表示](image-viewer-gui/opening-an-image-full-screen.md)
 * [画像レイヤー](image-viewer-gui/image-layers.md)
 * [指数/LUTサンドボックス](image-viewer-gui/index-lut-sandbox.md)
+* [マップマーカー](image-viewer-gui/map-markers.md)

@@ -6,17 +6,19 @@
 
 ログイン後、アカウント詳細が表示されます：
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI ログイン
 
-## CLI ログイン
-
-Chloros+ の認証情報でログインし、CLI 処理を有効化してください。
+Chloros+ の認証情報でログインし、CLI 処理を有効にしてください。
 
 **構文:**
 
 ```bash
 chloros-cli login <email> <password>
 ```
+
+{% hint style=&quot;info&quot; %}
+**SDK ユーザー**: Python SDK は、キャッシュされた認証情報をクリアするプログラム的な `logout()` メソッドも提供します。 詳細は[Python SDK ドキュメント](api-python-sdk.md#logout)を参照してください。
+{% endhint %}
 
 **例:**
 
@@ -30,9 +32,7 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 
 **出力:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
-
-### プラン有効期限
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### プラン有効期限
 
 GUIに表示されるプラン有効期限は、ライセンスが無効になる時期を示します。月額サブスクリプションの場合、有効期限は月末です。年間サブスクリプションの場合、サブスクリプション開始から1年後です。ライセンスチェックには月1回のインターネット接続による検証が必要で、30日間の猶予期間が設けられています。
 
@@ -40,4 +40,4 @@ GUIに表示されるプラン有効期限は、ライセンスが無効にな�
 
 各Chloros+プランでは登録可能なデバイス数が異なります。Chloros+アカウントでログインする各デバイスは登録デバイス数にカウントされます。MAPIRクラウドアカウントページでデバイスの名前変更や削除が可能です。
 
-<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ プラン</th><th align="center">COPPER</th><th align="center">ブロンズ</th><th align="center">シルバー</th><th align="center">ゴールド</th></tr></thead><tbody><tr><td align="right">対応デバイス</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
+<table><thead><tr><th width="168.5999755859375" align="right">Chloros+プラン</th><th align="center">COPPER</th><th align="center">ブロンズ</th><th align="center">シルバー</th><th align="center">ゴールド</th></tr></thead><tbody><tr><td align="right">対応デバイス</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>

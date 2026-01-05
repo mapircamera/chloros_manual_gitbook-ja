@@ -88,7 +88,7 @@ GPSデータ付きの画像は、地図上でマーカーとして表示され�
 
 マップレイヤータイプを選択できます（左から右へ）：
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### 地形
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### 地形
 
 標高プロファイルと詳細情報（道路など）を含む地図タイルを表示
 

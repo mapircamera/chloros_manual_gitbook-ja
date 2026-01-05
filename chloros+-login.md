@@ -6,7 +6,7 @@
 
 ログイン後、アカウント詳細が表示されます：
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI ログイン
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" data-size="line"><figcaption></figcaption></figure>## CLI ログイン
 
 Chloros+ の認証情報でログインし、CLI 処理を有効にしてください。
 

@@ -6,7 +6,71 @@ metaLinks:
 
 # 対応カメラ
 
-以下のカメラは、**すべてのプラットフォーム**（Windows、Linux amd64、および Linux arm64/Jetson）でサポートされています。
+Chlorosは、**すべてのプラットフォーム**上で、2つのMAPIRカメラファミリーからの画像を処理します （Windows、Linux amd64、および Linux arm64/Jetson）で、**すべてのプラットフォーム*** **Survey3** — Survey3W（ワイド）および Survey3N（ナロー）カメラ。 入力：`RAW+JPG`。
+* **LATTICE**— M3CおよびM3Mマルチスペクトルカメラモジュール。入力：`.tif`/`.tiff`によるキャプチャ。 LATTICEカメラは、Chlorosから**リアルタイムで制御**することも可能です。GUIの[カメラ]タブ（Windows）または`chloros-cli lattice` / Python SDK（WindowsおよびLinux）— 同期されたマルチカメラアレイを含みます。 [LATTICEガイド](lattice/)を参照してください。
 
-<table data-header-hidden><thead><tr><th width="156">メーカー</th><th width="250">カメラモデル</th><th width="138">フィルターモデル</th><th width="187">画像形式</th></tr></thead><tbody><tr><td><strong>メーカー</strong></td><td><strong>カメラモデル</strong></td><td><strong>フィルターモデル</strong></td><td><strong>画像タイプ</strong></td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>RGB</td><td>RAW+JPG, JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>RGN</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>OCN</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>NGB</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>RAW+JPG, JPG</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>NIR</td><td>RAW+JPG、JPG</td></tr></tbody></table>
+この処理パイプラインは、`.dng`形式の入力ファイルも受け付けます。
 
+## Survey3
+
+<table data-header-hidden><thead><tr><th width="156">メーカー</th><th width="250">カメラモデル</th><th width="138">フィルターモデル</th><th width="187">画像タイプ</th></tr></thead><tbody><tr><td><strong>メーカー</strong></td><td><strong>カメラモデル</strong></td><td><strong>フィルターモデル</strong></td><td><strong>画像タイプ</strong></td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>RGB</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>RGN</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>OCN</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>NGB</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>RE</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>NIR</td><td>RAW+JPG、JPG</td></tr></tbody></table>## LATTICE
+
+LATTICE シリーズは、ソニーの IMX265 グローバルシャッターセンサー（3.1 MP、3.45 µm ピクセル）をベースにしたモジュラー式のマルチスペクトルカメラシステムです。各カメラは、モデル文字列としてその識別子を保存しています：
+
+```
+<sensor>-<lens>-F<filter>        e.g.  M3C-L41-FRGN,  M3M-L87-F550
+```
+
+Chlorosは、これを「`LATT-`」というプレフィックスを付けて表示します（例：`LATT-M3M-L41-F550`）。このモデル文字列によって、センサープロファイル、バンドレイアウト、キャリブレーションなど、下流のすべての処理が自動的に決定されるため、 カメラごとに設定する必要は一切ありません。レンズ番号は**水平画角（度）**を表します：`L41` = 狭角 41°、`L87` = 広角 87°。
+
+センサー構成には以下の2種類があります：
+
+| 構成 | センサー      | フィルタータイプ                           | カメラあたりのバンド数                                                        |
+| ------------- | ----------- | ------------------------------------- | ----------------------------------------------------------------------- |
+| **M3C**       | ベイヤーカラー | トリプルバンドパス                       | 1回の露光で3つのスペクトルバンド                                 |
+| **M3M**       | モノクロ      | 単一の狭帯域干渉フィルター | 1つの較正済みバンド — 植生指数算出には複数のM3Mカメラを組み合わせる |
+
+### M3C (ベイヤー) フィルターオプション
+
+| フィルター | バンド（中心波長（nm）／FWHM nm）       |
+| ------ | ---------------------------------------- |
+| `FRGB` | Blue 475/30 · Green 550/30 · Red 625/30  |
+| `FRGN` | Red 660/21 · Green 550/30 · NIR 850/30   |
+| `FOCN` | Orange 615/21 · Cyan 490/38 · NIR 808/14 |
+| `FNGB` | Blue 475/30 · Green 550/30 · NIR 850/30  |
+
+### M3M（モノ）フィルターカタログ — 23 SKU
+
+F値はSKUラベルです。測定されたバンド幅（校正済みのすべての輸出品に刻印されています）は、ロットごとのフィルタースキャン結果です：
+
+| SKU    | 中心波長 (nm, 測定値) | FWHM エッジ (nm) | 幅 (nm) |
+| ------ | --------------------- | --------------- | ---------- |
+| F385   | 379.4                 | 367–392         | 25         |
+| F405   | 403.9                 | 390–417         | 27         |
+| F450   | 443.7                 | 430–458         | 28         |
+| F485   | 489.7                 | 478–502         | 24         |
+| F520   | 519.9                 | 504–536         | 32         |
+| F550   | 548.4                 | 531–566         | 35         |
+| F590   | 589.0                 | 570–608         | 38         |
+| F615   | 623.8                 | 614–634         | 20         |
+| F632   | 633.4                 | 616–651         | 35         |
+| F650   | 651.1                 | 636–666         | 30         |
+| F685   | 686.2                 | 675–698         | 23         |
+| F715   | — (名目)           | 706–724         | 18         |
+| F725   | 725.2                 | 712–738         | 26         |
+| F750   | 746.0                 | 729–763         | 34         |
+| F780   | 775.1                 | 754–796         | 42         |
+| F808   | 810.3                 | 789–832         | 43         |
+| F832   | 826.1                 | 810–843         | 33         |
+| F850   | 846.5                 | 828–865         | 37         |
+| F880   | — (名目)           | 867–893         | 26         |
+| F905   | — (名目)           | 892–920         | 28         |
+| F940   | 940.6                 | 923–958         | 35         |
+| F950   | 945.1                 | 929–961         | 32         |
+| F988 † | 985.3                 | 968–1003        | 35         |
+
+_「バンドエッジは、MAPIRのロットごとのフィルタースキャンから測定された半値全幅（FWHM）の値です。これは、Chlorosがすべての校正済みエクスポートに記録している値と同じものです。」_ &quot;— (公称値)&quot; = まだロットごとのスキャンが行われていないことを示す。これらのSKUについては、記載されている中心波長はSKU番号であり、幅はメーカーが提示した数値である。
+
+† 「F988の反射率は、シーン内の反射率パネルを使用して校正されます。このバンドはDAQ光センサーの校正範囲を超えているため、Chlorosは最新のパネルキャプチャ値を適用し、パネル観測の間はその値を保持します。」 [校正ターゲット](calibration-targets.md)を参照してください。
+
+ライブカメラ制御、アレイ、ネットワーク設定、および放射測定処理チェーンについては、[LATTICEガイド](lattice/)を参照してください。

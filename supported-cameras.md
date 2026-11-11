@@ -6,44 +6,95 @@ metaLinks:
 
 # 対応カメラ
 
-Chlorosは、**すべてのプラットフォーム**上で、2つのMAPIRカメラファミリーからの画像を処理します （Windows、Linux amd64、および Linux arm64/Jetson）で、**すべてのプラットフォーム*** **Survey3** — Survey3W（ワイド）および Survey3N（ナロー）カメラ。 入力：`RAW+JPG`。
-* **LATTICE**— M3CおよびM3Mマルチスペクトルカメラモジュール。入力：`.tif`/`.tiff`によるキャプチャ。 LATTICEカメラは、Chlorosから**リアルタイムで制御**することも可能です。GUIの[カメラ]タブ（Windows）または`chloros-cli lattice` / Python SDK（WindowsおよびLinux）— 同期されたマルチカメラアレイを含みます。 [LATTICEガイド](lattice/)を参照してください。
+Chloros
+は、**すべてのプラットフォーム**（Windows
+、Linux
+amd64、およびLinux
+arm64/Jetson）において、2つのMAPIR
+カメラファミリーからの画像を処理します：
 
-この処理パイプラインは、`.dng`形式の入力ファイルも受け付けます。
+* **Survey3** — Survey3W
+（ワイド）および Survey3N
+（ナロー）カメラ。入力形式：`RAW+JPG`。
+* **LATTICE** — M3CおよびM3Mマルチスペクトルカメラモジュール。入力：`.tif`/`.tiff`によるキャプチャデータ。 LATTICEカメラは、Chloros
+から**リアルタイムで制御**することも可能です。GUIの「Cameras」タブ（Windows
+）または`chloros-cli lattice`／Python
+SDK
+（Windows
+およびLinux
+）を通じて、同期されたマルチカメラアレイを含めて制御できます。[LATTICEガイド](lattice/)を参照してください。
+
+処理パイプラインは、`.dng`入力ファイルも受け付けます。
 
 ## Survey3
 
-<table data-header-hidden><thead><tr><th width="156">メーカー</th><th width="250">カメラモデル</th><th width="138">フィルターモデル</th><th width="187">画像タイプ</th></tr></thead><tbody><tr><td><strong>メーカー</strong></td><td><strong>カメラモデル</strong></td><td><strong>フィルターモデル</strong></td><td><strong>画像タイプ</strong></td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>RGB</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>RGN</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>OCN</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>NGB</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>RE</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W、Survey3N</td><td>NIR</td><td>RAW+JPG、JPG</td></tr></tbody></table>## LATTICE
+<table data-header-hidden><thead><tr><th width="156">メーカー</th><th width="250">カメラモデル</th><th width="138">フィルターモデル</th><th width="187">画像タイプ</th></tr></thead><tbody><tr><td><strong>メーカー</strong></td><td><strong>カメラモデル</strong></td><td><strong>フィルターモデル</strong></td><td><strong>画像形式</strong></td></tr><tr><td>MAPIR</td><td>Survey3W, Survey3N</td><td>RGB</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W, Survey3N</td><td>RGN</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W, Survey3N</td><td>OCN</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W, Survey3N</td><td>NGB</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W, Survey3N</td><td>RE</td><td>RAW+JPG、JPG</td></tr><tr><td>MAPIR</td><td>Survey3W, Survey3N</td><td>NIR</td><td>RAW+JPG、JPG</td></tr></tbody></table>## LATTICE
 
-LATTICE シリーズは、ソニーの IMX265 グローバルシャッターセンサー（3.1 MP、3.45 µm ピクセル）をベースにしたモジュラー式のマルチスペクトルカメラシステムです。各カメラは、モデル文字列としてその識別子を保存しています：
+LATTICEシリーズは、ソニー製IMX265グローバルシャッターセンサー（3.1 MP、3.45 µmピクセル）をベースにしたモジュラー式マルチスペクトルカメラシステムです。各カメラは、モデル文字列として自身の識別情報を保存しています：
 
 ```
 <sensor>-<lens>-F<filter>        e.g.  M3C-L41-FRGN,  M3M-L87-F550
 ```
 
-Chlorosは、これを「`LATT-`」というプレフィックスを付けて表示します（例：`LATT-M3M-L41-F550`）。このモデル文字列によって、センサープロファイル、バンドレイアウト、キャリブレーションなど、下流のすべての処理が自動的に決定されるため、 カメラごとに設定する必要は一切ありません。レンズ番号は**水平画角（度）**を表します：`L41` = 狭角 41°、`L87` = 広角 87°。
+Chloros
 
-センサー構成には以下の2種類があります：
+では、これを`LATT-`というプレフィックス付きで表示します（例：`LATT-M3M-L41-F550`）。 このモデル文字列によって、センサープロファイル、バンドレイアウト、キャリブレーションなど、下流のすべての処理が自動的に決定されます。カメラごとに個別に設定する必要は一切ありません。 レンズ番号は**水平画角（度）**を表します：`L41` = 狭角 41°、`L87` = 広角 87°。
+
+センサー構成には2種類あります：
 
 | 構成 | センサー      | フィルタータイプ                           | カメラあたりのバンド数                                                        |
 | ------------- | ----------- | ------------------------------------- | ----------------------------------------------------------------------- |
 | **M3C**       | ベイヤーカラー | トリプルバンドパス                       | 1回の露光で3つのスペクトルバンド                                 |
-| **M3M**       | モノクロ      | 単一の狭帯域干渉フィルター | 1つの較正済みバンド — 植生指数算出には複数のM3Mカメラを組み合わせる |
+| **M3M**       | モノクロ    | シングル狭帯域干渉フィルター | 1つの校正済みバンド — 植生指数算出には複数のM3Mカメラを組み合わせる |
 
-### M3C (ベイヤー) フィルターオプション
+### M3C（ベイヤー）フィルターのオプション
 
-| フィルター | バンド（中心波長（nm）／FWHM nm）       |
+| フィルター | バンド（名称 @ 中心波長（nm） / FWHM
+
+（nm））       |
 | ------ | ---------------------------------------- |
-| `FRGB` | Blue 475/30 · Green 550/30 · Red 625/30  |
-| `FRGN` | Red 660/21 · Green 550/30 · NIR 850/30   |
-| `FOCN` | Orange 615/21 · Cyan 490/38 · NIR 808/14 |
-| `FNGB` | Blue 475/30 · Green 550/30 · NIR 850/30  |
+| `FRGB` | Blue
+
+475/30 · Green
+
+550/30 · Red
+
+625/30  |
+| `FRGN` | Red
+
+660/21 · Green
+
+550/30 · NIR
+
+850/30   |
+| `FOCN` | Orange
+
+618.4/46 · Cyan
+
+494.1/40 · NIR
+
+821.6/54 (測定値 — 下記参照) |
+| `FNGB` | Blue
+
+475/30 · Green
+
+550/30 · NIR
+
+850/30  |
+
+`FOCN` については、値はフィルターの**実測**半値幅です（Chloros
+
+1.3.0 以降。それ以前のバージョンでは、仕様書の値 615/21 · 490/38 · 808/14）を使用していました。バンド名は `Orange_615`、`Cyan_490`、`NIR_808` のままであり、測定された中心波長と帯域幅は、Chloros
+
+が校正済みのすべてのエクスポートデータに刻印している値です。
 
 ### M3M（モノ）フィルターカタログ — 23 SKU
 
-F値はSKUラベルです。測定されたバンド幅（校正済みのすべての輸出品に刻印されています）は、ロットごとのフィルタースキャン結果です：
+F値はSKUラベルであり、測定されたバンド（校正済みのすべての輸出品に刻印されている）はロットごとのフィルタースキャン結果です：
 
-| SKU    | 中心波長 (nm, 測定値) | FWHM エッジ (nm) | 幅 (nm) |
+| SKU    | 中心波長 (nm, 測定値) | FWHM
+
+エッジ (nm) | 幅 (nm) |
 | ------ | --------------------- | --------------- | ---------- |
 | F385   | 379.4                 | 367–392         | 25         |
 | F405   | 403.9                 | 390–417         | 27         |
@@ -69,8 +120,14 @@ F値はSKUラベルです。測定されたバンド幅（校正済みのすべ�
 | F950   | 945.1                 | 929–961         | 32         |
 | F988 † | 985.3                 | 968–1003        | 35         |
 
-_「バンドエッジは、MAPIRのロットごとのフィルタースキャンから測定された半値全幅（FWHM）の値です。これは、Chlorosがすべての校正済みエクスポートに記録している値と同じものです。」_ &quot;— (公称値)&quot; = まだロットごとのスキャンが行われていないことを示す。これらのSKUについては、記載されている中心波長はSKU番号であり、幅はメーカーが提示した数値である。
+_「バンドエッジは、MAPIR
 
-† 「F988の反射率は、シーン内の反射率パネルを使用して校正されます。このバンドはDAQ光センサーの校正範囲を超えているため、Chlorosは最新のパネルキャプチャ値を適用し、パネル観測の間はその値を保持します。」 [校正ターゲット](calibration-targets.md)を参照してください。
+によるロットごとのフィルタースキャンから得られた半値全幅（FWHM）の値で測定されています。これは、Chloros
+
+が校正済みのすべてのエクスポートデータに刻印している値と同じものです。」_ &quot;— (公称値)&quot; = まだロットごとのスキャンが行われていないことを示す。これらのSKUについては、記載されている中心値はSKU番号であり、幅はメーカーの数値である。
+
+† 「F988の反射率は、現場の反射率パネルを使用して校正されます。このバンドはDAQ光センサーの校正範囲を超えているため、Chloros
+
+はお客様の最新のパネル測定値を使用し、パネル測定の合間もその値を保持します。」 [キャリブレーションターゲット](calibration-targets.md)を参照してください。
 
 ライブカメラ制御、アレイ、ネットワーク設定、および放射測定処理チェーンについては、[LATTICEガイド](lattice/)を参照してください。

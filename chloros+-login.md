@@ -2,36 +2,65 @@
 
 ## GUI ログイン
 
-<img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line">のサイドバーメニューから、Chloros+ アカウントにログインし、追加機能を利用できるようになります。
+ユーザー <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> サイドバーメニューを使用すると、Chloros+ アカウントにログインし、追加機能を利用できるようになります。
 
-**各マシンでログインする必要があるのは1回のみです。** GUI、CLI、および Python SDK は、同じキャッシュされたセッションを共有しています — デスクトップGUI経由でサインインすると、そのマシン上のCLIおよびSDKも有効化されます（`chloros-cli login`経由でも同様です）。
+**1 台のマシンにつき、ログインは 1 回だけで済みます。** GUI、CLI、Python SDK は同じキャッシュされたセッションを共有しています。デスクトップ GUI 経由でサインインすると、そのマシン上の CLI および SDK も有効になります（`chloros-cli login` 経由でも同様です）。
 
 ログインすると、アカウントの詳細が表示されます：
 
 <figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
-<!-- SCREENSHOT-UPDATE: re-shoot the logged-in user account panel in Chloros 1.2.0 — plan name display and the registered-device list UI may have changed; must show plan name, expiration, and device list. -->
+<!-- SCREENSHOT-UPDATE: re-shoot the logged-in user account panel in Chloros 1.3.0 — plan name display and the registered-device list UI may have changed; must show plan name, expiration, and device list. -->
+
 ## プランの階層
 
 | プラン | `plan_id` | タイプ |
 | --- | --- | --- |
 | Iron | `0` | 無料 |
-| Copper | `1` | 有料 (Chloros以上) |
-| Bronze | `2` | 有料 (Chloros+) |
-| シルバー | `3` | 有料 (Chloros+) |
-| ゴールド | `4` | 有料 (Chloros+) |
+| Copper | `1` | 有料（Chloros
 
-各有料プランの内容については、[プランと料金](https://cloud.mapir.camera/pricing)をご確認ください。
++） |
+| Bronze | `2` | 有料（Chloros
 
-### CLI / SDKへのアクセスには有料プランが必要です
++） |
+| Silver | `3` | 有料（Chloros
 
-CLI および Python、SDK へのアクセスには、**有料の Chloros+ プラン（Copper 以上）**が必要です。 これは**サーバー側**で強制されます。すべての CLI/SDK リクエストには、有効なセッションと有料プランの両方が含まれている必要があります：
++） |
+| ゴールド | `4` | 有料（Chloros
 
-| HTTP ステータス | `error_code` | 意味 | 対処法 |
++） |
+
+各有料プランに含まれる内容については、[プランと料金](https://cloud.mapir.camera/pricing) をご覧ください。
+
+### CLI
+
+/ SDK
+
+へのアクセスには有料プランが必要です
+
+CLI
+
+およびPython
+
+SDK
+
+へのアクセスには、****Chloros
+
++の有料プラン（Copper以上）****のいずれかが必要です。これは**サーバー側**で強制されます。すべてのCLI
+
+/SDK
+
+リクエストには、有効なセッションと有料プランの両方が含まれている必要があります：
+
+| HTTP
+
+ステータス | `error_code` | 意味 | 対処法 |
 | --- | --- | --- | --- |
-| `401` | `AUTH_REQUIRED` | このマシンでログインしていない | `chloros-cli login <email> <password>` |
-| `403` | `PLAN_UPGRADE_REQUIRED` | ログイン済みですが、プランのティアが低すぎます（無料の Iron ティア） | 有料の Chloros+ プランのいずれかにアップグレードしてください |
+| `401` | `AUTH_REQUIRED` | このマシンでログインしていません | `chloros-cli login <email> <password>` |
+| `403` | `PLAN_UPGRADE_REQUIRED` | ログイン済みですが、プランのティアが低すぎます（無料のIronティア） | 有料のChloros
 
-`chloros-cli status`は無料プランでも引き続き利用可能ですので、現在のプランやアクセスが拒否された理由をいつでも確認できます。
++プランのいずれかにアップグレードしてください |
+
+`chloros-cli status`は無料プランでもアクセス可能なので、現在のプランやアクセスが拒否された理由をいつでも確認できます。
 
 ### プランごとの接続ハードウェア数の上限
 
@@ -44,9 +73,17 @@ CLI および Python、SDK へのアクセスには、**有料の Chloros+ プ�
 | Silver | 10 | 6 |
 | Gold | 20 | 12 |
 
-## CLI ログイン
+## CLI
 
-Chloros+ の認証情報を使用してログインし、CLI 処理を有効にしてください。 Linux（GUIなし）では、これがライセンスを有効にする唯一の方法です。
+ログイン
+
+Chloros
+
++ の認証情報を使用してログインし、CLI
+
+処理を有効にしてください。Linux
+
+（GUI なし）では、これがライセンスを有効にする唯一の方法です。
 
 **構文：**
 
@@ -55,10 +92,18 @@ chloros-cli login <email> <password>
 ```
 
 {% hint style="info" %}
-**SDK ユーザー**: Python および SDK では、キャッシュされた認証情報をクリアするためのプログラムによる `logout()` メソッドも提供されています。 詳細については、[SDK リファレンス](reference/sdk-reference.md)を参照してください。
+**SDK
+
+ユーザー**: Python
+
+SDK
+
+には、キャッシュされた認証情報をクリアするためのプログラムによる`logout()`メソッドも用意されています。詳細については、[SDK
+
+リファレンス](reference/sdk-reference.md)を参照してください。
 {% endhint %}
 
-**例：**
+**例:**
 
 ```powershell
 chloros-cli login user@example.com 'MyP@ssw0rd123'
@@ -71,28 +116,49 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 **出力:**
 
 <figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
-<!-- SCREENSHOT-UPDATE: re-shoot the CLI login output — the banner now prints "Chloros CLI 1.2.0"; capture a successful login with the current output format. -->
+<!-- SCREENSHOT-UPDATE: re-shoot the CLI login output — the banner now prints "Chloros CLI 1.3.0"; capture a successful login with the current output format. -->
+
 ### 認証情報の保存
 
 キャッシュされた認証情報と設定は、**すべてのプラットフォーム**において、ユーザーのホームディレクトリ内の `.chloros` フォルダに保存されます：
 
-| プラットフォーム | 認証情報キャッシュのパス |
+| プラットフォーム | 認証情報のキャッシュパス |
 | --- | --- |
 | **Windows** | `%USERPROFILE%\.chloros\` |
 | **Linux** | `~/.chloros/` |
 
-### プランの有効期限とオフラインの猶予期間
+既存のバージョン上に新しいバージョンをインストールしても、Windows
 
-GUI に表示されるプランの有効期限は、ライセンスが無効になる時期を示しています。月額定期購読の場合、有効期限は月末となります。年間定期購読の場合、有効期限は購読開始から 1 年後となります。
+（インストーラー）およびLinux
 
-Chlorosはライセンスをオンラインで検証しますが、猶予期間内であればオフラインでの使用もサポートされています：
+（`.deb`、`chloros-cli update`を含む）ではログイン情報が保持されます。 Chloros
 
-* サーバーによる検証が成功した場合は、その結果が**5分間**キャッシュされるため、通常の使用ではライセンスへの呼び出し回数はごくわずかです。
-* 署名済みでマシンに紐付けられたライセンスキャッシュにより、より長いオフライン期間に対応しています：**月額プランの場合は30日間**、**年間プランの場合はサブスクリプションの有効期限まで（最大365日間）**です。
+をアンインストールする場合、またはLinux
+
+パッケージを削除する場合は、キャッシュされたログイン情報が消去されるため、新規インストール後は再度サインインする必要があります。
+
+### プランの有効期限とオフライン猶予期間
+
+GUIに表示されるプランの有効期限は、ライセンスが無効になる時期を示しています。 月額定期購読の場合、有効期限は月末となります。年間定期購読の場合は、購読開始から1年後となります。
+
+Chloros
+
+はライセンスをオンラインで検証しますが、猶予期間内であればオフラインでの利用もサポートされています：
+
+* サーバーでの検証が成功した場合は、その結果が**5分間**キャッシュされるため、通常の使用ではライセンスへのアクセス回数はごくわずかです。
+* 署名済みでマシンに紐付けられたライセンスキャッシュにより、より長いオフライン期間もカバーされます：**月額プランの場合は30日間**、**年間プランの場合はサブスクリプションの有効期限まで（最大365日間）**です。
 * 猶予期間が終了すると、そのマシンがライセンスサーバーに一度接続できるまで、プランは無料の「Iron」ティアに切り替わります。次の検証に成功すると、アクセスが再開されます。
 
-### デバイス数制限
+### デバイス数の上限
 
-各 Chloros+ プランでは、登録可能なデバイス数が異なります。 Chloros+アカウントでログインする各デバイスは、登録済みデバイスの数にカウントされます。MAPIR Cloudアカウントページから、デバイスの名前変更や削除を行うことができます。
+Chloros
 
-<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ プラン</th><th align="center">COPPER</th><th align="center">ブロンズ</th><th align="center">シルバー</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">対応デバイス</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>アカウントの正確なデバイス登録可能数は、MAPIR Cloudのアカウントページに表示されています。デバイスからログアウトすると、そのスロットは確実に解放されます。また、すでに登録済みのデバイスは、アカウントのデバイス登録上限に達している場合でも、いつでも再ログインが可能です。
++の各プランでは、登録可能なデバイス数が異なります。Chloros
+
++アカウントでログインした各デバイスは、登録デバイス数にカウントされます。MAPIR
+
+Cloudのアカウントページで、デバイスの名前変更や削除を行うことができます。
+
+<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ プラン</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">対応デバイス</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
+
+アカウントの正確なデバイス登録可能数は、MAPIR Cloudのアカウントページに表示されています。デバイスからログアウトすると、そのスロットは確実に解放されます。また、すでに登録済みのデバイスであれば、アカウントのデバイス登録上限に達している場合でも、いつでも再ログインが可能です。

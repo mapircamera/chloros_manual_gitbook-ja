@@ -6,23 +6,30 @@ metaLinks:
 
 # ダウンロード
 
-マルチスペクトル画像処理を始めるには、Chlorosの最新バージョンをダウンロードしてください。
+マルチスペクトル画像処理を始めるには、Chloros
+の最新バージョンをダウンロードしてください。
 
 ### システム要件
 
 #### Windows
 
-| 要件          | 最小                                              | 推奨                                          |
+
+| 要件          | 最小要件                                              | 推奨要件                                          |
 | -------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| **オペレーティングシステム** | Windows 10 (64ビット)                                  | Windows 11 (64ビット)                                  |
-| **プロセッサ**        | Intel Core i5 または同等のもの                          | Intel Core i7 またはそれ以上のもの                              |
-| **メモリ (RAM)**     | 8GB                                                  | 16GB以上                                         |
-| **グラフィックカード**    | DirectX 11 対応                                | 4GB以上のVRAMを搭載したNVIDIA GPU                            |
+| **オペレーティングシステム** | Windows
+10 (64ビット)                                  | Windows
+11 (64ビット)                                  |
+| **プロセッサ**        | Intel Core i5 または同等のもの                          | Intel Core i7 以上                              |
+| **メモリ (RAM)**     | 8GB                                                  | 16GB 以上                                         |
+| **グラフィックカード**    | DirectX 11 対応                                | 4GB以上のVRAMを搭載したNVIDIA製GPU                            |
 | **ストレージ**          | 6GBの空き容量                                       | 10GB以上の空き容量があるSSD                            |
 | **ディスプレイ**          | 1920x1080                                            | 2560x1440以上                                  |
-| **インターネット**         | [オプション] Chloros+ ライセンスのアクティベーションに必要 | [オプション] Chloros+ ライセンスのアクティベーションに必要 |
+| **インターネット**         | \[オプション\]のChloros
++ライセンス認証に必要          | \[オプション\]のChloros
++ライセンス認証に必要          |
 
-#### Linux amd64 (x86_64)
+#### Linux
+amd64 (x86_64)
 
 | 要件             | 最小要件                    | 推奨要件               |
 | ----------------- | -------------------------- | ------------------------- |
@@ -30,179 +37,322 @@ metaLinks:
 | **プロセッサ**     | x86_64 (Intel/AMD)        | Intel Core i7 以上   |
 | **メモリ (RAM)**  | 8GB                        | 16GB以上              |
 | **グラフィックカード** | 不要 (CPU処理)      | 4GB以上のVRAMを搭載したNVIDIA GPU |
-| **ストレージ**       | 2GBの空き容量             | 10GB以上の空き容量があるSSD       |
-| **Python**        | Python 3.7以上 (SDK用)      | Python 3.10以上              |
+| **ストレージ**       | 空き容量 2GB             | 空き容量 10GB以上のSSD       |
+| **Python**        | Python
+3.7以上 (SDK
+用)      | Python
+3.10以上              |
 
-#### Linux arm64 (NVIDIA Jetson)
+#### Linux
+arm64 (NVIDIA Jetson)
 
-| 要件            | 最小要件                      | 推奨要件                     |
+| 要件      | 最小要件                      | 推奨要件                     |
 | ---------------- | ---------------------------- | ------------------------------- |
-| **プラットフォーム**     | JetPack 6 搭載の NVIDIA Jetson | Jetson Orin NX 16GB または AGX Orin |
-| **メモリ (RAM)** | 8GB (GPU/CPU 共有)         | 16GB 以上（共有）                    |
-| **ストレージ**      | 2GBの空き容量               | 10GB以上の空き容量を持つNVMe SSD        |
-| **Python**       | Python 3.7+ (SDK用)        | Python 3.10以上                    |
+| **プラットフォーム**     | JetPack 6 搭載 NVIDIA Jetson | Jetson Orin NX 16GB または AGX Orin |
+| **メモリ (RAM)** | 8GB (GPU/CPU 共有)         | 16GB 以上の共有メモリ                    |
+| **ストレージ**      | 空き容量 2GB               | 空き容量 10GB以上の NVMe SSD        |
+| **Python**       | Python
+3.7以上 (SDK
+用)        | Python
+3.10以上                    |
 
 {% hint style="info" %}
-**GPU アクセラレーション**: NVIDIA GPU を搭載した Chloros+ ユーザーは、CUDA アクセラレーションを利用して処理速度を大幅に向上させることができます。 これは、Windows（デスクトップ用GPU）およびLinux（デスクトップ用GPUおよびNVIDIA Jetson）の両方で動作します。 Chloros+ ユーザーは、マルチスレッド処理も利用でき、処理速度を最大化できます。
+**GPU アクセラレーション**：NVIDIA GPU をお持ちの Chloros
++ ユーザーは、CUDA アクセラレーションを利用して処理速度を大幅に向上させることができます。これは、Windows
+および Linux
+amd64 上の NVIDIA デスクトップ GPU、ならびに JetPack 6 を搭載した NVIDIA Jetson で動作します。また、Chloros
++ ユーザーは、最大速度を実現するためのマルチスレッド処理も利用できます。
 {% endhint %}
 
 ***
 
-## Chloros のダウンロード
+## Chloros
+のダウンロード
 
-### 最新の安定版リリース：バージョン 1.2.0
+### 最新の安定版：バージョン 1.3.0 (2026年11月11日)
 
-<!-- NOLAN: replace installer links + release date for 1.2.0 — the three download buttons below still point at the 1.1.0 Google Drive files, and the release date needs to be added to the heading above. -->
-
-
-
-### <a href="https://drive.google.com/uc?export=download&#x26;id=1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4" class="button primary">Windows（.exe）用の Chloros をダウンロード</a>
+### <a href="https://drive.google.com/uc?export=download&#x26;id=1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4" class="button primary">Windows用Chlorosのダウンロード (.exe)</a>
 
 
-
-### <a href="https://drive.google.com/uc?export=download&#x26;id=1dB8-ke3wxNXpw_e1qJ4BhwBpCoNd4kLS" class="button primary">Linux用 Chloros (amd64) (.deb) のダウンロード</a>
-
+### <a href="https://drive.google.com/uc?export=download&#x26;id=1dB8-ke3wxNXpw_e1qJ4BhwBpCoNd4kLS" class="button primary">Linux amd64用Chlorosのダウンロード (.deb)</a>
 
 
-### <a href="https://drive.google.com/uc?export=download&#x26;id=1d1OwdcYA4Rf4jkuPi2IBeWT2772_HnyO" class="button primary">Linux arm64 / Jetson用 Chloros のダウンロード (.deb)</a>
+### <a href="https://drive.google.com/uc?export=download&#x26;id=1d1OwdcYA4Rf4jkuPi2IBeWT2772_HnyO" class="button primary">Linux arm64 / Jetson用Chlorosのダウンロード (.deb)</a>
 
-#### Windows インストーラ (GUI + CLI + バックエンド)
 
-* **ファイル形式**: .exe (Windows インストーラ)**インストール手順:**
+#### Windows
+インストーラー (GUI + CLI
++ バックエンド)
+
+* **ファイル形式**: .exe (Windows
+インストーラー)
+
+**インストール手順：**
 
 1. 上記の .exe ファイルをダウンロードします
-2. インストーラをダブルクリックしてインストールを開始します
+2. インストーラーをダブルクリックしてインストールを開始します
 3. インストールウィザードの指示に従います
-4. インストール先ディレクトリを選択します（デフォルト: `C:\Program Files\MAPIR\Chloros\`）
-5. インストールを完了し、Chloros または Chloros CLI を起動します
-6. [MAPIR Cloud Chloros+ アカウント](https://cloud.mapir.camera/pricing) でサインインします（または無料版のまま続行します）
+4. インストール先ディレクトリを選択します（デフォルト：`C:\Program Files\Chloros\`）
+5. **[追加タスクの選択]**ページで、**[システム設定]** の両方のオプションにチェックを入れたままにします（推奨 — 下記参照）
+6. インストールを完了し、Chloros
+または Chloros
+CLI
+を起動します7. [MAPIR
+Cloud Chloros
++ アカウント](https://cloud.mapir.camera/pricing) でサインインします （または無料版のまま続行）
+
+**システム設定オプション**（デフォルトで両方チェック済み）：
+
+| インストーラー上のオプション名 | 機能 | サイレントインストール除外 |
+| --- | --- | --- |
+| **Windows
+の長いパスを有効にする**（プロジェクトフォルダのパスを260文字より深く設定可能；推奨） | Windows
+のシステム全体に適用される`LongPathsEnabled`設定を「1」に設定します。Windows
+ではデフォルトでこの設定がオフになっており、ファイルパスは260文字を超えてはなりません。Chloros
+製品はプロジェクトフォルダの下に最大約130文字まで配置されるため、長いパスがオフになっていると、それより深い場所にあるプロジェクトフォルダは拒否されます。 インストール後に起動するプログラムに対して有効になります。他のプログラムがこの設定に依存している可能性があるため、アンインストール後も有効なままになります。 | `/MERGETASKS="!longpaths"` |
+| **Microsoft DefenderのスキャンからChloros
+バックエンドを除外**（カメラのキャプチャ速度が大幅に向上します。推奨） | インストールフォルダ内の`chloros-backend.exe`に対してMicrosoft Defenderのプロセス除外を設定します。これにより、バックエンドが書き込むファイルがどこに書き込まれていても、リアルタイム保護によってスキャンされることがなくなります。 高いキャプチャレートでは、スキャンにかかるコストはキャプチャレートの約30%でした（9台のカメラによる連続キャプチャにおいて、1秒あたり77.7回対52.7回）。 他のプログラムは除外されず、アンインストール時にこの除外設定は解除されます。Defender が存在しない場合、またはポリシーによってロックされている場合、この手順は静かに失敗し、インストールは続行されます。 | `/MERGETASKS="!defenderexclusion"` |
+
+サイレントインストール（`/SILENT` または `/VERYSILENT`）では、表示されている `/MERGETASKS` 値でオプトアウトしない限り、両方のオプションが適用されます。
 
 {% hint style="success" %}
-インストーラは、コマンドラインからアクセスできるよう、システムの PATH に `chloros-cli` を自動的に追加します。
+インストーラーは、CLI
+フォルダー（`C:\Program Files\Chloros\cli\`）をシステムに一度だけ追加します（`PATH`）。再インストールやアップグレードを行っても、重複するエントリが追加されることはなく、以前のインストーラーによって追加された重複エントリは削除されます。 インストール後に新しいターミナルを開き、`chloros-cli`を使用してください。また、インストーラーは、すべてのネットワークプロファイルにおいて、バックエンド用に 2 つの Windows
+ファイアウォール ルールを追加します。 **Chloros
+Backend (UDP-In)**は、カメラストリーム、PTP、mDNS、および DAQ-E データストリーム用です。また、**Chloros
+Backend (TCP-In)** はローカルサブネットに限定され、DAQ-E ファームウェアの更新時に、センサーがこのコンピュータに接続して画像を取得するために使用されます。 どちらもアンインストール時に削除されます。
 {% endhint %}
 
-#### Linux amd64 (.deb パッケージ — CLI + バックエンド)
+#### Linux
+amd64 (.deb パッケージ — CLI
++ バックエンド)
 
 * **ファイル形式**: .deb (Debian/Ubuntu パッケージ)
 * **アーキテクチャ**: x86_64 (amd64)
 
 ```bash
-sudo dpkg -i chloros-amd64.deb
-chloros-cli --version  # Verify installation
+sudo apt install ./chloros_1.3.0_amd64.deb
+chloros-cli --version     # Verify installation: "Chloros CLI 1.3.0"
 ```
 
-#### Linux arm64 — NVIDIA Jetson (.deb パッケージ — CLI + バックエンド)
+#### Linux
+arm64 — NVIDIA Jetson (.deb パッケージ — CLI
++ バックエンド)
 
 * **ファイル形式**: .deb (JetPack 6)
 * **アーキテクチャ**: aarch64 (arm64)
 
 ```bash
-sudo dpkg -i chloros-arm64-jp6.deb
-chloros-cli --version  # Verify installation
+sudo apt install ./chloros_1.3.0_arm64_jp6.deb
+chloros-cli --version     # Verify installation: "Chloros CLI 1.3.0"
 ```
 
-詳細なセットアップ手順については [Linux のインストール](linux/linux-installation.md) を、Jetson に関する具体的なガイダンスについては [NVIDIA Jetson ガイド](linux/nvidia-jetson-guide.md) を参照してください。
+実際にダウンロードしたファイル名を使用し、`./`の部分はそのまま残してください。そうすることで、`apt`がパッケージ名を指定して検索するのではなく、そのファイルを直接インストールするようになります。`apt install`を使用してインストールしてください。 `dpkg -i`ではインストールしないでください。aptは、パッケージが必須ではなく推奨しているPython
+SDK
+の依存関係もインストールしますが、`dpkg -i`ではそれらをスキップします。 バージョン 1.3.0 以降、バックエンドとCLI
+は `/usr/lib/chloros/` の下に解凍済みでインストールされるため、最初に自身を解凍することなく起動します。
 
-#### Python SDK (全プラットフォーム)
+Jetson パッケージは JetPack 6 の CUDA ビルド版 PyTorch を使用しているため、含まれるテクスチャ対応デベイヤーである processing は、Jetson の GPU 上で実行されます。 JetPack 6 がインストールする CUDA および cuDNN ライブラリを使用します（これらが含まれていないイメージ上では `sudo apt install nvidia-jetpack`）。
 
-各インストーラには対応する `chloros_sdk` wheel が同梱されているため、SDK のバージョンは常にインストールされた GUI/CLI/バックエンドと一致します。 Windows では、インストーラが自動的にシステム Python にこれをインストールします。 Linuxでは、`.deb`がwheelを`/usr/lib/chloros/sdk/`に配置し、インストールコマンドを出力します：
+詳細なセットアップ手順については[Linux
+インストール](linux/linux-installation.md)を、Jetson固有のガイダンスについては[NVIDIA Jetsonガイド](linux/nvidia-jetson-guide.md)を参照してください。
+
+#### Python
+SDK
+(全プラットフォーム)
+
+各インストーラーには対応する `chloros_sdk` wheel が同梱されているため、SDK
+のバージョンは常にインストールされた GUI/CLI
+/バックエンドと一致します。Windows
+では、インストーラーがシステム Python
+に自動的にインストールします。 Linux
+では、`.deb`がシステムSDK
+自体（`python3`内）にSDK
+をインストールするため、 そのため、`import chloros_sdk`はインストール直後から、pipやネットワーク接続がなくても正常に動作します。システムのパッケージを認識しないvirtualenvのみ、同梱のwheelをその中にインストールする必要があります：
 
 ```bash
-pip install --user /usr/lib/chloros/sdk/chloros_sdk-*.whl
+pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl
 ```
 
-pip専用ホスト（Chlorosパッケージがインストールされていない場合）については、SDKもPyPIで入手可能です：
+pipのみのホスト（Chloros
+パッケージがインストールされていない場合。この場合、SDK
+は別のマシン上のバックエンドを駆動します）については、SDK
+もPyPIで公開されています：
 
 ```bash
 pip install chloros-sdk
 ```
 
-[API : Python SDK](api-python-sdk.md)および [SDK リファレンス](reference/sdk-reference.md) を参照してください。
+ドキュメントについては、[API
+: Python
+SDK
+](api-python-sdk.md) および [SDK
+リファレンス](reference/sdk-reference.md) を参照してください。
 
 {% hint style="info" %}
-**Linux ユーザー**: `.deb` パッケージは、CLI およびバックエンドをインストールします。 Linux には GUI がありません。すべての操作は、CLI または SDK を通じて行われます。
+**Linux
+ユーザー**：`.deb`パッケージには、CLI
+、バックエンド、およびPython
+SDK
+が含まれています。Linux
+用のGUIは存在せず、すべての操作はCLI
+またはSDK
+を介して行われます。
 {% endhint %}
 
 ***
 
 ## 追加リソース
 
-### Python SDK
+### Python
+SDK
 
-開発者および自動化ワークフローの場合は、Chloros、Python、SDKをインストールしてください：
+
+開発者や自動化ワークフロー向けに、Chloros
+Python
+SDK
+はすべてのインストーラに同梱されています。Windows
+インストーラはPython
+環境にインストールし、Linux
+の`.deb`はシステム用の`python3`をインストールします。 Chloros
+パッケージがインストールされていないマシン（別のマシン上のバックエンドを駆動するマシン）では、PyPIからインストールしてください：
 
 ```bash
 pip install chloros-sdk
 ```
 
-**ドキュメント**: [API: Python SDK](api-python-sdk.md)**要件**: Chloros がインストールされている必要があります（Windows インストーラーまたは Linux `.deb` パッケージ）、 Chloros+ ライセンスへのログインが必要です***
+**ドキュメント**：[API
+：Python
+SDK
+](api-python-sdk.md)
 
-## 同梱内容
+**必要条件**: 制御対象のChloros
+バックエンド（Windows
+インストーラまたはLinux
+用`.deb`パッケージがこれをインストールします）、および有料プランのChloros
++ログイン
 
-### Windows インストーラー
+***
 
-* ✅ **Chloros GUI** - フル機能のグラフィカルインターフェース
-* ✅ **Chloros CLI** - コマンドラインインターフェース（Chloros+ ライセンスが必要です）
-* ✅ **Chloros バックエンド** - 処理エンジン
-* ✅ **カメラプロファイル** - あらかじめ設定済みの MAPIR カメラテンプレート
+## 含まれるもの
 
-### Linux .deb パッケージ
+### Windows
+インストーラ
 
-* ✅ **Chloros CLI** - コマンドラインインターフェース（Chloros以上のライセンスが必要）
-* ✅ **Chloros バックエンド** - 処理エンジン
-* ✅ **カメラプロファイル** - 事前設定済みの MAPIR カメラテンプレート
-* ❌ GUI なし — Linux はヘッドレス版のみ（CLI/SDK）
+* ✅ **Chloros
+GUI** - フル機能のグラフィカルインターフェース
+* ✅ **Chloros
+CLI
+** - コマンドラインインターフェース（Chloros
++ ライセンスが必要）
+* ✅ **Chloros
+バックエンド** - 処理エンジン
+* ✅ **Python
+SDK
+** - Python
+がインストールされている場合、そこにインストールされます（Chloros
++ ライセンスが必要です）
+* ✅ **カメラプロファイル** - 事前設定済みのMAPIR
+カメラテンプレート
 
-### Python SDK (PIP、全プラットフォーム)
+### Linux
+.deb パッケージ
 
-* ✅ **Chloros SDK** - Python API （Chloros+ ライセンスが必要）***
+* ✅ **Chloros
+CLI
+** - コマンドラインインターフェース（Chloros
++ ライセンスが必要）
+* ✅ **Chloros
+バックエンド** - 処理エンジン
+* ✅ **Python
+SDK
+** - システム `python3` 向けにインストールされます（Chloros
++ ライセンスが必要）
+* ✅ **カメラプロファイル** - 事前設定済みのMAPIR
+カメラテンプレート
+* ❌ GUIなし — Linux
+はヘッドレスで、CLI
+/SDK
+のみ対応
 
-## Chloros+ へのアップグレード
+### Python
+SDK (PyPI、Chloros
+パッケージがないマシン用)
 
-Chloros+ サブスクリプションで高度な機能を利用可能に：
+* ✅ **Chloros
+SDK
+** - Python
+API
+（Chloros
++ ライセンスが必要）
+
+***
+
+## Chloros
++ へのアップグレード
+
+Chloros
++ サブスクリプションで高度な機能を利用可能：
 
 * 🚀 **マルチスレッド処理** - 画像を並列処理
 * ⚡ **GPU (CUDA) アクセラレーション** - NVIDIA GPUの性能を活用
-* 💻 **CLI アクセス** - コマンドラインツールによる自動化
-* 🐍 **Python SDK** - プログラムによるAPIへのアクセス
+* 💻 **CLI
+アクセス** - コマンドラインツールによる自動化
+* 🐍 **Python
+SDK
+** - プログラムによるAPI
+アクセス
 * 📱 **複数デバイス** - 2～10台以上のデバイスで使用可能（プランにより異なります）
-* **🐻 高度なテクスチャ対応デベイヤー方式** - 高品質なエッジ認識デベイヤーとAI/MLノイズ除去モデルを組み合わせ、デベイヤー処理によるノイズをほぼ完全に除去します。
-* 🧮 **カスタム数式** - カスタムマルチスペクトル指標を作成
+* **🐻 高度なテクスチャ対応デベイヤー法** - 高品質なエッジ認識デベイヤーと、デベイヤー処理によるノイズをほぼ完全に除去するAI/MLノイズ除去モデルを組み合わせたもの。
+* 🧮 **カスタム計算式** - カスタムマルチスペクトル指標を作成
 
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Chloros+のプランと価格を確認する</a></p>***
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Chloros+ のプランと価格を見る</a></p>***
 
 ## インストールに関するヘルプ
 
 ### トラブルシューティング
 
-**以下のエラーメッセージが表示され、インストールに失敗する場合：**
+**エラーメッセージが表示され、インストールに失敗する場合：**
 
 * 管理者権限を持っていることを確認してください
 * ウイルス対策ソフトを一時的に無効にしてください
 * システムの最低要件を満たしているか確認してください
 
-**アプリケーションが起動しない (Windows):**
+**アプリケーションが起動しない場合（Windows
 
-* Windows 10/11 (64ビット) がインストールされていることを確認してください
+）：**
+
+* Windows
+
+10/11（64ビット）がインストールされていることを確認してください
 * グラフィックドライバを更新してください
-* Windowsのイベントビューアーでエラーの詳細を確認してください
+* Windows
+
+のイベントビューアでエラーの詳細を確認してください
 * エラーログを添えてサポートにお問い合わせください
 
-**CLIが起動しない (Linux):**
+**CLI
+
+が起動しない（Linux
+
+）：**
 
 * `.deb` パッケージが正しくインストールされているか確認してください：`dpkg -l | grep chloros`
 * アクセス権限を確認してください：`sudo chmod +x /usr/bin/chloros-cli`
 * 診断を実行してください：`chloros-cli selftest`
-* 不足しているライブラリがないか確認してください: `ldd /usr/lib/chloros/chloros-backend | grep "not found"`
+* 不足しているライブラリがないか確認してください：`ldd /usr/lib/chloros/backend/chloros-backend | grep "not found"`（バージョン 1.3.0 以降、`/usr/lib/chloros/chloros-backend` は小さなランチャースクリプトであり、プログラム本体は `/usr/lib/chloros/backend/` にあります）
 
-**ライセンスの有効化に関する問題:**
+**ライセンス認証に関する問題：**
 
 * インターネット接続が有効であることを確認してください
 * [https://cloud.mapir.camera](https://cloud.mapir.camera) で認証情報を確認してください
-* ファイアウォールが Chloros をブロックしていないか確認してください
-* 詳細な手順については、[Chloros+ ログイン](chloros+-login.md) をご覧ください
+* ファイアウォールが Chloros
 
-### サポートを受ける
+をブロックしていないか確認してください* 詳細な手順については、[Chloros
+
++ ログイン](chloros+-login.md) をご覧ください
+
+### サポートについて
 
 インストールや設定についてサポートが必要ですか？
 
@@ -213,11 +363,21 @@ Chloros+ サブスクリプションで高度な機能を利用可能に：
 
 ## ソフトウェアの更新
 
-Chlorosは更新を確認し、新しいバージョンが利用可能になったことを通知するとともに、このダウンロードページへのリンクを表示します。新しい署名付きインストーラーを実行することで更新を行います。設定やプロジェクトは更新後も保持されます。 Linux および Jetson では、`chloros-cli update` が新しいバージョンの有無を確認し、対応する `.deb` のダウンロードとインストールを提案します （このコマンドは Linux でのみ利用可能です）。
+Chloros
+
+は更新を確認し、新しいバージョンが利用可能になると通知し、このダウンロードページへのリンクを表示します。新しい署名付きインストーラーを実行することで更新できます。設定、プロジェクト、ログイン情報は更新後も保持されます。 Linux
+
+およびJetsonでは、`chloros-cli update`が新しいバージョンの有無を確認し、対応する`.deb`のダウンロードとインストールを提案します（このコマンドはLinux
+
+専用です）。
 
 ***
 
-## 変更履歴**バージョン 1.2.0 (最新)**— 機能の完全なリストについては、[はじめに](./) ページの**Chloros 1.2.0 の新機能** をご覧ください。
+## 変更履歴**バージョン 1.3.0 (最新版、2026年11月11日)**— 変更点の完全なリストについては、[はじめに](./) ページの**「Chloros
+
+1.3.0 の新機能」** をご覧ください。**バージョン 1.2.0**— 詳細は、[はじめに](./) ページの**「Chloros
+
+1.2.0 の新機能」** をご覧ください。
 
 <details>
 
@@ -225,10 +385,16 @@ Chlorosは更新を確認し、新しいバージョンが利用可能になっ�
 
 **リリース日：2026年2月10日**
 
-**新機能*** **テクスチャ対応デベイヤー手法 \[Chloros+ 限定] -** テクスチャ対応では、高品質なエッジ認識デベイヤーとAI/MLノイズ除去モデルを組み合わせており、デベイヤー処理によるノイズをほぼ完全に除去します。
-* **T4Pキャリブレーションターゲットのサポート*** **Chloros+のGPU処理速度の向上、メモリ管理の改善**
+**新機能*** **テクスチャ対応デベイヤー方式 \[Chloros
 
-**バグ修正*** 完全に新しいフロントエンド（GUI）を採用し、すべての Windows コンピュータで動作するようになりました。
++ 限定] -** テクスチャ対応方式では、高品質なエッジ認識デベイヤーとAI/MLノイズ除去モデルを組み合わせており、デベイヤー処理によるノイズをほぼ完全に除去します。
+* **T4Pキャリブレーションターゲットのサポート*** **Chloros
+
++のGPU処理速度の向上、メモリ管理の改善**
+
+**バグ修正*** 完全に刷新されたフロントエンド（GUI）。これで、すべてのWindows
+
+コンピュータで動作するはずです。
 
 </details>
 
@@ -238,12 +404,12 @@ Chlorosは更新を確認し、新しいバージョンが利用可能になっ�
 
 **リリース日：2026年1月5日**
 
-**新機能*** **画像/メタデータの切り替え**：ファイルブラウザに、選択した画像のメタデータを画像グリッドではなく表形式で表示するための切り替え機能を追加しました。
-* **画像グリッドのズームスライダー**：サムネイルのサイズを調整するための新しいUIスライダー （CTRL キーとマウスホイールによる操作も対応）
-* **画像グリッドのエクスポートボタン**：上段に、サムネイルを表示形式を JPG から処理済みエクスポート（ターゲット、反射率、インデックス、LUT）に切り替えるボタンを追加
-* **マップタブ**：画像の GPS 位置マーカーを表示する新しいインタラクティブな 2D マップ
+**新機能*** **画像/メタデータ切り替え**：ファイルブラウザに、選択した画像のメタデータを画像グリッドではなく表形式で表示するための切り替え機能を追加しました
+* **画像グリッドズームスライダー**：サムネイルのサイズを調整するための新しいUIスライダー （CTRL キー＋マウスホイールも対応）
+* **画像グリッドのエクスポートボタン**：上段に、サムネイルをJPGから処理済みエクスポート形式（ターゲット、反射率、インデックス、LUT）に切り替えるボタンを追加
+* **マップタブ**：画像のGPS位置マーカーを表示する新しいインタラクティブな2Dマップ
   * Google MapsおよびESRIのマップタイルに対応（ズームレベルに応じて最適なタイルサービスを自動選択）
-  * マップマーカー上でマウスをホバーするとサムネイルプレビューが表示されます
+  * マップ上のマーカーにマウスをホバーするとサムネイルプレビューが表示されます
 
 **バグ修正*** 英語以外の言語設定のコンピュータでのChlorosのインストール対応を改善
 
@@ -263,7 +429,9 @@ Chlorosは更新を確認し、新しいバージョンが利用可能になっ�
 
 **既知の問題*** 初回リリース
 
-</details>***
+</details>
+
+***
 
 ## ライセンス契約**プロプライエタリソフトウェア** - Copyright (c) 2026 MAPIR Inc.
 

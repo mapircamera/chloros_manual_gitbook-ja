@@ -161,7 +161,7 @@ $$
 
 GUIおよびCLI/SDKのプリセットリストでは、シンボル式は `(z/y)*(x/y)` となり、x=Red、y=Green、z=NIR （RGNカメラのバンド）であり、LATTICEインデックスエンジンのプリセットは `nir * red / green**2` です。すべての表面で同じインデックスが算出されます。
 
-_参考文献：Vincini, M., E. Frazzi, and P. D&#x27;Alessio. &quot;A Broad-Band Leaf Chlorophyll Vegetation Index at the Canopy Scale.&quot; Precision Agriculture 9 (2008): 303-319._
+_参考文献：Vincini, M., E. Frazzi, and P. D'Alessio. "A Broad-Band Leaf Chlorophyll Vegetation Index at the Canopy Scale." Precision Agriculture 9 (2008): 303-319._
 
 ***
 
@@ -203,7 +203,7 @@ $$
 
 森林地域では、樹木の反射率が低く、樹冠内に影が存在するため、FCI1の値は低くなります。
 
-_参考文献：Becker, Sarah J., Craig S.T. Daughtry, and Andrew L. Russ. 「多スペクトル画像のための堅牢な森林被覆指数」。『Photogrammetric Engineering &amp; Remote Sensing』84.8 (2018): 505-512._
+_参考文献：Becker, Sarah J., Craig S.T. Daughtry, and Andrew L. Russ. 「多スペクトル画像のための堅牢な森林被覆指数」。『Photogrammetric Engineering & Remote Sensing』84.8 (2018): 505-512._
 
 ***
 
@@ -219,7 +219,7 @@ $$
 
 森林地域では、樹木の反射率が低く、樹冠内に影が存在するため、FCI2の値は低くなります。
 
-_参考文献：Becker, Sarah J., Craig S.T. Daughtry, and Andrew L. Russ. 「多スペクトル画像のための堅牢な森林被覆指数」。『Photogrammetric Engineering &amp; Remote Sensing』84.8 (2018): 505-512。_
+_参考文献：Becker, Sarah J., Craig S.T. Daughtry, and Andrew L. Russ. 「多スペクトル画像のための堅牢な森林被覆指数」。『Photogrammetric Engineering & Remote Sensing』84.8 (2018): 505-512。_
 
 ***
 
@@ -255,7 +255,7 @@ $$
 
 ガンマ定数は、大気中のエアロゾル状態に依存する重み付け関数である。ENVIでは、Gitelson、Kaufman、およびMerzylakが推奨する値である1.7を採用している (1996, 296ページ)による推奨値です。
 
-_参考文献：Gitelson, A., Y. Kaufman, and M. Merzylak. &quot;Use of a Green Channel in Remote Sensing of Global Vegetation from EOS-MODIS.&quot; Remote Sensing of Environment 58 (1996): 289-298._
+_参考文献：Gitelson, A., Y. Kaufman, and M. Merzylak. "Use of a Green Channel in Remote Sensing of Global Vegetation from EOS-MODIS." Remote Sensing of Environment 58 (1996): 289-298._
 
 ***
 
@@ -389,7 +389,7 @@ $$
 MSAVI2 = {2 * NIR + 1 - \sqrt{(2 * NIR + 1)^{2} - 8(NIR - Red)} \over 2}
 $$
 
-_参考文献：Qi, J., A. Chehbouni, A. Huete, Y. Kerr, and S. Sorooshian. &quot;A Modified Soil Adjusted Vegetation Index.&quot; Remote Sensing of Environment 48 (1994): 119-126._
+_参考文献：Qi, J., A. Chehbouni, A. Huete, Y. Kerr, and S. Sorooshian. "A Modified Soil Adjusted Vegetation Index." Remote Sensing of Environment 48 (1994): 119-126._
 
 ***
 
@@ -449,7 +449,7 @@ $$
 OSAVI = {(NIR - Red) \over (NIR + Red + 0.16)  }
 $$
 
-_参考文献：Rondeaux, G., M. Steven, and F. Baret. &quot;Optimization of Soil-Adjusted Vegetation Indices.&quot; Remote Sensing of Environment 55 (1996): 95-107._
+_参考文献：Rondeaux, G., M. Steven, and F. Baret. "Optimization of Soil-Adjusted Vegetation Indices." Remote Sensing of Environment 55 (1996): 95-107._
 
 ***
 
@@ -485,7 +485,7 @@ $$
 TDVI = 1.5 * {(NIR- Red) \over \sqrt{NIR^{2} + Red + 0.5}  }
 $$
 
-_参考文献：Bannari, A., H. Asalhi、および P. Teillet。「植生被覆マッピングのための変換差分植生指数（TDVI）」『地球科学・リモートセンシングシンポジウム（IGARSS &#x27;02）論文集』、IEEE International、第5巻（2002年）。_
+_参考文献：Bannari, A., H. Asalhi、および P. Teillet。「植生被覆マッピングのための変換差分植生指数（TDVI）」『地球科学・リモートセンシングシンポジウム（IGARSS '02）論文集』、IEEE International、第5巻（2002年）。_
 
 ***
 

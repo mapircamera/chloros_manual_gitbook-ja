@@ -33,7 +33,7 @@
 > - **`connect_array()`はデフォルトで600秒待機し（`timeout`、バージョン1.2.0では180秒）、接続に失敗した場合はその操作が取り消されます。** この呼び出しは `timeout` をバックエンドに送信します。バックエンドは、すべてのカメラを検出時の状態に戻し、接続が時間内に完了しなかった場合は何も接続しません。この呼び出しは `ChlorosConnectError` を発生させます （HTTP 504 `CLIENT_DEADLINE_PASSED`）を発生させます。バージョン 1.2.0 では、カメラの電源投入直後の接続が、この呼び出しの処理時間を超えて続き、例外が発生した後にアレイが接続されてしまう可能性がありました。`connect_all()` は、保存された各アレイに対して同様の方法で待機します （1.2.0では120秒）待機します。[`connect_array()` 署名](#connect_array-signature)を参照してください。
 > - **`connect_array()`はセンサー全体を保持します。** `width` / `height` / `binning` がない場合、すべてのカメラはフルセンサーに設定され、フレームレートはホストとネットワークが提供するレートまで低下します。1.2.0は、フレームレートを維持するためにフレームを縮小またはビンニングしました。[同期アレイ](#synchronized-array--arraysession-smart-prep)を参照してください。
 > - **M3M（モノクロ）カメラにおけるベイヤー画素フォーマットとは、その深度を指します。** M3Mはモノクロフォーマットのみを提供しており、プリセット名はベイヤー形式のものを指しています： バージョン1.2.0では、カメラはこのフォーマットを拒否して独自のフォーマットを維持していましたが、`settings.pixel_format`はベイヤー形式の名称を指定していました。`LatticeCamera(preset=...)`、`apply_preset()`、`set_format()`、`CameraSettings(pixel_format=...)`、`connect_camera(preset=...)`、および配列のの共有フォーマットは、M3M上で同じ深度のMonoフォーマットを設定するようになった。`"BayerRG8"`と`high_speed`は`Mono8`を生成し、`"BayerRG12"`、`high_quality`、および `triggered` は `Mono12` となり、`cam.settings.pixel_format` がその名前を指定します。 その逆も同様です。M3CはMono形式に保存されることは決してないため、`"Mono12"`――これらいずれか、 `connect_array(pixel_format=...)`、`set_settings(pixel_format=...)`、あるいは配列の保存形式のいずれからであっても――M3C上では、その配列のマスターとなっているカメラがどれであっても、`BayerRG12`となります。 渡された `CameraSettings` はその名前を保持するため、同じオブジェクトは引き続き各カメラに対して、自身のファミリー内のその深度を要求します。`connect_camera(preset=...)` はプリセットのフォーマットを保持します （バージョン1.2.0では、プリセットの適用後にカメラが12ビットに設定される）、また、プリセットで開かれたカメラは、取得したデータを`PRESETS`に書き込まなくなりました。カメラが拒否するその他の形式については （そのカメラの `PixelFormat` リストにないもの、例えば M3M 上の `RGB8` や、対応していないファームウェア上の `BayerRG16` など）も、独自の名前は付けられません。`LatticeCamera`接続後、`apply_settings()`または`set_format()`、 `cam.settings.pixel_format`および`packed_transport`は、カメラがストリーミングするフォーマットを示し、1行の印刷出力で拒否されたフォーマットが示されます。
-> - **`analyze_array_network()` は、connect が適用される内容を示します：** `pixel_format=None`（旧 `"BayerRG8"`）は、connect が設定するフォーマット （Mono12 / BayerRG12）を意味し、`packed="auto"`はパケット転送の決定を示すため、そこに記載されているfpsは1.2.0&#x27;とは異なる場合があります。`pixel_format`を指定すると、その深度でM3Mが生成されます。[ネットワーク分析ヘルパー](#network-analysis-helper)を参照してください。
+> - **`analyze_array_network()` は、connect が適用される内容を示します：** `pixel_format=None`（旧 `"BayerRG8"`）は、connect が設定するフォーマット （Mono12 / BayerRG12）を意味し、`packed="auto"`はパケット転送の決定を示すため、そこに記載されているfpsは1.2.0'とは異なる場合があります。`pixel_format`を指定すると、その深度でM3Mが生成されます。[ネットワーク分析ヘルパー](#network-analysis-helper)を参照してください。
 > - **`CameraSession.capture()` は `CaptureResult` を返します** （依然としてフレーム辞書のリスト）を返し、その中には `.skipped`、`.failed`、`.daq_files`、および `.daq_matches` が含まれます。`ArraySession.capture()`の結果には、`.alignment`（アライメントワープが適用されたかどうか、および適用されなかった理由）と`.oriented`も含まれます。
 > - **配列のキャプチャは、アプリと同様に、デフォルトでアラインメントされます。** `ArraySession.capture()`、`continuous()`、 `capture_repeated()`、および `ArrayHandle.capture()` / `capture_smart()` は、各メンバーの `debayered`、`display`、`radiance`、`reflectance`、およびインデックスファイルをマスターカメラのフレームにワープし、メンバーのオーバーラップ （カメラのオフセット分だけセンサーより小さい、`XMP-mapir:AlignmentJSON` `"applied": true`）にトリミングされるため、これらはChlorosアプリが同じシーンをキャプチャしたファイルと同じものとなります。 `raw`はネイティブのままです。 以前は、`aligned=True`を使用しないキャプチャでは、すべてのファイルがネイティブサイズで、ワープ処理なしで保存されていました。`aligned=False`はこの動作を維持します。`chloros-mcp`の`capture_array` および `start_capture_run` は同じデフォルト設定を採用します。[`ArraySession` メソッド](#arraysession-methods)を参照してください。
 > - **`connect_all()` は、SDK を拒否するバックエンドを指定します。** ログアウトしている、または Copper 以下のプランの稼働中のバックエンドは、独自の理由 （HTTP 401 / 403）として報告され、「Chlorosバックエンドが実行されていない」とは報告されません。また、各`connect_all()`呼び出しはバックエンドを再度確認するため、ログイン後に呼び出しても同じプロジェクトオブジェクトに対して機能します。
@@ -764,7 +764,7 @@ ndvi = lo + raw.astype(np.float64) / np.iinfo(raw.dtype).max * (hi - lo)
 - **`clamp_masks/<product folder>/<product name>_clampmask.tif`**— 製品のフォルダ**の隣**にある `clamp_masks/` フォルダ内にあり、 決してその内部には置かない（`radiance/x_radiance.tif` → `clamp_masks/radiance/x_radiance_clampmask.tif`） — 少なくとも1つのピクセルでクリップが発生したすべての放射輝度、反射率、および屈折率プロダクトについて。 シングルバンドの `uint8` については、そのプロダクト独自のピクセルグリッド（オリエンテーション、 ROI、ビニング、および配列位置合わせのワープを含む）。各マスクには、そのプロダクトのカメラ（`Make` / `Model` / 連番）、撮影時刻、レンズタグが記載されており、そのビットが表すバンドがリストされています （`XMP-Camera:BandName`、ビット0が先頭）。`ImageDescription`および`Software`は、これをクランプマスクとして識別し、キャリブレーション情報は含まれていません。
 - **ビット**：ビット 0 = 製品の R チャンネルのバンド (`Chloros:BandRName`)、ビット 1 = G (`BandGName`)、ビット 2 = B （`BandBName`）。ビットがセットされている場合、そのバンドにおける当該ピクセルの値が 0 にクランプされたことを意味します。このピクセルおよびそこから構築されたインデックスは、信頼度が低いものとして扱ってください。
 - **`Chloros:UnmixClampMask`** は、アンミックス処理が実行されたすべての製品に付与されます。これは、製品自身のフォルダを基準としたマスクのパス（`../clamp_masks/<product folder>/<product name>_clampmask.tif`、常に `/`で区切られています — 画像のフォルダにこのパスを追加するとマスクが開きます）、またはピクセルがクリップされていない場合は `none` となります。タグがない場合は、その製品でアンミックス処理が実行されていないことを意味します（RGB またはモノクロカメラ、RAW/デベイヤー処理済みレベル）。
-- キャプチャ結果では、フレームの **`clamp_mask`** として扱われます（マスクのパス、またはクリップされていない場合は `None`） — `CameraSession.capture()`の結果では、`ArraySession.capture()`&#x27;`CaptureResult`の各フレームおよびHTTPキャプチャ応答に含まれます。オフラインビルドでは、マスクは`clamp_masks`として一覧表示されます。
+- キャプチャ結果では、フレームの **`clamp_mask`** として扱われます（マスクのパス、またはクリップされていない場合は `None`） — `CameraSession.capture()`の結果では、`ArraySession.capture()`'`CaptureResult`の各フレームおよびHTTPキャプチャ応答に含まれます。オフラインビルドでは、マスクは`clamp_masks`として一覧表示されます。
 - ライブインデックスのマルチバンドスタック（`/api/camera/cli-array-index` と `save_multiband`）は、ソースカメラごとに 1 つのマスクを取得し、出力フォルダ内の `clamp_masks/` に保存されます。詳細は、CLIリファレンスのの `lattice index` を参照）。動画にはマスクが存在せず、代わりにオフラインビルドの結果では各フレームのクランプ比率が報告されます。
 
 どの階層においてもマスクを格納するプロダクトフォルダは存在しないため、プロダクトフォルダはサブフォルダを含めたままそのままフォトグラメトリーソフトウェアに渡すことができ、ソフトウェアは画像のみを取り込みます。プロダクトフォルダそのものを渡してください。 その上のフォルダではなく、プロダクトフォルダそのものを渡してください。Chloros独自のインポート機能では、マスクはスキップされます。
@@ -878,7 +878,7 @@ DAQ光センサーが接続されている場合、Chlorosは測定された日�
 
 1. **ネットワーク分析**(`/api/camera/array/recommend`) —**センサー全体** （ビニングなし、ROI クロップなし）を設定し、Connect が使用するピクセルフォーマットおよびパッキング形式に基づいて、このホストとネットワークが提供できる範囲内でフレームレートを調整します。フレームレート維持のためにフレームが縮小されることは決してありません。解像度を犠牲にしてフレームレートを向上させるには、より小さい `width` / `height` または `binning=2` / `4` を指定して、解像度を犠牲にしてフレームレートを優先してください（エンドポイントの`alternatives` では、これらのオプションと予測されるfpsがリストされています）。
 2. **ティア自動選択** — `sim-capture-sim-emit`（すべてのカメラが同じトリガーで露光し、ワイヤを共有するようにペース調整され、共有幅が狭まるにつれてフレームレートが低下する）は、カメラのペース調整によってワイヤを共有できるあらゆるネットワークで適用可能； `slip-emit-and-capture`（カメラは通信回線を順番に使用し、同時に露出を行わない）は、それが不可能な場合にのみ適用されます。
-3. **PTP有効**（デフォルト） — カメラ間のタイムスタンプは、**約1 ms**の精度で1つの共有クロックに同期し、バックエンドの[PTPグランドマスター](#ptp-grandmaster--time_sync_status)。同時露光は、PTPではなくM8ハードウェアトリガー（**&lt; 100 µs**のモジュール間）によって実現されます。PTPは*タイムスタンプ*を同期させるものであり、露光を同期させるものではありません。
+3. **PTP有効**（デフォルト） — カメラ間のタイムスタンプは、**約1 ms**の精度で1つの共有クロックに同期し、バックエンドの[PTPグランドマスター](#ptp-grandmaster--time_sync_status)。同時露光は、PTPではなくM8ハードウェアトリガー（**< 100 µs**のモジュール間）によって実現されます。PTPは*タイムスタンプ*を同期させるものであり、露光を同期させるものではありません。
 4. **カメラごとのピクセルフォーマットの自動選択** — モノクロ → `Mono12`、カラー → `BayerRG12`。
 5. **AEの初期化** — 各カメラの現在のAE状態をスナップショットとして保存し、接続中に露出設定がリセットされないようにします。
 6. **GPIOトリガー設定** — `connect_array`で各カメラ（`TriggerMode=On`、`TriggerSource=Line2`）をアーム状態にすることで、マスターのパルスがM8ケーブルを介してスレーブを駆動するようにします。これはアレイ専用手順です。`LatticeCamera`で単一のカメラを開いた場合は、代わりにフリーラン動作になります。アレイを解放すると（`disconnect()` / `force_disconnect()`、`chloros-cli lattice array-disconnect`）を実行すると、すべてのカメラがフリーラン状態（`TriggerMode=Off`）に戻り、それ以外の設定は接続時に検出された状態（トリガーおよび同期ラインの設定 （`TriggerSource`、`TriggerActivation`、`TriggerOverlap`、`TriggerDelay`、 `LineMode` / `LineSource`；マスターのシンクロラインは入力に戻す）、PTP、およびセッション中に変更されたカメラ設定 — ただし、`keep_settings=True` / `clear_settings=True` の場合を除き（[カメラのメモリ](#camera-memory--keep_settings--clear_settings)を参照）。
@@ -1157,7 +1157,7 @@ for m in r.daq_matches:                      # one per .daq in r.daq_files
 
 キャプチャは、使用した光センサーの測定値を `.daq` として保存し、その横に `<file>.daq.match.json` を付加して、その測定値が露出とどのように関連付けられたかを示します：`method`、`gap_ms`（露光から最も近いDAQ測定値まで）および`in_tolerance`（500ミリ秒以内、またはキャプチャの`daq_tolerance_ms`）。反射率ファイルのXMPには、`Chloros:DlsMatchMethod`、`Chloros:DlsMatchGapS`、および`Chloros:DlsInTolerance`と同じ判定が記録されています。
 
-キャプチャは、露光後の DAQ による最初の読み取り値を待つため、その前後の読み取り値をブレンドすることができます（`method` `interpolated`）。 DAQ-Eは、日中は0.4秒ごと、屋内では1～2秒ごとに測定値を送信するため、`capture()`は、それらの間隔の最大約1.5倍後になって返されますが、 露光自体に遅延は生じません。送信を停止したDAQは待機されません。DAQ-Eの測定値は、前回の測定値からの間隔における光の平均値であるため、その間隔の中間に配置されます： `gap_ms`はその中間点で測定され、`.match.json`&#x27;の`bracket_stamps_ns`は、測定値自身のタイムスタンプを示します。`ArraySession.continuous()`は、キャプチャの速度を落とすことなく待機します。`capture_repeated()`&#x27;の- バックパスは待機しないため、レートを維持し、露光前の最も近い測定値と照合されます。
+キャプチャは、露光後の DAQ による最初の読み取り値を待つため、その前後の読み取り値をブレンドすることができます（`method` `interpolated`）。 DAQ-Eは、日中は0.4秒ごと、屋内では1～2秒ごとに測定値を送信するため、`capture()`は、それらの間隔の最大約1.5倍後になって返されますが、 露光自体に遅延は生じません。送信を停止したDAQは待機されません。DAQ-Eの測定値は、前回の測定値からの間隔における光の平均値であるため、その間隔の中間に配置されます： `gap_ms`はその中間点で測定され、`.match.json`'の`bracket_stamps_ns`は、測定値自身のタイムスタンプを示します。`ArraySession.continuous()`は、キャプチャの速度を落とすことなく待機します。`capture_repeated()`'の- バックパスは待機しないため、レートを維持し、露光前の最も近い測定値と照合されます。
 
 測定値には有効期限がないため、遅延した測定値によってフレームが失われることはありません。代わりに、次のようにラベル付けされます：
 
@@ -1485,7 +1485,7 @@ if r["clamped"]:
 
 ### すでに接続済みのアレイへの接続 — `attach_array`
 
-アレイがすでに起動している場合 （GUIで開かれたか、以前のSDKセッションで`connect_array`が呼び出された場合）、再接続する代わりに`attach_array`を使用してそのアレイへのハンドルを取得してください。その状況では、`connect_array`は常に「Camera  <sn>is already in array<id>&quot;というエラーを常に返します。これは、プール内のメンバーに対して`/array/connect`をPOSTしても冪等ではないためです。 `attach_array`は`/api/camera/array/list`を読み取り、array_idまたはserialsのいずれかで照合を行います。
+アレイがすでに起動している場合 （GUIで開かれたか、以前のSDKセッションで`connect_array`が呼び出された場合）、再接続する代わりに`attach_array`を使用してそのアレイへのハンドルを取得してください。その状況では、`connect_array`は常に「Camera  <sn>is already in array<id>"というエラーを常に返します。これは、プール内のメンバーに対して`/array/connect`をPOSTしても冪等ではないためです。 `attach_array`は`/api/camera/array/list`を読み取り、array_idまたはserialsのいずれかで照合を行います。
 
 ```python
 import chloros_sdk
@@ -2297,8 +2297,8 @@ frames = arr_handle.grab(processing="reflectance", align=True)   # {serial: arra
   これは、ファイルがプロヴェナンスタグを保持しており、後で再登録できるためです。一方、ライブストリームには
   そのような再チャンスがないため、プロファイルの欠落はフォールバックではなくエラーとなります。
 - **アライメントを要求すると、それが開始される。** プロファイルのないアレイで `align` を要求すると、
-  キャリブレーションが開始され、待機中の内容（例：*&quot;214000551 (1/3) で
-  露光が安定するのを待機中&quot;*）を含む `409` を返します。再試行すれば、通常は数十秒以内に成功します。
+  キャリブレーションが開始され、待機中の内容（例：*"214000551 (1/3) で
+  露光が安定するのを待機中"*）を含む `409` を返します。再試行すれば、通常は数十秒以内に成功します。
   これはヘッドレス環境において重要です。接続時の自動アライメントは 30 秒後に中断され、
   試行はスキップされるため、露光が
   収束に時間がかかる配列の場合、以前はセッション全体でプロファイルが得られず、デスクトップの結合ビューを開かない限り
@@ -2615,7 +2615,7 @@ with LatticeCamera(serial="213800234", settings=settings) as cam:
 >
 > これは**設計上のフォールバック**です。SDKは自動的に標準の1500バイトパケットに戻り、カメラは通常通り接続を継続します（続く`[chunk-enable …]`の行は、通常の接続シーケンスの一部です）。キャプチャは引き続き機能します。
 >
-> このプローブはスキップすることもできますが、**これは単にログを出力しないようにするだけのものではなく、ジャンボフレームを無効にするものです。** ネットワークの状態がどれほど良好であっても、カメラは「Don&#x27;t-Fragment」指定のpingに対して最大1500バイトまでしか応答しないため、pingテストだけではジャンボフレームを検出することはできません。これを検出できるのはこのプローブだけです。これを無効にすると、カメラはどのネットワークにおいても、 ：
+> このプローブはスキップすることもできますが、**これは単にログを出力しないようにするだけのものではなく、ジャンボフレームを無効にするものです。** ネットワークの状態がどれほど良好であっても、カメラは「Don't-Fragment」指定のpingに対して最大1500バイトまでしか応答しないため、pingテストだけではジャンボフレームを検出することはできません。これを検出できるのはこのプローブだけです。これを無効にすると、カメラはどのネットワークにおいても、 ：
 >
 > ```bash
 > CHLOROS_GVSP_PROBE_FALLBACK=0   # gives up jumbo — see the warning it prints
@@ -3034,7 +3034,7 @@ chloros-mcp --help
 
 ### クライアントの設定
 
-**Claude Desktop:**サーバーを `claude_desktop_config.json` に追加し（Windows では `%APPDATA%\Claude\claude_desktop_config.json`；**[設定] &gt; [開発者] &gt; [設定の編集]** から開けます）、その後 Claude Desktop を再起動してください：
+**Claude Desktop:**サーバーを `claude_desktop_config.json` に追加し（Windows では `%APPDATA%\Claude\claude_desktop_config.json`；**[設定] > [開発者] > [設定の編集]** から開けます）、その後 Claude Desktop を再起動してください：
 
 ```json
 {
@@ -3250,7 +3250,7 @@ chloros_sdk.ChlorosLocal(backend_url="http://127.0.0.1:5000")
 ## トラブルシューティングのヒント
 
 - **`ChlorosAuthenticationError: Login required`**（`ChlorosLocal` から発生。スマートコネクトの呼び出しでは、同じ原因で `ChlorosConnectError: Login required. …` が発生します） → このマシンで `chloros-cli login EMAIL PASSWORD` を 1 回実行するか、Chloros デスクトップアプリ経由でサインインしてください。
-- **`ChlorosProcessingError: Failed to start processing: … The project folder is too deep for this computer …`**（または、`create_project()` から発生する `Failed to create project: …`）→ このマシンでは Windows の長いパスが無効になっています（Windows のデフォルト設定）。 そのため、パスは260文字を超えることができず、製品はプロジェクトフォルダの下に最大約130文字の位置に配置されます。何も処理されませんでした。このメッセージには、収まる最長のプロジェクトフォルダ名が表示されています。より短いフォルダ名を使用するか、Windowsの長いパスを有効にしてChlorosを再起動してください。 Windowsインストーラーには「Windowsの長いパスを有効にする」というオプションがあり、デフォルトでチェックされています。それ以外の場合は、グループポリシーを使用してください：*コンピューターの構成 &gt; 管理用テンプレート &gt; システム &gt; ファイルシステム &gt; Win32の長いパスを有効にする*。
+- **`ChlorosProcessingError: Failed to start processing: … The project folder is too deep for this computer …`**（または、`create_project()` から発生する `Failed to create project: …`）→ このマシンでは Windows の長いパスが無効になっています（Windows のデフォルト設定）。 そのため、パスは260文字を超えることができず、製品はプロジェクトフォルダの下に最大約130文字の位置に配置されます。何も処理されませんでした。このメッセージには、収まる最長のプロジェクトフォルダ名が表示されています。より短いフォルダ名を使用するか、Windowsの長いパスを有効にしてChlorosを再起動してください。 Windowsインストーラーには「Windowsの長いパスを有効にする」というオプションがあり、デフォルトでチェックされています。それ以外の場合は、グループポリシーを使用してください：*コンピューターの構成 > 管理用テンプレート > システム > ファイルシステム > Win32の長いパスを有効にする*。
 - **`ChlorosConnectError: No Chloros backend is running …`** → スマートコネクトはローカルバックエンドの自動起動を呼び出すため、このエラーはバンドルされたバイナリが見つからない、または起動できない場合（例：デスクトップパッケージのない pipのみのホストでデスクトップパッケージがない場合など）。このメッセージはプラットフォームに応じて異なります。Windowsではデスクトップアプリを開くか、任意の`chloros-cli`コマンドを実行してください。 Linuxでは、`chloros-cli`コマンドを実行するか（GUIは存在しません）、`.deb`をインストールしてください。リモートバックエンドの場合は、`backend_url=` （および `auto_start_backend=False`）を渡してください。
 - **`CAMERA_AVAILABLE == False`** のインポート時 → `lattice_sdk` の読み込みに失敗しました：Arena SDK ランタイム、または OpenCV (`cv2`) は、このPython環境ではインポートできません。バックエンド駆動型のサーフェス（`connect_*`、バックエンドを介して投影されるもの、`ChlorosLocal`）は引き続き動作します。
 - **センサー全領域を接続しているがフレームレートが低い**→ 設計上の仕様：自動モードではセンサー全領域を維持し、フレームレートは回線の許容範囲まで低下します。`binning=2` / `4`、あるいはより小さい`width` / `height`を指定してフレームレートを向上させるか、ジャンボフレームを有効にするか、リンクをアップグレードしてください。 ビニングやROIでは、集約的なオーバーサブスクリプション（`oversubscribed: true`、fpsフィールド0）は**解決できません**： 回線容量に対してカメラ数が多すぎる問題は、ビニングやROIでは解決できません。カメラ数を減らすか、ジャンボフレームを有効にするか、より高速なNICに切り替えてください（[オーバーサブスクリプション](#over-subscription-the-per-cam-floor)を参照）。

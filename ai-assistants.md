@@ -43,7 +43,7 @@ You:  Show me what the array sees, then capture reflectance every 10 seconds
 claude mcp add chloros -- chloros-mcp
 ```
 
-**Claude Desktop:**これを `claude_desktop_config.json` に追加し（**[設定] &gt; [開発者] &gt; [設定の編集]**から開けます）、その後 Claude Desktop を再起動してください。**カーソル** については、`~/.cursor/mcp.json` に同じエントリを追加します。
+**Claude Desktop:**これを `claude_desktop_config.json` に追加し（**[設定] > [開発者] > [設定の編集]**から開けます）、その後 Claude Desktop を再起動してください。**カーソル** については、`~/.cursor/mcp.json` に同じエントリを追加します。
 
 ```json
 {

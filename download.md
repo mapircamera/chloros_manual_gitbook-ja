@@ -190,7 +190,9 @@ Chloros+ サブスクリプションで高度な機能を利用可能：
 * **🐻 高度なテクスチャ対応デベイヤー法** - 高品質なエッジ認識デベイヤーと、デベイヤー処理によるノイズをほぼ完全に除去するAI/MLノイズ除去モデルを組み合わせたもの。
 * 🧮 **カスタム計算式** - カスタムマルチスペクトル指標を作成
 
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Chloros+ のプランと価格を見る</a></p>***
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Chloros+ のプランと価格を見る</a></p>
+
+***
 
 ## インストールに関するヘルプ
 
@@ -229,7 +231,9 @@ Chloros+ サブスクリプションで高度な機能を利用可能：
 * 📧 **メール**: info@mapir.camera
 * 🌐 **ウェブサイト**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **ドキュメント**: [はじめに](./)
-* ❓ **FAQ**: [よくある質問](faq.md)***
+* ❓ **FAQ**: [よくある質問](faq.md)
+
+***
 
 ## ソフトウェアの更新
 

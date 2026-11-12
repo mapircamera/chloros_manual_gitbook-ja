@@ -10,7 +10,8 @@ Chloros 1.3.0 は、Linux ワークステーション、サーバー、および
 
 ## プラットフォーム対応マトリックス
 
-| 機能 | Windows (GUI) | Windows (CLI/SDK) | Linux amd64 (CLI/ --- | --- | --- | --- |
+| 機能 | Windows (GUI) | Windows (CLI/SDK) | Linux amd64 (CLI/SDK) | Linux arm64 / Jetson (CLI/SDK) |
+| --- | --- | --- | --- | --- |
 | **デスクトップGUI** | あり | 該当なし | なし | なし |
 | **CLI** (`chloros-cli`) | あり | あり | あり | あり |
 | **Python SDK** (`chloros-sdk`) | あり | あり | あり | あり |
@@ -22,7 +23,9 @@ Chloros 1.3.0 は、Linux ワークステーション、サーバー、および
 | **テクスチャ対応デベイヤー**（CUDA対応GPUが必要） | あり（Chloros+） | あり（Chloros+） | あり（Chloros+） | あり（Chloros+） |
 | **動的コンピュート適応** | あり | あり | あり | あり |
 | **システムサービスとしてのバックエンド** (`chloros-backend@<user>.service`) | いいえ | いいえ | はい（オプトイン） | はい（オプトイン） |
-| **インプレース・アップデータ** (`chloros-cli update`) | いいえ（インストーラーを実行） | いいえ（インストーラーを実行） | はい | はい |***
+| **インプレース・アップデータ** (`chloros-cli update`) | いいえ（インストーラーを実行） | いいえ（インストーラーを実行） | はい | はい |
+
+***
 
 ## サポートされているアーキテクチャ
 
@@ -35,7 +38,9 @@ Chloros 1.3.0 は、Linux ワークステーション、サーバー、および
 
 * **Ubuntu 22.04 LTS 以降** (amd64)
 * **Debian 12 以降** (amd64)
-* **NVIDIA JetPack 6** (arm64 — Jetson Orin プラットフォーム)***
+* **NVIDIA JetPack 6** (arm64 — Jetson Orin プラットフォーム)
+
+***
 
 ## Linux ユーザーが利用できる機能
 

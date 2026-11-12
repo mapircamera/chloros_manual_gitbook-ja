@@ -17,7 +17,9 @@ MAPIR の **DAQ** 光センサーは、放射測定的に校正されたスペ�
 | --- | --- | --- |
 | **DAQ-U** | USB（シリアル） | シリアルポートスキャン |
 | **DAQ-M** | Bluetooth Low Energy | 名前によるBLEスキャン |
-| **DAQ-E** | イーサネット (IPv4、PoE給電) | mDNS `_daq-e._tcp` (ホスト名 `daq-e-<id>.local`) |**DAQ-E-S (バージョン 1.3.0 で新規追加)。** 固定式ディフューザーと傾斜センサーを備えたDAQ-Eです。Chlorosでは`DAQ-E-S`として登録されており、キャップ補正を行わない点と、すべての測定値にユニットの傾斜、ロール、ピッチが含まれる点を除き、DAQ-Eと全く同じように動作します。 [DAQ-E-S: 固定ディフューザーおよび傾斜](caps-and-range.md#daq-e-s-fixed-diffuser-and-tilt)を参照してください。
+| **DAQ-E** | イーサネット (IPv4、PoE給電) | mDNS `_daq-e._tcp` (ホスト名 `daq-e-<id>.local`) |
+
+**DAQ-E-S (バージョン 1.3.0 で新規追加)。** 固定式ディフューザーと傾斜センサーを備えたDAQ-Eです。Chlorosでは`DAQ-E-S`として登録されており、キャップ補正を行わない点と、すべての測定値にユニットの傾斜、ロール、ピッチが含まれる点を除き、DAQ-Eと全く同じように動作します。 [DAQ-E-S: 固定ディフューザーおよび傾斜](caps-and-range.md#daq-e-s-fixed-diffuser-and-tilt)を参照してください。
 
 これら3機種はすべて同じ通信プロトコルを採用しており、同一のデータを出力します：
 

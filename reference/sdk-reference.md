@@ -686,7 +686,7 @@ False         # export in native sensor geometry / skip the common-overlap crop
 
 #### 放射測定出力 (LATTICE マルチスペクトルパイプライン)
 
-`process`パイプラインのLATTICEマルチスペクトル（M3C/M3M）エクスポートレベル — `reflectance`（デフォルト）、 `radiance`、`sensor-response`、または `all`（画像ごとに適用可能な各モード）— は、プロジェクトの **「放射輝度をエクスポート」**および**「反射率をエクスポート」**** プロダクトを設定します：`radiance`は放射度のみをエクスポートし、`reflectance`は反射率のみをエクスポートし、`sensor-response`はどちらもエクスポートせず（デベイヤー処理済みおよびプレビュープロダクトのみ）、`all`は両方をエクスポートします。デベイヤー処理済みおよびプレビュープロダクトは、このレベルでは変更できません。`configure()`には、それ専用のキーワードがあります：
+`process`パイプラインのLATTICEマルチスペクトル（M3C/M3M）エクスポートレベル — `reflectance`（デフォルト）、 `radiance`、`sensor-response`、または `all`（画像ごとに適用可能な各モード）— は、プロジェクトの **「放射輝度をエクスポート」** および **「反射率をエクスポート」** プロダクトを設定します：`radiance`は放射度のみをエクスポートし、`reflectance`は反射率のみをエクスポートし、`sensor-response`はどちらもエクスポートせず（デベイヤー処理済みおよびプレビュープロダクトのみ）、`all`は両方をエクスポートします。デベイヤー処理済みおよびプレビュープロダクトは、このレベルでは変更できません。`configure()`には、それ専用のキーワードがあります：
 
 ```python
 with chloros_sdk.ChlorosLocal() as cl:

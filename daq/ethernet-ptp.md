@@ -49,9 +49,7 @@ chloros-cli daq pool-connect --eth-host daq-e-def330.local
 
 センサー本体には、ネットワーク設定（DHCP（工場出荷時の設定。DHCPサーバーからの応答がない場合は169.254.x.xのリンクローカルアドレスにフォールバック）または静的アドレス）が保存されています。また、電源投入時にストリーミングを開始するかどうかという設定も保持されています。 これらの設定は、GUI（センサーの歯車アイコンの設定、**ネットワーク**：**変更…**、**電源投入時にストリーミング**、**センサーの再起動**；[「DAQ」タブ](gui.md)を参照）、またはCLIおよびSDKから`pool-set-network`、 `pool-set-auto-stream` および `pool-reboot` （`DAQSensorSession.set_network()`、`set_auto_stream()`、`reboot()`；[CLIリファレンス](../reference/cli-reference.md#daq-e-device-settings)を参照）から設定できます。 ネットワークの変更を反映するためにセンサーが再起動し、Chlorosが再接続を行います。静的IPアドレスは、Chlorosを実行しているコンピュータのネットワーク上に存在する必要があります。Chlorosは、再起動後に到達できないアドレスを拒否します。センサーのIDおよびその`daq-e-<id>.local`ホスト名は決して変更されません。 1.3.0での新機能。
 
-**ファームウェアの更新機能がGUIに組み込まれています。** 接続されたDAQ-Eが、お使いのChlorosビルドに同梱されているイメージよりも古いファームウェアを実行している場合、そのセンサー行に黄色の**「更新あり」**アイコンが表示され、歯車アイコンの設定モーダルに「...に更新<version>」ボタン</version>
-
-が表示されます。<version> アップデートはネットワーク経由で約30秒で完了します。センサーは自動的に再起動して再接続され、転送が中断された場合でも現在のファームウェアは保持されます。 CLIやSDKから、またGUIのないLinux環境では、`chloros-cli daq pool-update-firmware --sensor-id <id>`（`DAQSensorSession.update_firmware()`）を実行してください。
+**ファームウェアの更新機能がGUIに組み込まれています。** 接続されたDAQ-Eが、お使いのChlorosビルドに同梱されているイメージよりも古いファームウェアを実行している場合、そのセンサー行に黄色の**「更新あり」**アイコンが表示され、歯車アイコンの設定モーダルに「\<version\>に更新」ボタン が表示されます。 アップデートはネットワーク経由で約30秒で完了します。センサーは自動的に再起動して再接続され、転送が中断された場合でも現在のファームウェアは保持されます。 CLIやSDKから、またGUIのないLinux環境では、`chloros-cli daq pool-update-firmware --sensor-id <id>`（`DAQSensorSession.update_firmware()`）を実行してください。
 
 <!-- SCREENSHOT-NEEDED: DAQ-E per-sensor settings modal showing the DAQ-E-only rows: Hostname/IP, Firmware row with the "Update to <ver>" button (or "Up to date"), and the PTP Sync row with a live state value. -->
 

@@ -170,7 +170,7 @@ chloros-cli daq pool-reboot --sensor-id daq-e-def330
 chloros-cli daq pool-update-firmware --sensor-id daq-e-def330
 ```
 
-`pool-info`は、センサーのファームウェア（およびこのChlorosリリースに新しいファームウェアが含まれているかどうか）、そのアドレスと取得方法、現在実行中の設定と異なる場合に保存されているネットワーク設定、電源投入時のストリーミング、およびPTPを表示します。 `pool-set-network`は、変更を適用するためにセンサーを再起動し、以前の設定で再接続します。`--no-reboot`は設定を保存するだけです。 静的アドレスはこのコンピュータのネットワーク上に存在している必要があり、そうでない場合、Chlorosはそれを拒否します。`--force`は、アドレスの再割り当てまたはそのアドレスへのルーティングが行われるコンピュータに限り、この制限を無効にします。 センサーが記録中は再起動は拒否されます。`pool-update-firmware`は<version\>、コマンドラインにおける</version\>GUIの**「\**に更新<version\>」に相当し、GUIのないLinux上でDAQ-Eを更新する方法です。1.3.0で追加されました。***
+`pool-info`は、センサーのファームウェア（およびこのChlorosリリースに新しいファームウェアが含まれているかどうか）、そのアドレスと取得方法、現在実行中の設定と異なる場合に保存されているネットワーク設定、電源投入時のストリーミング、およびPTPを表示します。 `pool-set-network`は、変更を適用するためにセンサーを再起動し、以前の設定で再接続します。`--no-reboot`は設定を保存するだけです。 静的アドレスはこのコンピュータのネットワーク上に存在している必要があり、そうでない場合、Chlorosはそれを拒否します。`--force`は、アドレスの再割り当てまたはそのアドレスへのルーティングが行われるコンピュータに限り、この制限を無効にします。 センサーが記録中は再起動は拒否されます。`pool-update-firmware`は、コマンドラインにおけるGUIの**「\<version\>」に更新**に相当し、GUIのないLinux上でDAQ-Eを更新する方法です。1.3.0で追加されました。***
 
 ## コマンド概要
 
@@ -204,4 +204,3 @@ chloros-cli daq pool-update-firmware --sensor-id daq-e-def330
 {% hint style="info" %}
 **AIアシスタント向けのヒント。** このマニュアルの各ページは生のMarkdown形式で提供されています。ページの小文字のURLスラッグの末尾に「`.md`」を追加してください（このページの場合：`https://mapir.gitbook.io/chloros/daq/cli-quick-start.md`）。 機械可読なインデックスは `https://mapir.gitbook.io/chloros/llms.txt` となります。 `chloros-cli daq`およびその他のすべてのコマンドファミリーに関する完全なフラグレベルのドキュメントについては、[CLIリファレンス](../reference/cli-reference.md) (`https://mapir.gitbook.io/chloros/reference/cli-reference.md`) を参照してください； Pythonパスは、[SDKリファレンス](../reference/sdk-reference.md)内の`chloros_sdk.connect_daq_sensor()`です。
 {% endhint %}
-</version\>
